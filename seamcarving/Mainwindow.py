@@ -13,7 +13,7 @@ class Mainwindow(QMainWindow):
         self.originalImage = None
         self.columns = 0
         self.rows = 0
-        self.transformedImage = None
+        self.imageWithSeams = None
         self.setupUi()
         self.connectButtons()
         self.centerAndRescale()
@@ -36,12 +36,6 @@ class Mainwindow(QMainWindow):
     def openImageButtonClicked(self):
         self.originalImage = self.readImage(self.requestImagePath())
 
-    def showOriginal(self):
-        opencv.imshow("Original Image:", self.originalImage)
-
-    def showTransformed(self):
-        opencv.imshow("Transformed Image:", self.transformedImage)
-
     def readImage(self, path: str) -> np.array:
         return opencv.imread(path)
 
@@ -51,13 +45,11 @@ class Mainwindow(QMainWindow):
     def computeSeamButtonClicked(self):
         self.columns = self.ui.columnSpinbox.value()
         self.rows = self.ui.rowSpinbox.value()
-
-        self.transformedImage = SeamCarver(self.originalImage).compute()
-        self.showTransformed()
+        self.imageWithSeams = SeamCarver().compute(self.originalImage)
+        opencv.imshow("Seam Image:", self.imageWithSeams)
 
     def removeSeamButtonClicked(self):
-        self.transformedImage = SeamCarver(self.originalImage).remove()
-        self.showTransformed()
+        opencv.imshow("Transformed Image:", SeamCarver().remove(self.imageWithSeams))
 
     def showOriginalButtonClicked(self):
-        self.showOriginal()
+        opencv.imshow("Original Image:", self.originalImage)
