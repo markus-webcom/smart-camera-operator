@@ -6,14 +6,14 @@ def merge_lines(stack: dict, label: str, filename: str) -> str:
     x_float = list(map(lambda x: float(x), stack['x']))
     y_float = list(map(lambda y: float(y), stack['y']))
     width_float = list(map(lambda width: float(width), stack['width']))
-    height_float = list(map(lambda height: float(), stack['height']))
+    height_float = list(map(lambda height: float(height), stack['height']))
 
     x_mean = reduce(lambda x1, x2: x1 + x2, x_float) / len(x_float)
     y_mean = reduce(lambda y1, y2: y1 + y2, y_float) / len(y_float)
     width_mean = reduce(lambda w1, w2: w1 + w2, width_float) / len(width_float)
     height_mean = reduce(lambda h1, h2: h1 + h2, height_float) / len(height_float)
 
-    return filename + ',' + label + ',' + str(x_mean) + ',' + str(y_mean) + ',' + str(width_mean) + str(
+    return filename + ',' + label + ',' + str(x_mean) + ',' + str(y_mean) + ',' + str(width_mean) + ',' + str(
         height_mean) + '\n'
 
 
@@ -59,15 +59,13 @@ def aggregateLabels():
             label = splitted[1]
             x = splitted[2]
             if fix_label != label or get_norm(x, fix_x) > threshold:
-                append_stack(stack, splitted)
                 output += merge_lines(stack, fix_label, fix_filename)
                 fix_x = x
                 fix_label = label
                 fix_filename = splitted[0]
                 clear_stack(stack)
-            else:
-                append_stack(stack, splitted)
 
+            append_stack(stack, splitted)
             line = fp.readline()
         return output
 
