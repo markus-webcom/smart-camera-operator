@@ -13,7 +13,9 @@ class InferenceConfig(coco.CocoConfig):
 
 def get_model(weights_path: str) -> object:
     """
-    WICHTIG: Vorraussetzung ist Tensorflow 1.14!!
+    WICHTIG: Voraussetzung ist Tensorflow 1.14
+    WICHTIG: Voraussetung ist masterport mask-rcnn
+    -> pip install mask-rcnn-12rics
     :param weights_path: Pfad zu dem vortrainierten model
     :return: model
     """
