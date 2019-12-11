@@ -4,6 +4,7 @@ from mrcnn import utils
 import mrcnn.model as modellib
 from mrcnn import visualize
 from maskrcnn import coco
+import cv2
 
 
 class InferenceConfig(coco.CocoConfig):
@@ -63,8 +64,10 @@ def download_coco_model_if_needed():
 
 
 ANNOTATIONS_PATH = os.path.abspath('./coco')
-IMAGE_PATH = os.path.abspath('./pferde_bilder/00019.png')
+# IMAGE_PATH = os.path.abspath('./pferde_bilder/00019.png')
+IMAGE_PATH = "D:\\Programming\\rimondo_frames\\GOPR8291\\00024.png"
 WEIGHTS_PATH = os.path.abspath('mask_rcnn_coco.h5')
+
 download_coco_model_if_needed()
 
 config = InferenceConfig()
@@ -76,7 +79,25 @@ classnames = get_classnames()
 image = skimage.io.imread(IMAGE_PATH)
 results = model.detect([image], verbose=0)
 
+
 # Visualize results
 r = results[0]
-visualize.display_instances(image, r['rois'], r['masks'], r['class_ids'],
-                            classnames, r['scores'])
+# extract ids and bboxes for riders
+rois=r['rois']
+ids=[]
+bbox=[]
+counter=-1
+for i in r['class_ids']:
+   counter +=1
+   if i == get_classnames().index('horse') or i==get_classnames().index('person'):
+       ids.append(i)
+       bbox.append(rois[counter])
+
+
+
+for i in range(len(ids)):
+    print(get_classnames()[ids[i]])
+    print(bbox[i])
+
+#visualize.display_instances(image, r['rois'], r['masks'], r['class_ids'], classnames, r['scores'])
+
