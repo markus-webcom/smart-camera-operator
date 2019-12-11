@@ -39,7 +39,7 @@ def aggregateLabels():
     falls n1 Reiter und n2 Pferde gelabelt wurden.
     :return: csv mit reduzierter Anzahl an Zeilen
     """
-    with open('rimondo_filtered.csv') as fp:
+    with open('resources/rimondo_filtered.csv') as fp:
         output = ''
         threshold = 0.2
         line = fp.readline()
