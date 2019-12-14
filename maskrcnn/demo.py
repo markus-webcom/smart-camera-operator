@@ -63,41 +63,64 @@ def download_coco_model_if_needed():
         utils.download_trained_weights(WEIGHTS_PATH)
 
 
+def getBboxes(imagepath):
+    im = cv2.imread(imagepath)
+    results = model.detect([image], verbose=0)
+    r = results[0]
+    # extract ids and bboxes for riders
+    rois = r['rois']
+    ids = []
+    bbox = []
+    counter = -1
+    #filter boxes to only detect horse and person
+    for i in r['class_ids']:
+        counter += 1
+        if i == get_classnames().index('horse') or i == get_classnames().index('person'):
+            ids.append(i)
+            bbox.append(rois[counter])
+    # cut pictures here
+    drawBox(imagepath,bbox)
+    return ids, bbox
+
+
+def drawBox(image, bbox):
+    im = cv2.imread(image)
+    for b in bbox:
+        y1=b[0]
+        x1=b[1]
+        y2=b[2]
+        x2=b[3]
+
+
+
+        im[y1:y2, x1:x1+5] = (0, 0, 0)
+        im[y1:y2, x2:x2 + 5] = (0, 0, 0)
+        im[y1:y1+5, x1:x2] = (0, 0, 0)
+        im[y2:y2 + 5, x1:x2] = (0, 0, 0)
+    im = cv2.resize(im,None,fx=0.3,fy=0.3)
+    cv2.imshow('title', im)
+    cv2.waitKey(0)
+    cv2.destroyAllWindows()
+
+
 ANNOTATIONS_PATH = os.path.abspath('./coco')
 # IMAGE_PATH = os.path.abspath('./pferde_bilder/00019.png')
-IMAGE_PATH = "D:\\Programming\\rimondo_frames\\GOPR8291\\00024.png"
+IMAGE_PATH = "D:\\Programming\\rimondo_frames\\GOPR8291\\00167.png"
 WEIGHTS_PATH = os.path.abspath('mask_rcnn_coco.h5')
 
-download_coco_model_if_needed()
+# download_coco_model_if_needed()
 
 config = InferenceConfig()
-config.display()
+# config.display()
 model = get_model(WEIGHTS_PATH)
-print_classnames(ANNOTATIONS_PATH)
+# print_classnames(ANNOTATIONS_PATH)
 classnames = get_classnames()
 
-image = skimage.io.imread(IMAGE_PATH)
+image = cv2.imread(IMAGE_PATH)
 results = model.detect([image], verbose=0)
-
 
 # Visualize results
 r = results[0]
-# extract ids and bboxes for riders
-rois=r['rois']
-ids=[]
-bbox=[]
-counter=-1
-for i in r['class_ids']:
-   counter +=1
-   if i == get_classnames().index('horse') or i==get_classnames().index('person'):
-       ids.append(i)
-       bbox.append(rois[counter])
 
-
-
-for i in range(len(ids)):
-    print(get_classnames()[ids[i]])
-    print(bbox[i])
-
-#visualize.display_instances(image, r['rois'], r['masks'], r['class_ids'], classnames, r['scores'])
-
+getBboxes(IMAGE_PATH)
+# visualize.display_instances(image, r['rois'], r['masks'], r['class_ids'], classnames, r['scores'])
