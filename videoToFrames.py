@@ -25,39 +25,79 @@ class VideoToFrames:
 
         # Check for first picture
         success, img = video.read()
-
+        print(filename)
         if success:
             # size = (img.shape[1], img.shape[0])
-            size = (1920, 1080)
-            print(size)
+            print("imshp0: ", img.shape[0])
+            print("imshp1: ",  img.shape[1])
+            sizeX = 1280  # HD
+            sizeY = 720
+            size = (sizeX, sizeY)
+            ratio = sizeX / sizeY
         else:
             print("No Picture found")
             raise ValueError
 
         # VideoData
-        print("NAME: " + filename.strip('.mp4') + 'Crop.mp4')
+        print("NAME: " + filename.strip('.MP4') + 'Crop.mp4')
         fourcc = cv2.VideoWriter_fourcc(*"mp4v")
-        out = cv2.VideoWriter(filename.strip('.mp4') + 'Crop.mp4', fourcc, fps, size)
+        out = cv2.VideoWriter(filename.strip('.MP4') + 'Crop.mp4', fourcc, fps, size)
 
         while True:
             progress_bar.setValue((count / total_frames) * 100)
             if success:
-                x = 50
-                y = 50
-                w = 500
-                h = 500
-                img = img[y:y + h, x:x + w]
-                # cv2.imshow("Image", imcrop)
-                img = cv2.resize(img, size)
-                out.write(img)
-            else:
-                break
+                print(count)
+                X1 = 1000
+                Y1 = 1000
+                X2 = 2000
+                Y2 = 1500
+                if count == 21:
+                    print("test")
+                TotalYPixels = Y2 - Y1  # Total amount of pixels of the bounding box in Y direction
+                TotalXPixels = TotalYPixels * ratio  # Total amount of pixel of the bounding box in X direction
+
+                # Out of Bounds check if bounding box gets bigger than img size
+                if TotalYPixels > img.shape[0]: TotalYPixels = img.shape[0]
+                if TotalXPixels > img.shape[1]: TotalXPixels = img.shape[1]
+
+                # Calculate optimal Crop points to maintain ratio
+                CropX1 = (X2 + X1) / 2 - TotalXPixels / 2  # Defines the left most pos to crop the pic
+                CropX2 = (X2 + X1) / 2 + TotalXPixels / 2  # Defines the right most pos to crop the pic
+                CropY1 = (Y2 + Y1) / 2 - TotalYPixels / 2  # Defines the top most pos to crop the pic
+                CropY2 = (Y2 + Y1) / 2 + TotalYPixels / 2  # Defines the bottom most pos to crop the pic
+
+                # Out of Bounds check
+                if CropX1 < 0:  # If we are out of bounds to the left side, adjust both X pos to the right
+                    CropX2 += -1 * CropX1
+                    CropX1 = 0
+
+                if CropX2 > img.shape[1]:  # If we are out of bounds to the right side, adjust both X pos to the left
+                    CropX1 -= (img.shape[1] - CropX2)
+                    CropX2 = img.shape[1]
+
+                if CropY1 < 0:  # If we are out of bounds to the upper side, adjust both Y pos down
+                    CropY2 += -1 * CropY1
+                    CropY1 = 0
+
+                if CropY2 > img.shape[0]:  # If we are out of bounds to the lower side, adjust both Y pos up
+                    CropY1 -= (img.shape[0] - CropY2)
+                    CropY2 = img.shape[0]
+
+                # Don't Crop when where are no Rectangles
+                if X1 != img.shape[1] and Y1 != img.shape[0]:
+                    img = img[Y1:Y2, X1:X2]
+                    # cv2.imshow("Image", imcrop)
+                    img = cv2.resize(img, size)
+                    out.write(img)
+
+            if count >= 200: #Abort when framelimit is reached
+                 break
             del img
             count += 1
             success, img = video.read()
 
         out.release()
-        videoclip = mpe.VideoFileClip(filename.strip('.mp4') + 'Crop.mp4')
+        videoclip = mpe.VideoFileClip(filename.strip('.MP4') + 'Crop.mp4')
         # Audiostuff, takes alot longer tho
         # audioclip = mpe.CompositeAudioClip([mpe.AudioFileClip(video_path)])
         # videoclip.audio = audioclip
