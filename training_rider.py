@@ -147,32 +147,32 @@ def getClassname(index):
 
 def getBboxes(imagepath):
 	im = cv2.imread(imagepath)
-	results = model.detect([image], verbose=0)
+	results = model.detect([im], verbose=0)
 	r = results[0]
 	# extract ids and bboxes for riders
 	rois = r['rois']
-	ids = []
+
 	bbox = []
 	counter=-1
-	# filter boxes to only detect horse and person
 	for i in r['class_ids']:
 		counter=counter+1
-		ids.append(i)
-		bbox.append(rois[counter])
-	# cut pictures here
-	print(bbox)
-	print(ids)
+		b=box_to_dict(i,rois[counter])
+		bbox.append(b)
+	# austauschen mit crop methode statt zeichnen
 	drawBox(imagepath, bbox)
-	return ids, bbox
+	return bbox
+def box_to_dict(id,box):
+	b={"id":id,"x1":box[1],"x2":box[3],"y1":box[0],"y2":box[2]}
+	return b
 
 
 def drawBox(image, bbox):
     im = cv2.imread(image)
     for b in bbox:
-        y1 = b[0]
-        x1 = b[1]
-        y2 = b[2]
-        x2 = b[3]
+        y1 = b["y1"]
+        x1 = b["x1"]
+        y2 = b["y2"]
+        x2 = b["x2"]
 
         im[y1:y2, x1:x1 + 5] = (0, 0, 0)
         im[y1:y2, x2:x2 + 5] = (0, 0, 0)
@@ -200,7 +200,7 @@ WEIGHTS_PATH = 'C:\\Users\\Tabea\\Downloads\\mask_rcnn_rider_cfg_0001.h5'
 
 config = RiderConfig()
 # define the model
-model = MaskRCNN(mode='inference', model_dir='./config', config=config)
+model = MaskRCNN(mode='inference', model_dir='./', config=config)
 # load weights (mscoco) and exclude the output layers
 model.load_weights(WEIGHTS_PATH, by_name=True)
 
