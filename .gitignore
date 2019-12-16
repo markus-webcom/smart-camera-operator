@@ -3,3 +3,10 @@ venv/
 .idea/
 __pycache__/
 *.mp4
+maskrcnn/mask_rcnn_coco.h5
+maskrcnn/coco/annotations/person_keypoints_val2014.json
+maskrcnn/coco/annotations/person_keypoints_train2014.json
+maskrcnn/coco/annotations/instances_val2014.json
+maskrcnn/coco/annotations/instances_train2014.json
+maskrcnn/coco/annotations/captions_val2014.json
+maskrcnn/coco/annotations/captions_train2014.json
