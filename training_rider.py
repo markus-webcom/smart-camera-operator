@@ -198,13 +198,14 @@ def drawBox(image, bbox):
 IMAGE_PATH = "D:\\Programming\\rimondo_frames\\GOPR8291\\00168.png"
 WEIGHTS_PATH = 'C:\\Users\\Tabea\\Downloads\\mask_rcnn_rider_cfg_0001.h5'
 
-config = RiderConfig()
-# define the model
-model = MaskRCNN(mode='inference', model_dir='./', config=config)
-# load weights (mscoco) and exclude the output layers
-model.load_weights(WEIGHTS_PATH, by_name=True)
+def setModel(path_weights):
+	config = RiderConfig()
+	# define the model
+	model = MaskRCNN(mode='inference', model_dir='./', config=config)
+	# load weights (mscoco) and exclude the output layers
+	model.load_weights(path_weights, by_name=True)
+	
 
-
-
+setModel(WEIGHTS_PATH)
 getBboxes(IMAGE_PATH)
 
