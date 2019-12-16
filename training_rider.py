@@ -205,11 +205,6 @@ model = MaskRCNN(mode='inference', model_dir='./config', config=config)
 model.load_weights(WEIGHTS_PATH, by_name=True)
 
 
-image = cv2.imread(IMAGE_PATH)
-results = model.detect([image], verbose=0)
-
-# Visualize results
-r = results[0]
 
 getBboxes(IMAGE_PATH)
 
