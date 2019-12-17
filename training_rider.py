@@ -145,8 +145,7 @@ def getClassname(index):
 	else:
 		return -1
 
-def getBboxes(imagepath):
-	im = cv2.imread(imagepath)
+def getBboxes(im,model):
 	results = model.detect([im], verbose=0)
 	r = results[0]
 	# extract ids and bboxes for riders
@@ -159,7 +158,7 @@ def getBboxes(imagepath):
 		b=box_to_dict(i,rois[counter])
 		bbox.append(b)
 	# austauschen mit crop methode statt zeichnen
-	drawBox(imagepath, bbox)
+	#drawBox(imagepath, bbox)
 	return bbox
 def box_to_dict(id,box):
 	b={"id":id,"x1":box[1],"x2":box[3],"y1":box[0],"y2":box[2]}
@@ -204,8 +203,9 @@ def setModel(path_weights):
 	model = MaskRCNN(mode='inference', model_dir='./', config=config)
 	# load weights (mscoco) and exclude the output layers
 	model.load_weights(path_weights, by_name=True)
+	return model
 	
 
-setModel(WEIGHTS_PATH)
-getBboxes(IMAGE_PATH)
+#setModel(WEIGHTS_PATH)
+#getBboxes(IMAGE_PATH)
 

@@ -63,6 +63,13 @@ class VideoToFrames:
                     X2arr.append(i["x2"])
                     Y2arr.append(i["y2"])
                 print("test2")
+				# bessere Loesung statt ueberspringen von Frames waere schoen
+				if(len(X1arr)==0):
+                  print(bbox)
+                  del img
+                  count += 1
+                  success, img = video.read()
+                  continue
                 X1 = min(X1arr)
                 Y1 = min(Y1arr)
                 X2 = max(X2arr)
@@ -92,7 +99,7 @@ class VideoToFrames:
                     CropX1 = 0
 
                 if CropX2 > img.shape[1]:  # If we are out of bounds to the right side, adjust both X pos to the left
-                    CropX1 -= (img.shape[1] - CropX2)
+                    CropX1 += (img.shape[1] - CropX2)
                     CropX2 = img.shape[1]
 
                 if CropY1 < 0:  # If we are out of bounds to the upper side, adjust both Y pos down
@@ -100,18 +107,22 @@ class VideoToFrames:
                     CropY1 = 0
 
                 if CropY2 > img.shape[0]:  # If we are out of bounds to the lower side, adjust both Y pos up
-                    CropY1 -= (img.shape[0] - CropY2)
+                    CropY1 += (img.shape[0] - CropY2)
                     CropY2 = img.shape[0]
 
                 # Don't Crop when where are no Rectangles
+				CropX1=int(CropX1)
+                CropX2=int(CropX2)
+                CropY1=int(CropY1)
+                CropY2=int(CropY2)
                 if X1 != img.shape[1] and Y1 != img.shape[0]:
-                    img = img[Y1:Y2, X1:X2]
+                    img = img[CropY1:CropY2,CropX1:CropX2]
                     # cv2.imshow("Image", imcrop)
                     img = cv2.resize(img, size)
                     out.write(img)
 
             # total_frames
-            if count >= 1200: #Abort when framelimit is reached
+            if count >= total_frames: #Abort when framelimit is reached
                 break
                 print("Done")
             del img
