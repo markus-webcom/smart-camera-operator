@@ -4,12 +4,15 @@ from PyQt5.QtWidgets import QFileDialog
 from os.path import join
 import cv2
 import moviepy.editor as mpe
+import training_rider
 from PyQt5.QtWidgets import QProgressBar
-
 
 class VideoToFrames:
 
+    model = training_rider.setModel("C:\\Users\\Tobia\\Desktop\\smart-camera-operator-develop\\mask_rcnn_rider_cfg_0005.h5")
     def __init__(self):
+        #print(os.path.dirname(os.path.abspath('mask_rcnn_rider_cfg_0001.h5')))
+        #model =
         pass
 
     def crop(self, video_path: str, progress_bar: QProgressBar):
@@ -47,10 +50,26 @@ class VideoToFrames:
             progress_bar.setValue((count / total_frames) * 100)
             if success:
                 print(count)
-                X1 = 1000
-                Y1 = 1000
-                X2 = 2000
-                Y2 = 1500
+                bbox = training_rider.getBboxes(img, self.model)
+                print(bbox)
+                X1arr = []
+                Y1arr = []
+                X2arr = []
+                Y2arr = []
+                print("test1")
+                for i in bbox:
+                    X1arr.append(i["x1"])
+                    Y1arr.append(i["y1"])
+                    X2arr.append(i["x2"])
+                    Y2arr.append(i["y2"])
+                print("test2")
+                X1 = min(X1arr)
+                Y1 = min(Y1arr)
+                X2 = max(X2arr)
+                Y2 = max(Y2arr)
+                print("test3")
+                print(X1,Y1,X2,Y2)
+
                 if count == 21:
                     print("test")
                 TotalYPixels = Y2 - Y1  # Total amount of pixels of the bounding box in Y direction
@@ -90,8 +109,10 @@ class VideoToFrames:
                     img = cv2.resize(img, size)
                     out.write(img)
 
-            if count >= 200: #Abort when framelimit is reached
-                 break
+            # total_frames
+            if count >= 1200: #Abort when framelimit is reached
+                break
+                print("Done")
             del img
             count += 1
             success, img = video.read()
