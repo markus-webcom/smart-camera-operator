@@ -77,12 +77,19 @@ class VideoToFrames:
                 print("test3")
                 print(X1,Y1,X2,Y2)
 
-                if count == 21:
-                    print("test")
                 TotalYPixels = Y2 - Y1  # Total amount of pixels of the bounding box in Y direction
-                if TotalYPixels < 480: TotalYPixels = 480
-                TotalXPixels = TotalYPixels * ratio  # Total amount of pixel of the bounding box in X direction
-
+                TotalXPixels=X2-X1
+                if(TotalXPixels>TotalYPixels):
+                  if TotalXPixels < 480: TotalXPixels = 480
+                  XRatio=sizeX/TotalXPixels
+                  YRatio=sizeY/XRatio
+                  TotalYPixels = YRatio  # Total amount of pixel of the bounding box in X direction
+                else:
+                  if TotalYPixels < 480: TotalYPixels = 480
+                  YRatio=sizeY/TotalYPixels
+                  XRatio=sizeX/YRatio
+                  TotalXPixels = XRatio 
+				  
                 # Out of Bounds check if bounding box gets bigger than img size
                 if TotalYPixels > img.shape[0]: TotalYPixels = img.shape[0]
                 if TotalXPixels > img.shape[1]: TotalXPixels = img.shape[1]
