@@ -14,6 +14,10 @@ class Ui:
         self.open_video_button.setText("Load Video")
         self.main_widget.layout().addWidget(self.open_video_button)
 
+        self.show_detection_button= QPushButton(self.parent)
+        self.show_detection_button.setText("Show Detection")
+        self.main_widget.layout().addWidget(self.show_detection_button)
+
         self.start_button = QPushButton(self.parent)
         self.start_button.setText("Start")
         self.main_widget.layout().addWidget(self.start_button)

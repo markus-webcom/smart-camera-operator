@@ -1,12 +1,10 @@
 from Ui import Ui
-import numpy as np
 from PyQt5.QtWidgets import QMainWindow
 from PyQt5.QtWidgets import QDesktopWidget
 from PyQt5.QtWidgets import QFileDialog
-from PyQt5.QtWidgets import QProgressBar
 from PyQt5.QtWidgets import QErrorMessage
-from videoToFrames import VideoToFrames
-import cv2 as opencv
+
+from colab_code.VideoProcessing import VideoProcessing
 
 
 class Mainwindow(QMainWindow):
@@ -18,6 +16,7 @@ class Mainwindow(QMainWindow):
         self.connect_buttons()
         self.center_and_rescale()
         self.ui.progress_bar.hide()
+        self.model_path = 'colab_code/mask_rcnn_rider_cfg_0006.h5'
 
     def setup_ui(self):
         self.ui = Ui(self)
@@ -31,11 +30,20 @@ class Mainwindow(QMainWindow):
     def connect_buttons(self):
         self.ui.open_video_button.clicked.connect(self.open_video_button_clicked)
         self.ui.start_button.clicked.connect(self.start_clicked)
+        self.ui.show_detection_button.clicked.connect(self.show_clicked)
+
+    def show_clicked(self):
+        self.execute_task_if_video_present(
+            lambda: VideoProcessing(self.model_path, self.ui.progress_bar).paint_boxes_into_video(self.selected_video))
 
     def start_clicked(self):
+        self.execute_task_if_video_present(
+            lambda: VideoProcessing(self.model_path, self.ui.progress_bar).process_frames(self.selected_video))
+
+    def execute_task_if_video_present(self, task):
         if self.selected_video is not None:
             self.ui.progress_bar.show()
-            VideoToFrames().crop(self.selected_video, self.ui.progress_bar)
+            task()
             self.ui.progress_bar.hide()
         else:
             self.show_no_video_error()
