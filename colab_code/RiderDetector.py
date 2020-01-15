@@ -1,5 +1,6 @@
 # Detection of rider by bounding boxes
 import cv2
+import numpy as np
 from mrcnn.model import MaskRCNN
 from colab_code.RiderConfig import RiderConfig
 
@@ -87,11 +88,11 @@ class RiderDetector:
     def drawBox(self, image, box):
         # cv2 colors are in BGR instead of RGB
         colors = {0: (0, 255, 2550), 1: (0, 0, 255), 2: (255, 255, 0), 3: (255, 0, 0)}
-        y1 = (int)(box["y1"])
-        x1 = (int)(box["x1"])
-        y2 = (int)(box["y2"])
-        x2 = (int)(box["x2"])
-        class_id = (int)(box["id"])
+        y1 = int(box["y1"])
+        x1 = int(box["x1"])
+        y2 = int(box["y2"])
+        x2 = int(box["x2"])
+        class_id = int(box["id"])
 
         image = cv2.rectangle(image, (x1, y1), (x2, y2), colors[class_id], 2)
 
@@ -139,24 +140,24 @@ class RiderDetector:
         y = list()
         # get center point of box for interpolation
         for box in last_bboxes:
-            y1 = (int)(box["y1"])
-            x1 = (int)(box["x1"])
-            y2 = (int)(box["y2"])
-            x2 = (int)(box["x2"])
+            y1 = int(box["y1"])
+            x1 = int(box["x1"])
+            y2 = int(box["y2"])
+            x2 = int(box["x2"])
 
-            x_center = (int)((x1 + x2) / 2)
-            y_center = (int)((y1 + y2) / 2)
+            x_center = int((x1 + x2) / 2)
+            y_center = int((y1 + y2) / 2)
             x.append(x_center)
             y.append(y_center)
 
         # current_box values
-        y1 = (int)(current_box["y1"])
-        x1 = (int)(current_box["x1"])
-        y2 = (int)(current_box["y2"])
-        x2 = (int)(current_box["x2"])
+        y1 = int(current_box["y1"])
+        x1 = int(current_box["x1"])
+        y2 = int(current_box["y2"])
+        x2 = int(current_box["x2"])
 
-        x_center = (int)((x1 + x2) / 2)
-        y_center = (int)((y1 + y2) / 2)
+        x_center = int((x1 + x2) / 2)
+        y_center = int((y1 + y2) / 2)
         x.append(x_center)
         y.append(y_center)
 
@@ -174,13 +175,13 @@ class RiderDetector:
         # get corners of bbox for calculated center
         # use with and height of last bbox
         last_box = last_bboxes[-1]
-        width = box["x2"] - box["x1"]
-        height = box["y2"] - box["y1"]
-        for i in len(x_new):
-            x1 = (int)(x_new[i] - (width / 2))
-            x2 = (int)(x_new[i] + (width / 2))
-            y1 = (int)(y_new[i] - (height / 2))
-            y2 = (int)(y_new[i] + (height / 2))
+        width = last_box["x2"] - last_box["x1"]
+        height = last_box["y2"] - last_box["y1"]
+        for i in range(len(x_new)):
+            x1 = int(x_new[i] - (width / 2))
+            x2 = int(x_new[i] + (width / 2))
+            y1 = int(y_new[i] - (height / 2))
+            y2 = int(y_new[i] + (height / 2))
             bboxes.append(self.make_bbox(x1, x2, y1, y2, 0))
 
         return bboxes
@@ -194,10 +195,10 @@ class RiderDetector:
         y2 = list()
         # get center point of box for interpolation
         for box in last_bboxes:
-            y1_b = (int)(box["y1"])
-            x1_b = (int)(box["x1"])
-            y2_b = (int)(box["y2"])
-            x2_b = (int)(box["x2"])
+            y1_b = int(box["y1"])
+            x1_b = int(box["x1"])
+            y2_b = int(box["y2"])
+            x2_b = int(box["x2"])
 
             x1.append(x1_b)
             x2.append(x2_b)
@@ -205,10 +206,10 @@ class RiderDetector:
             y2.append(y2_b)
 
         # current_box values
-        y1_b = (int)(current_box["y1"])
-        x1_b = (int)(current_box["x1"])
-        y2_b = (int)(current_box["y2"])
-        x2_b = (int)(current_box["x2"])
+        y1_b = int(current_box["y1"])
+        x1_b = int(current_box["x1"])
+        y2_b = int(current_box["y2"])
+        x2_b = int(current_box["x2"])
 
         x1.append(x1_b)
         x2.append(x2_b)
@@ -224,7 +225,7 @@ class RiderDetector:
         x2_new = self.get_interpolation_x_values(x2[-1], x2[-2], len(frames))
         y1_new = list()
         y2_new = list()
-        for value in x_new:
+        for value in x1_new:
             y1_pred = self.pred_y_degree_2(value, param_p1[0], param_p1[1], param_p1[2])
             y1_new.append(y1_pred)
             y2_pred = self.pred_y_degree_2(value, param_p2[0], param_p2[1], param_p2[2])
@@ -233,11 +234,11 @@ class RiderDetector:
         bboxes = list()
         # get corners of bbox for calculated center
         # use with and height of last bbox
-        for i in len(x_new):
-            b_x1 = (int)(x1_new[i])
-            b_x2 = (int)(x2_new[i])
-            b_y1 = (int)(y1_new[i])
-            b_y2 = (int)(y2_new[i])
+        for i in range(len(x1_new)):
+            b_x1 = int(x1_new[i])
+            b_x2 = int(x2_new[i])
+            b_y1 = int(y1_new[i])
+            b_y2 = int(y2_new[i])
             bboxes.append(self.make_bbox(b_x1, b_x2, b_y1, b_y2, 0))
 
         return bboxes
@@ -253,10 +254,12 @@ class RiderDetector:
         # sections
         factor = (number_of_values + 1) ** (-1)
         x_values = list()
+        new_x = second_to_last_x + distance * factor
+        new_x = int(round(new_x))
         for i in range(1, number_of_values + 1):
-            boxes.append(new_x)
+            x_values.append(new_x)
             new_x = new_x + distance * factor
-            new_x = (int)(round(new_x))
+            new_x = int(round(new_x))
         return x_values
 
         # create bbox as dict from values

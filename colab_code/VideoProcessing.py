@@ -1,3 +1,4 @@
+import os
 import queue
 import cv2
 from tqdm import tnrange
@@ -9,7 +10,7 @@ from colab_code.VideoQuality import VideoQuality
 class VideoProcessing:
 
     def __init__(self, path_weights):
-        self.detector = RiderDetection(path_weights)
+        self.detector = RiderDetector(path_weights)
         self.cropper = Cropping()
         self.vidQuality = VideoQuality()
 
@@ -237,7 +238,7 @@ class VideoProcessing:
     def downscale_frames(self, frames, scale_factor):
         small_frames = list()
         for i in tnrange(len(frames), desc='downsize frames'):
-            small_frames.append(downscale_frame(frames[i], scale_factor))
+            small_frames.append(self.downscale_frame(frames[i], scale_factor))
         return small_frames
 
         # downscale one frame
