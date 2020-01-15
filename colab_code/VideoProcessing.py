@@ -143,7 +143,7 @@ class VideoProcessing:
 
             del img
             success, img = video.read()
-        video.release();
+        video.release()
         out.release()
 
         # dectect not every frame
