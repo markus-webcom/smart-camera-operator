@@ -1,7 +1,7 @@
 import os
 import queue
 import cv2
-from tqdm import tnrange
+
 from colab_code.Cropping import Cropping
 from colab_code.RiderDetector import RiderDetector
 from colab_code.VideoQuality import VideoQuality
@@ -36,7 +36,7 @@ class VideoProcessing:
         fourcc = cv2.VideoWriter_fourcc(*"mp4v")
         out = cv2.VideoWriter('/content/drive/My Drive/CV Praktikum/Cropping.mp4', fourcc, fps, size)
 
-        for i in tnrange(int(total_frames), desc='extract frames'):
+        for i in range(int(total_frames), desc='extract frames'):
 
             if success:
 
@@ -96,7 +96,7 @@ class VideoProcessing:
         last_frames = list()
         last_bboxes = list()
 
-        for i in tnrange(int(total_frames), desc='extract frames'):
+        for i in range(int(total_frames), desc='extract frames'):
 
             if success:
 
@@ -177,7 +177,7 @@ class VideoProcessing:
         bbox_lenght = 5
         skip_frames_number = 5
 
-        for i in tnrange(int(total_frames), desc='extract frames'):
+        for i in range(int(total_frames), desc='extract frames'):
 
             if success:
                 # detection of each nth frame
@@ -237,7 +237,7 @@ class VideoProcessing:
 
     def downscale_frames(self, frames, scale_factor):
         small_frames = list()
-        for i in tnrange(len(frames), desc='downsize frames'):
+        for i in range(len(frames), desc='downsize frames'):
             small_frames.append(self.downscale_frame(frames[i], scale_factor))
         return small_frames
 
