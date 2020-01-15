@@ -110,3 +110,11 @@ class Cropping:
     def make_bbox(self, x1, x2, y1, y2, class_id):
         b = {"id": class_id, "x1": x1, "x2": x2, "y1": y1, "y2": y2}
         return b
+
+        # crop list of frames
+
+    def crop_image_list(self, calculated_boxes, frames):
+        cropped_frames = list()
+        for i in range(len(frames)):
+            cropped_frames.append(self.crop_image(calculated_boxes[i], frames[i]))
+        return cropped_frames
