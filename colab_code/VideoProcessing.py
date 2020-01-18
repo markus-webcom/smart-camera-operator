@@ -5,6 +5,9 @@ import cv2
 from colab_code.Cropping import Cropping
 from colab_code.RiderDetector import RiderDetector
 from colab_code.VideoQuality import VideoQuality
+from colab_code.BoundingBox import BoundingBox
+from colab_code.Operate_BBoxes import Operate_BBoxes
+
 
 
 class VideoProcessing:
@@ -13,8 +16,9 @@ class VideoProcessing:
         self.detector = RiderDetector(path_weights)
         self.cropper = Cropping()
         self.vidQuality = VideoQuality()
+        self.bbox_operator=Operate_BBoxes()
 
-    def process_frames(self, video_path):
+    def process_frames(self, video_path,output_path):
         video = cv2.VideoCapture(video_path)
         filename = os.path.basename(video_path)
         total_frames = video.get(cv2.CAP_PROP_FRAME_COUNT)
@@ -34,10 +38,10 @@ class VideoProcessing:
         downscale_factor = 0.5
 
         fourcc = cv2.VideoWriter_fourcc(*"mp4v")
-        out = cv2.VideoWriter('/content/drive/My Drive/CV Praktikum/Cropping.mp4', fourcc, fps, size)
+        out = cv2.VideoWriter(output_path, fourcc, fps, size)
 
-        for i in range(int(total_frames), desc='extract frames'):
-
+        for i in range(int(total_frames)):
+            print(i)
             if success:
 
                 # downsize frame and detect
@@ -45,17 +49,15 @@ class VideoProcessing:
                 bboxes = self.detector.detect_boxes(downsize_img)
 
                 # calculate missing bboxes and scale them up
-                bboxes = self.detector.upscale_bboxes_list(bboxes, (downscale_factor ** (-1)))
+                self.bbox_operator.scale_bboxes_list(bboxes, (downscale_factor ** (-1)))
 
                 # crop frame
                 box = self.cropper.complete_bbox(img, bboxes)
 
                 for b in bboxes:
-                    img = self.detector.drawBox(img, b)
+                    img = b.drawBBox(img)
 
                 cropped_frame = self.cropper.crop_image(box, img)
-                if i < 50:
-                    cv2.imwrite("/content/drive/My Drive/CV Praktikum/video11_analyse/frames2/frame%d.jpg" % i, img)
 
                 # resize picture to output size
                 img = cv2.resize(cropped_frame, size)
@@ -68,7 +70,7 @@ class VideoProcessing:
 
         # dectect not every frame
 
-    def process_frames_faster(self, video_path):
+    def process_frames_faster(self, video_path,output_path):
         video = cv2.VideoCapture(video_path)
         filename = os.path.basename(video_path)
         total_frames = video.get(cv2.CAP_PROP_FRAME_COUNT)
@@ -89,14 +91,15 @@ class VideoProcessing:
         downscale_factor = 0.5
 
         fourcc = cv2.VideoWriter_fourcc(*"mp4v")
-        out = cv2.VideoWriter('/content/drive/My Drive/CV Praktikum/Cropping.mp4', fourcc, fps, size)
+        out = cv2.VideoWriter(output_path, fourcc, fps, size)
 
         skip_frames_number = 5
 
         last_frames = list()
         last_bboxes = list()
 
-        for i in range(int(total_frames), desc='extract frames'):
+        for i in range(int(total_frames)):
+            print(i)
 
             if success:
 
@@ -107,7 +110,7 @@ class VideoProcessing:
                     bboxes = self.detector.detect_boxes(downsize_img)
 
                     # calculate missing bboxes and scale them up
-                    bboxes = self.detector.upscale_bboxes_list(bboxes, (downscale_factor ** (-1)))
+                    self.bbox_operator.scale_bboxes_list(bboxes, (downscale_factor ** (-1)))
 
                     # crop frame
                     box = self.cropper.complete_bbox(img, bboxes)
@@ -148,7 +151,7 @@ class VideoProcessing:
 
         # dectect not every frame
 
-    def process_frames_faster2(self, video_path):
+    def process_frames_faster2(self, video_path,output_path):
         video = cv2.VideoCapture(video_path)
         filename = os.path.basename(video_path)
         total_frames = video.get(cv2.CAP_PROP_FRAME_COUNT)
@@ -169,7 +172,7 @@ class VideoProcessing:
         downscale_factor = 0.5
 
         fourcc = cv2.VideoWriter_fourcc(*"mp4v")
-        out = cv2.VideoWriter('/content/drive/My Drive/CV Praktikum/Cropping.mp4', fourcc, fps, size)
+        out = cv2.VideoWriter(output_path, fourcc, fps, size)
 
         last_bboxes = list()
         last_frames = list()
@@ -177,8 +180,8 @@ class VideoProcessing:
         bbox_lenght = 5
         skip_frames_number = 5
 
-        for i in range(int(total_frames), desc='extract frames'):
-
+        for i in range(int(total_frames)):
+            print(i)
             if success:
                 # detection of each nth frame
                 if len(last_bboxes) < bbox_lenght or skip_frames_number == 5 or len(
@@ -189,15 +192,15 @@ class VideoProcessing:
                     bboxes = self.detector.detect_boxes(downsize_img)
 
                     # calculate missing bboxes and scale them up
-                    bboxes = self.detector.upscale_bboxes_list(bboxes, (downscale_factor ** (-1)))
+                    self.bbox_operator.scale_bboxes_list(bboxes, (downscale_factor ** (-1)))
 
                     # crop frame
                     box = self.cropper.complete_bbox(img, bboxes)
                     cropped_frame = self.cropper.crop_image(box, img)
 
                     if len(last_frames) == skip_frames_number and skip_frames_number > 0:
-                        calculate_last_bboxes = self.detector.calculate_bbox_interpolation_corners(last_bboxes, box,
-                                                                                                   last_frames)
+                        calculate_last_bboxes = self.bbox_operator.calculate_bbox_interpolation_corners(last_bboxes, box,
+                                                                                                   len(last_frames))
                         for i in len(last_frames):
                             box = self.cropper.complete_bbox(last_frames[i], [calculate_last_bboxes[i]])
                             cropped_frame = self.cropper.crop_image(box, last_frames[i])
@@ -229,7 +232,7 @@ class VideoProcessing:
         # crop left out frames
 
     def calculate_missing_frames(self, box, old_bbox, frames):
-        calculated_boxes = self.detector.bbox_mean(box, old_bbox, len(frames))
+        calculated_boxes = self.bbox_operator.bbox_mean(box, old_bbox, len(frames))
         cropped_frames = self.cropper.crop_image_list(calculated_boxes, frames)
         return cropped_frames
 
@@ -246,9 +249,6 @@ class VideoProcessing:
     def downscale_frame(self, frame, scale):
         return cv2.resize(frame, (0, 0), fx=scale, fy=scale)
 
-    def make_bbox(self, x1, x2, y1, y2, class_id):
-        b = {"id": class_id, "x1": x1, "x2": x2, "y1": y1, "y2": y2}
-        return b
 
         # resize list of frame with opencv
 
