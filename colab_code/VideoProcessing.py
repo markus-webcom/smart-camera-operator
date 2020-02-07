@@ -18,7 +18,7 @@ class VideoProcessing:
         self.vidQuality = VideoQuality()
         self.bbox_operator=Operate_BBoxes()
 
-    def process_frames(self, video_path,output_path):
+    def process_frames(self, video_path):
         video = cv2.VideoCapture(video_path)
         filename = os.path.basename(video_path)
         total_frames = video.get(cv2.CAP_PROP_FRAME_COUNT)
@@ -38,6 +38,10 @@ class VideoProcessing:
         downscale_factor = 0.5
 
         fourcc = cv2.VideoWriter_fourcc(*"mp4v")
+        path, filename = os.path.split(video_path)
+        filename = os.path.splitext(filename)[0]
+        newfilename = 'crop.mp4'
+        output_path = os.path.join(path, newfilename)
         out = cv2.VideoWriter(output_path, fourcc, fps, size)
 
         for i in range(int(total_frames)):
@@ -70,7 +74,7 @@ class VideoProcessing:
 
         # dectect not every frame
 
-    def process_frames_faster(self, video_path,output_path):
+    def process_frames_faster(self, video_path):
         video = cv2.VideoCapture(video_path)
         filename = os.path.basename(video_path)
         total_frames = video.get(cv2.CAP_PROP_FRAME_COUNT)
@@ -91,6 +95,10 @@ class VideoProcessing:
         downscale_factor = 0.5
 
         fourcc = cv2.VideoWriter_fourcc(*"mp4v")
+        path, filename = os.path.split(video_path)
+        filename = os.path.splitext(filename)[0]
+        newfilename = 'crop.mp4'
+        output_path = os.path.join(path, newfilename)
         out = cv2.VideoWriter(output_path, fourcc, fps, size)
 
         skip_frames_number = 5
@@ -151,7 +159,7 @@ class VideoProcessing:
 
         # dectect not every frame
 
-    def process_frames_faster2(self, video_path,output_path):
+    def process_frames_faster2(self, video_path):
         video = cv2.VideoCapture(video_path)
         filename = os.path.basename(video_path)
         total_frames = video.get(cv2.CAP_PROP_FRAME_COUNT)
@@ -172,6 +180,10 @@ class VideoProcessing:
         downscale_factor = 0.5
 
         fourcc = cv2.VideoWriter_fourcc(*"mp4v")
+        path, filename = os.path.split(video_path)
+        filename = os.path.splitext(filename)[0]
+        newfilename = 'crop.mp4'
+        output_path = os.path.join(path, newfilename)
         out = cv2.VideoWriter(output_path, fourcc, fps, size)
 
         last_bboxes = list()
