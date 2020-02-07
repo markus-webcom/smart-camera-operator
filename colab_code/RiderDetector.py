@@ -4,7 +4,6 @@ import numpy as np
 from mrcnn.model import MaskRCNN
 from colab_code.RiderConfig import RiderConfig
 from colab_code.BoundingBox import BoundingBox
-from colab_code.RiderDataset import RiderDataset
 
 class RiderDetector:
 
@@ -12,28 +11,6 @@ class RiderDetector:
         self.model = self.setModel(path_weights)
 
         # set model for detection
-
-    def train_Model(self):
-        # prepare train set
-        train_set = RiderDataset()
-        train_set.load_dataset('rider', is_train=True)
-        train_set.prepare()
-        print('Train: %d' % len(train_set.image_ids))
-        # prepare test/val set
-        test_set = RiderDataset()
-        test_set.load_dataset('rider', is_train=False)
-        test_set.prepare()
-        print('Test: %d' % len(test_set.image_ids))
-        # prepare config
-        config = RiderConfig()
-        config.display()
-        # define the model
-        model = MaskRCNN(mode='training', model_dir='./config', config=config)
-        # load weights (mscoco) and exclude the output layers
-        model.load_weights('mask_rcnn_coco.h5', by_name=True,
-                           exclude=["mrcnn_class_logits", "mrcnn_bbox_fc", "mrcnn_bbox", "mrcnn_mask"])
-        # train weights (output layers or 'heads')
-        model.train(train_set, test_set, learning_rate=config.LEARNING_RATE, epochs=5, layers='all')
 
     def setModel(self, path_weights):
         config = RiderConfig()

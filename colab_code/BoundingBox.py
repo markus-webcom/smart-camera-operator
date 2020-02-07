@@ -38,3 +38,6 @@ class BoundingBox:
         img = cv2.rectangle(image, start_point, end_point, colors[self.getClassId()], 2)
         return img
 
+    def printBBox(self):
+        print('x1:',self.getX1(),'x2:',self.getX2(),'y1:',self.getY1(),'y2:',self.getY2(),'class_id:',self.getClassId())
+

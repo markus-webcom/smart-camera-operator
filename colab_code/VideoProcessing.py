@@ -30,7 +30,7 @@ class VideoProcessing:
         # Check for first picture
         success, img = video.read()
 
-        sizeX = 800  # HD
+        sizeX = 800
         sizeY = 450
         size = (sizeX, sizeY)
         ratio = sizeX / sizeY
@@ -40,7 +40,7 @@ class VideoProcessing:
         fourcc = cv2.VideoWriter_fourcc(*"mp4v")
         path, filename = os.path.split(video_path)
         filename = os.path.splitext(filename)[0]
-        newfilename = 'crop.mp4'
+        newfilename = 'crop.mp4' % filename
         output_path = os.path.join(path, newfilename)
         out = cv2.VideoWriter(output_path, fourcc, fps, size)
 
@@ -87,7 +87,7 @@ class VideoProcessing:
         # Check for first picture
         success, img = video.read()
 
-        sizeX = 800  # HD
+        sizeX = 800
         sizeY = 450
         size = (sizeX, sizeY)
         ratio = sizeX / sizeY
@@ -97,7 +97,7 @@ class VideoProcessing:
         fourcc = cv2.VideoWriter_fourcc(*"mp4v")
         path, filename = os.path.split(video_path)
         filename = os.path.splitext(filename)[0]
-        newfilename = 'crop.mp4'
+        newfilename = 'crop.mp4' % filename
         output_path = os.path.join(path, newfilename)
         out = cv2.VideoWriter(output_path, fourcc, fps, size)
 
@@ -172,7 +172,7 @@ class VideoProcessing:
         # Check for first picture
         success, img = video.read()
 
-        sizeX = 800  # HD
+        sizeX = 800
         sizeY = 450
         size = (sizeX, sizeY)
         ratio = sizeX / sizeY
