@@ -18,48 +18,37 @@ class RiderDataset(Dataset):
         else:
             return -1
 
-    def load_dataset(self, is_train=True):
+    def load_dataset(self,image_dir, is_train=True):
         # define classes
         self.add_class("dataset", 1, "horse")
         self.add_class("dataset", 2, "rider")
 
-        FRAME_SOURCE = "./Horse_Detection/rimondo_frames"
+        FRAME_SOURCE = image_dir
         # where to find the labels
-        db = "./Horse_Detection/annotations"
+        db = join(image_dir,'annotations')
 
-        videos = [d for d in os.listdir(FRAME_SOURCE) if os.path.isdir(join(FRAME_SOURCE, d))]
-        counter = 0
-        for vid in videos:
-            video_path = join(FRAME_SOURCE, vid)
-            frames = [f for f in os.listdir(video_path) if f.endswith(".png")]
-            numberDataset = len(frames)
-            borderTest = round(numberDataset * 0.9)
+        frames = [f for f in os.listdir(image_dir) if f.endswith(".png") or f.endswith('.jpg')]
+        numberDataset = len(frames)
+        borderTest = round(numberDataset * 0.9)
 
-            for frame in frames:
-                counter = counter + 1
-
-                image_path = FRAME_SOURCE + "/" + vid + "/" + frame
-                image_id = vid + "/" + frame
+        for i in range(numberDataset):
+                image_path = join(FRAME_SOURCE,frames[i])
                 # skip all test images if we are building the train set
-                if is_train and counter <= borderTest:
+                if not is_train and i < borderTest:
                     continue
                 # skip all train images if we are building the test/val set
-                if not is_train and counter > borderTest:
+                if is_train and i >= borderTest:
                     continue
                 # add to dataset
-                self.add_image('dataset', image_id=counter, path=image_path, annotation=db)
+                self.add_image('dataset', image_id=i, path=image_path, annotation=db)
 
-    def extract_boxes(self, img_path, db):
-        fileName, fileExtension = os.path.splitext(img_path)
-        fileName = join(fileName, '.jpg')
-        # get image name for search in database
-        path_list = fileName.split(os.sep)
-        imageNameDatabase = path_list[-3] + '/' + path_list[-2] + path_list[-1]
-        db_path = join(db, imageNameDatabase)
-        db_path = os.path.splitext(db_path)[0] + '.csv'
-        db_path = os.path.normpath(db_path)
-        label_data = pd.read_csv(db_path)
-        allEntries = label_data.loc[(label_data["image"] == imageNameDatabase)]
+    def extract_boxes(self, img_path):
+        dir_name=os.path.dirname(img_path)
+        img_name=os.path.splitext(os.path.basename(img_path))[0]
+        db_path=join(dir_name,'annotations')
+        db_path=join(db_path,img_name+'.csv')
+
+        allEntries = pd.read_csv(db_path)
 
         img = cv2.imread(img_path)
         height = img.shape[0]
@@ -77,9 +66,6 @@ class RiderDataset(Dataset):
             ymin = round(y - h // 2)
             ymax = round(y + h // 2)
             if entry["label"] == 1 or entry["label"] == 2:
-                if (math.isnan(entry["x"]) or math.isnan(entry["y"]) or math.isnan(entry["width"]) or math.isnan(
-                        entry["height"])):
-                    continue
                 box = [entry["label"], xmin, ymin, xmax, ymax]
                 bbox.append(box)
         return bbox, height, width
@@ -93,7 +79,7 @@ class RiderDataset(Dataset):
         img_path = info['path']
 
         # load boxes
-        boxes, h, w = self.extract_boxes(img_path, db_path)
+        boxes, h, w = self.extract_boxes(img_path)
         # create one array for all masks, each on a different channel
         masks = zeros([h, w, len(boxes)], dtype='uint8')
         # create masks
