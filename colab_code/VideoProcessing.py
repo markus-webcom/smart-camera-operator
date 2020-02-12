@@ -20,12 +20,16 @@ class VideoProcessing:
         self.vidQuality = VideoQuality()
         self.bbox_operator=Operate_BBoxes()
 
-    def process_frames(self, video_path):
+    def process_frames(self, video_path,progressBar):
         video = cv2.VideoCapture(video_path)
         filename = os.path.basename(video_path)
         total_frames = video.get(cv2.CAP_PROP_FRAME_COUNT)
 
         print(total_frames)
+
+        progressBar.setMaximum(total_frames)
+        progressBar.setValue(0)
+        progressBar.setVisible(True)
 
         fps = video.get(cv2.CAP_PROP_FPS)
 
@@ -42,12 +46,14 @@ class VideoProcessing:
         fourcc = cv2.VideoWriter_fourcc(*"mp4v")
         path, filename = os.path.split(video_path)
         filename = os.path.splitext(filename)[0]
-        newfilename = 'crop.mp4' % filename
+        newfilename = 'crop.mp4' # filename
         output_path = os.path.join(path, newfilename)
         out = cv2.VideoWriter(output_path, fourcc, fps, size)
 
         for i in range(int(total_frames)):
-            print(i)
+            progressBar.setValue(i + 1)
+            QApplication.processEvents()
+            #print(i)
             if success:
 
                 # downsize frame and detect
@@ -60,8 +66,8 @@ class VideoProcessing:
                 # crop frame
                 box = self.cropper.complete_bbox(img, bboxes)
 
-                for b in bboxes:
-                    img = b.drawBBox(img)
+                #for b in bboxes:
+                #    img = b.drawBBox(img)
 
                 cropped_frame = self.cropper.crop_image(box, img)
 
@@ -107,7 +113,7 @@ class VideoProcessing:
         output_path = os.path.join(path, newfilename)
         out = cv2.VideoWriter(output_path, fourcc, fps, size)
 
-        skip_frames_number = 5
+        skip_frames_number = 10
 
         last_frames = list()
         last_bboxes = list()
@@ -115,7 +121,7 @@ class VideoProcessing:
         for i in range(int(total_frames)):
             progressBar.setValue(i+1)
             QApplication.processEvents()
-            print(i)
+            #print(i)
 
             if success:
 
@@ -167,12 +173,16 @@ class VideoProcessing:
 
         # dectect not every frame
 
-    def process_frames_faster2(self, video_path):
+    def process_frames_faster2(self, video_path,progressBar):
         video = cv2.VideoCapture(video_path)
         filename = os.path.basename(video_path)
         total_frames = video.get(cv2.CAP_PROP_FRAME_COUNT)
 
         print(total_frames)
+
+        progressBar.setMaximum(total_frames)
+        progressBar.setValue(0)
+        progressBar.setVisible(True)
 
         fps = video.get(cv2.CAP_PROP_FPS)
         print(fps)
@@ -201,7 +211,9 @@ class VideoProcessing:
         skip_frames_number = 5
 
         for i in range(int(total_frames)):
-            print(i)
+            progressBar.setValue(i + 1)
+            QApplication.processEvents()
+            #print(i)
             if success:
                 # detection of each nth frame
                 if len(last_bboxes) < bbox_lenght or skip_frames_number == 5 or len(

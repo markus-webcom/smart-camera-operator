@@ -9,18 +9,23 @@ class TrainWidget(QWidget):
 
         self.layout = QVBoxLayout()
         self.TrainBTN = QPushButton('Train Model with new data', self)
-        self.returnStartBTN = QPushButton('Start', self)
+        self.returnStartBTN = QPushButton('Startpage', self)
         self.label =QLabel('Successfully Trained')
         self.label.hide()
+
+
 
         hbox = QHBoxLayout()
         hbox.addWidget(QLabel(''))
         hbox.addWidget(self.returnStartBTN)
         hbox.setAlignment(Qt.AlignRight)
+        layout.setSpacing(50)
 
         self.layout.addWidget(self.TrainBTN)
         self.layout.addWidget(self.label)
         self.layout.addLayout(hbox)
+
+
         self.setLayout(self.layout)
 
     def setOperator(self,new_operator):

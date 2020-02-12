@@ -9,12 +9,17 @@ class ConvertWidget(QWidget):
     def __init__(self, parent=None):
         super(ConvertWidget, self).__init__(parent)
 
-        self.ConvertBTN = QPushButton('Convert', self)
+        self.ConvertPreciseBTN = QPushButton('Convert precise for each frame', self)
+        self.ConvertQuickBTN = QPushButton('Convert with interpolation', self)
         self.ChooseFileBTN=QPushButton('Choose Video File',self)
-        self.returnStartBTN=QPushButton('Start',self)
+        self.returnStartBTN=QPushButton('Startpage',self)
 
-        self.ConvertBTN.clicked.connect(self.convertClicked)
+        self.ConvertPreciseBTN.clicked.connect(self.convertPreciseClicked)
         self.ChooseFileBTN.clicked.connect(self.chooseFileClicked)
+        self.ConvertQuickBTN.clicked.connect(self.convertQuickClicked)
+
+
+
 
         # progress bar
         self.progressBar = QProgressBar()
@@ -28,9 +33,13 @@ class ConvertWidget(QWidget):
         hbox.addWidget(self.returnStartBTN)
         hbox.setAlignment(Qt.AlignRight)
         layout.addWidget(self.ChooseFileBTN)
-        layout.addWidget(self.ConvertBTN)
+        layout.addWidget(self.ConvertPreciseBTN)
+        layout.addWidget(self.ConvertQuickBTN)
         layout.addWidget(self.progressBar)
         layout.addLayout(hbox)
+
+        layout.setSpacing(50)
+
 
         self.setLayout(layout)
 
@@ -40,10 +49,15 @@ class ConvertWidget(QWidget):
     def setOperator(self,new_operator):
         self.operator=new_operator
 
-    def convertClicked(self):
+    def convertQuickClicked(self):
         if self.inputFile is not None:
-            self.operator.convertVideo(self.inputFile,self.progressBar)
-            #self.progressBar.hide()
+            self.operator.convertQuickVideo(self.inputFile,self.progressBar)
+            self.progressBar.hide()
+
+    def convertPreciseClicked(self):
+        if self.inputFile is not None:
+            self.operator.convertPreciseVideo(self.inputFile,self.progressBar)
+            self.progressBar.hide()
 
 
     def chooseFileClicked(self):

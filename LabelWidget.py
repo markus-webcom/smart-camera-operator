@@ -20,7 +20,9 @@ class LabelWidget(QWidget):
         # Buttons
         self.LabelImagesBTN = QPushButton('Label Images', self)
         self.LabelVideoBTN = QPushButton('Label Video', self)
-        self.returnStartBTN = QPushButton('Start', self)
+        self.returnStartBTN = QPushButton('Startpage', self)
+
+
 
 
         # Format Layout
@@ -29,14 +31,16 @@ class LabelWidget(QWidget):
 
         layout.addWidget(self.LabelImagesBTN)
         layout.addWidget(self.LabelVideoBTN)
+        layout.setSpacing(50)
 
         hbox.addWidget(QLabel(''))
         hbox.addWidget(self.returnStartBTN)
         hbox.setAlignment(Qt.AlignRight)
 
 
-
         layout.addLayout(hbox)
+
+
 
         # setLayout in Window
         self.setLayout(layout)

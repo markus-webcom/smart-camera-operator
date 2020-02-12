@@ -30,7 +30,7 @@ class LabelVideoWidget(QWidget):
         self.chooseFolderBTN = QPushButton('Choose Video', self)
         self.goTrainBTN = QPushButton('Train with labeled data', self)
         self.goTrainBTN.setEnabled(False)
-        self.returnStartBTN = QPushButton('Start', self)
+        self.returnStartBTN = QPushButton('Startpage', self)
 
         self.DiscardBTN.clicked.connect(self.discard_clicked)
         self.AcceptBTN.clicked.connect(self.accept_clicked)
@@ -45,6 +45,9 @@ class LabelVideoWidget(QWidget):
         self.progressBar.setVisible(False)
 
         # Format Layout
+
+
+
         layout = QVBoxLayout()
         hbox = QHBoxLayout()
         hbox2 = QHBoxLayout()
@@ -62,6 +65,9 @@ class LabelVideoWidget(QWidget):
         layout.addWidget(self.picDisplay)
         layout.addWidget(self.progressBar)
         layout.addLayout(hbox2)
+        layout.setSpacing(50)
+
+
 
         # setLayout in Window
         self.setLayout(layout)
@@ -106,10 +112,14 @@ class LabelVideoWidget(QWidget):
         self.label_counter = 0
         self.picDisplay.setText('Waiting')
         self.inputFile = QFileDialog.getOpenFileName(self, 'Open video(mp4)...', '', 'Video Files (*.mp4)')[0]
-        self.frame_number=self.operator.getNumberVideoFrames(self.inputFile)
+        if (self.inputFile != ''):
+                self.loadFile()
+
+    def loadFile(self):
+        self.frame_number = self.operator.getNumberVideoFrames(self.inputFile)
         self.discard_clicked()
 
-        self.inputFolder=os.path.dirname(self.inputFile)
+        self.inputFolder = os.path.dirname(self.inputFile)
         self.img_save_path = os.path.normpath(join(self.inputFolder, 'accepted_images'))
         if not os.path.exists(self.img_save_path):
             os.makedirs(self.img_save_path)
@@ -119,7 +129,7 @@ class LabelVideoWidget(QWidget):
         if not os.path.exists(self.db_path):
             os.makedirs(self.db_path)
 
-        self.progressBar.setMaximum(int(self.frame_number/self.n))
+        self.progressBar.setMaximum(int(self.frame_number / self.n))
         self.progressBar.setValue(0)
         self.progressBar.setVisible(True)
 

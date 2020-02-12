@@ -28,11 +28,12 @@ class LabelImagesWidget(QWidget):
         self.chooseFolderBTN=QPushButton('Choose Folder with Pictures', self)
         self.goTrainBTN=QPushButton('Train with labeled data', self)
         self.goTrainBTN.setEnabled(False)
-        self.returnStartBTN = QPushButton('Start', self)
+        self.returnStartBTN = QPushButton('Startpage', self)
 
         self.DiscardBTN.clicked.connect(self.discard_clicked)
         self.AcceptBTN.clicked.connect(self.accept_clicked)
         self.chooseFolderBTN.clicked.connect(self.clicked_chooseFolderBTN)
+
 
         # Display for pictures as pixmap
         self.picDisplay=QLabel('proxy for pictures')
@@ -44,6 +45,11 @@ class LabelImagesWidget(QWidget):
 
 
         # Format Layout
+
+
+
+
+
         layout = QVBoxLayout()
         hbox = QHBoxLayout()
         hbox2=QHBoxLayout()
@@ -62,6 +68,9 @@ class LabelImagesWidget(QWidget):
         layout.addWidget(self.picDisplay)
         layout.addWidget(self.progressBar)
         layout.addLayout(hbox2)
+        layout.setSpacing(50)
+
+
 
         # setLayout in Window
         self.setLayout(layout)
@@ -75,27 +84,30 @@ class LabelImagesWidget(QWidget):
         self.counter=0
         self.label_counter = 0
         self.picDisplay.setText('Waiting')
+
         self.inputFolder = QFileDialog.getExistingDirectory(self, 'Select image directory')
 
+        if(self.inputFolder != ''):
+            self.loadFiles()
+
+    def loadFiles(self):
         self.images = [f for f in os.listdir(self.inputFolder) if f.endswith(".png")]
 
-        self.img_save_path =os.path.normpath( join(self.inputFolder, 'accepted_images'))
+        self.img_save_path = os.path.normpath(join(self.inputFolder, 'accepted_images'))
         if not os.path.exists(self.img_save_path):
             os.makedirs(self.img_save_path)
 
         self.db_path = join(self.img_save_path, 'annotations')
         self.db_path = os.path.normpath(self.db_path)
         if not os.path.exists(self.db_path):
-            os.makedirs( self.db_path)
+            os.makedirs(self.db_path)
         self.num_files = len(fnmatch.filter(os.listdir(self.db_path), '*.csv'))
-        if(self.num_files>1):
+        if (self.num_files > 1):
             self.goTrainBTN.setEnabled(True)
 
         self.progressBar.setMaximum(len(self.images))
         self.progressBar.setValue(0)
         self.progressBar.setVisible(True)
-
-
 
         self.discard_clicked()
 
@@ -108,7 +120,9 @@ class LabelImagesWidget(QWidget):
                 image_path = join(self.inputFolder, self.image_name)
 
                 self.cvImg = cv2.imread(image_path)
-                cvImg_with_boxes,self.boxes = self.operator.drawBoxes(self.cvImg)
+                print(self.cvImg.shape)
+
+                cvImg_with_boxes,self.boxes = self.operator.drawBoxes(self.cvImg.copy())
 
                 image = QImage(cvImg_with_boxes, cvImg_with_boxes.shape[1], \
                              cvImg_with_boxes.shape[0], cvImg_with_boxes.shape[1] * 3, QImage.Format_RGB888).rgbSwapped()
