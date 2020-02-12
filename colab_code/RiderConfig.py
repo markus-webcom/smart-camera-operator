@@ -7,5 +7,5 @@ class RiderConfig(Config):
     NUM_CLASSES = 1 + 2
     GPU_COUNT = 1
     IMAGES_PER_GPU = 1
-    STEPS_PER_EPOCH = 1000
-    VALIDATION_STEPS = 50
+    STEPS_PER_EPOCH = 5
+    VALIDATION_STEPS = 1

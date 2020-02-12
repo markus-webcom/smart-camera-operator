@@ -30,9 +30,12 @@ class RiderDataset(Dataset):
         frames = [f for f in os.listdir(image_dir) if f.endswith(".png") or f.endswith('.jpg')]
         numberDataset = len(frames)
         borderTest = round(numberDataset * 0.9)
+        if(borderTest>numberDataset-1):
+            borderTest=numberDataset-1
 
         for i in range(numberDataset):
                 image_path = join(FRAME_SOURCE,frames[i])
+                image_path=os.path.normpath(image_path)
                 # skip all test images if we are building the train set
                 if not is_train and i < borderTest:
                     continue
@@ -47,6 +50,7 @@ class RiderDataset(Dataset):
         img_name=os.path.splitext(os.path.basename(img_path))[0]
         db_path=join(dir_name,'annotations')
         db_path=join(db_path,img_name+'.csv')
+        db_path=os.path.normpath(db_path)
 
         allEntries = pd.read_csv(db_path)
 

@@ -1,5 +1,4 @@
 import os
-import queue
 import cv2
 
 from colab_code.Cropping import Cropping
@@ -7,6 +6,9 @@ from colab_code.RiderDetector import RiderDetector
 from colab_code.VideoQuality import VideoQuality
 from colab_code.BoundingBox import BoundingBox
 from colab_code.Operate_BBoxes import Operate_BBoxes
+
+
+from PyQt5.QtWidgets import *
 
 
 
@@ -74,12 +76,16 @@ class VideoProcessing:
 
         # dectect not every frame
 
-    def process_frames_faster(self, video_path):
+    def process_frames_faster(self, video_path,progressBar):
         video = cv2.VideoCapture(video_path)
         filename = os.path.basename(video_path)
         total_frames = video.get(cv2.CAP_PROP_FRAME_COUNT)
 
         print(total_frames)
+
+        progressBar.setMaximum(total_frames)
+        progressBar.setValue(0)
+        progressBar.setVisible(True)
 
         fps = video.get(cv2.CAP_PROP_FPS)
         print(fps)
@@ -97,7 +103,7 @@ class VideoProcessing:
         fourcc = cv2.VideoWriter_fourcc(*"mp4v")
         path, filename = os.path.split(video_path)
         filename = os.path.splitext(filename)[0]
-        newfilename = 'crop.mp4' % filename
+        newfilename = 'crop.mp4'
         output_path = os.path.join(path, newfilename)
         out = cv2.VideoWriter(output_path, fourcc, fps, size)
 
@@ -107,6 +113,8 @@ class VideoProcessing:
         last_bboxes = list()
 
         for i in range(int(total_frames)):
+            progressBar.setValue(i+1)
+            QApplication.processEvents()
             print(i)
 
             if success:
