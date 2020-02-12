@@ -1,4 +1,3 @@
-import queue
 import cv2
 from tqdm import tnrange
 from colab_code.Cropping import Cropping
@@ -13,6 +12,8 @@ class VideoProcessing:
         self.cropper = Cropping()
         self.vidQuality = VideoQuality()
         self.progress_bar = progress_bar
+        self.size = (800, 450)
+        self.fps = 0
 
     def test_video(self, path):
 
@@ -41,6 +42,20 @@ class VideoProcessing:
         self.process_frames(video_path, crop=False, draw_boxes=True)
 
     def process_frames(self, video_path: str, crop: bool = True, draw_boxes: bool = False):
+        frames = self.get_frames(video_path)
+        boxes = self.extract_boxes(frames)
+        print('frames : {}'.format(len(frames)))
+        print('boxes: {}'.format(len(boxes)))
+
+        if crop:
+            frames = self.crop_frames(frames, boxes)
+
+        if draw_boxes:
+            frames = self.draw_boxes(frames, boxes)
+
+        self.create_output(frames)
+
+    def process_frames_old(self, video_path: str, crop: bool = True, draw_boxes: bool = False):
         video = cv2.VideoCapture(video_path)
         total_frames = video.get(cv2.CAP_PROP_FRAME_COUNT)
 
@@ -56,16 +71,10 @@ class VideoProcessing:
         fourcc = cv2.VideoWriter_fourcc(*"mp4v")
         out = cv2.VideoWriter('result.mp4', fourcc, fps, size)
 
-        last_frames = queue.Queue(10)
-        last_bboxes = queue.Queue(10)
         for i in tnrange(int(total_frames), desc='extract frames'):
-            self.progress_bar.setValue((i / total_frames) * 100)
+            if self.progress_bar is not None:
+                self.progress_bar.setValue((i / total_frames) * 100)
             if success:
-                # save last 10 images in queue
-                if last_frames.qsize() == 10:
-                    last_frames.get()
-                last_frames.put(img)
-
                 # downsize frame and detect
                 downsize_img = self.downscale_frame(img, downscale_factor)
                 bboxes = self.detector.getBboxes(downsize_img)
@@ -73,20 +82,14 @@ class VideoProcessing:
                 # calculate missing bboxes and scale them up
                 bboxes = self.detector.upscale_bboxes_list(bboxes, (downscale_factor ** (-1)))
 
-                # crop frame
-                box = self.cropper.complete_bbox(img, bboxes)
-
                 if draw_boxes:
                     for b in bboxes:
                         img = self.detector.drawBox(img, b)
 
                 if crop:
+                    # crop frame
+                    box = self.cropper.complete_bbox(img, bboxes)
                     img = self.cropper.crop_image(box, img)
-
-                # save calculated box for frame
-                if last_bboxes.qsize() == 10:
-                    last_bboxes.get()
-                last_bboxes.put(box)
 
                 # resize picture to output size
                 img = cv2.resize(img, size)
@@ -106,12 +109,59 @@ class VideoProcessing:
     def downscale_frame(self, frame, scale):
         return cv2.resize(frame, (0, 0), fx=scale, fy=scale)
 
-        # videoclip = mpe.VideoFileClip(filename.strip('.MP4') + 'Crop.mp4')
-        # Audiostuff, takes alot longer tho
-        # audioclip = mpe.CompositeAudioClip([mpe.AudioFileClip(video_path)])
-        # videoclip.audio = audioclip
-        # videoclip.write_videofile(filename.strip('.mp4')+'Crop.mp4')
+    def extract_boxes(self, frames) -> list:
+        # Check for first picture
+        downscale_factor = 1
+        boxes = []
+
+        for img in frames:
+            # downsize frame and detect
+            downsize_img = self.downscale_frame(img, downscale_factor)
+            bboxes = self.detector.getBboxes(downsize_img)
+            # calculate missing bboxes and scale them up
+            bboxes = self.detector.upscale_bboxes_list(bboxes, (downscale_factor ** (-1)))
+            box = self.cropper.complete_bbox(img, bboxes)
+            boxes.append(box)
+
+        return boxes
+
+    def crop_frames(self, frames, boxes):
+        cropped_frames = []
+
+        for i in range(0, len(boxes)):
+            cropped_frames.append(self.cropper.crop_image(boxes[i], frames[i]))
+
+        return cropped_frames
+
+    def draw_boxes(self, frames, boxes):
+        frames_with_boxes = []
+
+        for i in range(0, len(boxes)):
+            frames_with_boxes.append(self.detector.drawBox(frames[i], boxes[i]))
+
+        return frames_with_boxes
 
 
+    def create_output(self, frames):
+        fourcc = cv2.VideoWriter_fourcc(*"mp4v")
+        out = cv2.VideoWriter('result.mp4', fourcc, self.fps, self.size)
 
+        for img in frames:
+            out.write(cv2.resize(img, self.size))
+
+        out.release()
+
+    def get_frames(self, video_path):
+        video = cv2.VideoCapture(video_path)
+        self.fps = video.get(cv2.CAP_PROP_FPS)
+        success, img = video.read()
+        frames = []
+
+        while success:
+            frames.append(img)
+            success, img = video.read()
+        del img
+        video.release()
+
+        return frames
 

@@ -31,3 +31,12 @@ class VideoQuality:
     def make_bbox(self, x1, x2, y1, y2, class_id):
         b = {"id": class_id, "x1": x1, "x2": x2, "y1": y1, "y2": y2}
         return b
+
+    def smooth_boxes(self, boxes: list):
+        for i in range(0, len(boxes)):
+            boxes[i] = {
+                'x1': image_filters.gaussian_filter1d([int(box['x1']) for box in boxes], 0.5)[i],
+                'x2': image_filters.gaussian_filter1d([int(box['x2']) for box in boxes], 0.5)[i],
+                'y1': image_filters.gaussian_filter1d([int(box['y1']) for box in boxes], 0.5)[i],
+                'y2': image_filters.gaussian_filter1d([int(box['y2']) for box in boxes], 0.5)[i],
+            }
