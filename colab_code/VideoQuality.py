@@ -1,3 +1,4 @@
+from scipy.ndimage import gaussian_filter1d
 class VideoQuality:
     # get last bbox if none found in current frame
     def fill_missing_bboxes(self, bboxes):
@@ -33,10 +34,16 @@ class VideoQuality:
         return b
 
     def smooth_boxes(self, boxes: list):
+        gaussX1 = gaussian_filter1d([int(box['x1']) for box in boxes], 0.5)
+        gaussX2 = gaussian_filter1d([int(box['x2']) for box in boxes], 0.5)
+        gaussY1 = gaussian_filter1d([int(box['y1']) for box in boxes], 0.5)
+        gaussY2 = gaussian_filter1d([int(box['y2']) for box in boxes], 0.5)
+
         for i in range(0, len(boxes)):
             boxes[i] = {
-                'x1': image_filters.gaussian_filter1d([int(box['x1']) for box in boxes], 0.5)[i],
-                'x2': image_filters.gaussian_filter1d([int(box['x2']) for box in boxes], 0.5)[i],
-                'y1': image_filters.gaussian_filter1d([int(box['y1']) for box in boxes], 0.5)[i],
-                'y2': image_filters.gaussian_filter1d([int(box['y2']) for box in boxes], 0.5)[i],
+                'x1': gaussX1[i],
+                'x2': gaussX2[i],
+                'y1': gaussY1[i],
+                'y2': gaussY2[i]
             }
+        return boxes
