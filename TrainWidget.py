@@ -19,7 +19,7 @@ class TrainWidget(QWidget):
         hbox.addWidget(QLabel(''))
         hbox.addWidget(self.returnStartBTN)
         hbox.setAlignment(Qt.AlignRight)
-        layout.setSpacing(50)
+        self.layout.setSpacing(50)
 
         self.layout.addWidget(self.TrainBTN)
         self.layout.addWidget(self.label)

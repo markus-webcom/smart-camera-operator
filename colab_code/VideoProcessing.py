@@ -20,7 +20,7 @@ class VideoProcessing:
         self.vidQuality = VideoQuality()
         self.bbox_operator=Operate_BBoxes()
 
-    def process_frames(self, video_path,progressBar):
+    def process_frames(self, video_path,progressBar,ratio_x,ratio_y):
         video = cv2.VideoCapture(video_path)
         filename = os.path.basename(video_path)
         total_frames = video.get(cv2.CAP_PROP_FRAME_COUNT)
@@ -36,8 +36,8 @@ class VideoProcessing:
         # Check for first picture
         success, img = video.read()
 
-        sizeX = 800
-        sizeY = 450
+        sizeX = ratio_y
+        sizeY = ratio_x
         size = (sizeX, sizeY)
         ratio = sizeX / sizeY
 
@@ -82,7 +82,7 @@ class VideoProcessing:
 
         # dectect not every frame
 
-    def process_frames_faster(self, video_path,progressBar):
+    def process_frames_faster(self, video_path,progressBar,ratio_x,ratio_y):
         video = cv2.VideoCapture(video_path)
         filename = os.path.basename(video_path)
         total_frames = video.get(cv2.CAP_PROP_FRAME_COUNT)
@@ -99,8 +99,8 @@ class VideoProcessing:
         # Check for first picture
         success, img = video.read()
 
-        sizeX = 800
-        sizeY = 450
+        sizeX = ratio_y
+        sizeY = ratio_x
         size = (sizeX, sizeY)
         ratio = sizeX / sizeY
 

@@ -65,7 +65,7 @@ class LabelVideoWidget(QWidget):
         layout.addWidget(self.picDisplay)
         layout.addWidget(self.progressBar)
         layout.addLayout(hbox2)
-        layout.setSpacing(50)
+        layout.setSpacing(25)
 
 
 

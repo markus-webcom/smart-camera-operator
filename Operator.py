@@ -93,13 +93,13 @@ class Operator:
         #setNewModel
         #self.model_path='./confic'
 
-    def convertPreciseVideo(self,video_path,progressBar):
+    def convertPreciseVideo(self,video_path,progressBar,output_x,output_y):
         progressBar.setVisible(True)
-        self.processing.process_frames(video_path,progressBar)
+        self.processing.process_frames(video_path,progressBar,output_x,output_y)
 
-    def convertQuickVideo(self,video_path,progressBar):
+    def convertQuickVideo(self,video_path,progressBar,output_x,output_y):
         progressBar.setVisible(True)
-        self.processing.process_frames_faster(video_path,progressBar)
+        self.processing.process_frames_faster(video_path,progressBar,output_x,output_y)
 
     def getNthFrameFromVideo(self,video_path,frame_number):
         cap = cv2.VideoCapture(video_path)
