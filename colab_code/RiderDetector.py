@@ -27,10 +27,11 @@ class RiderDetector:
         @:raises Exception"""
         boxes = self.extract_boxes(image)
         pair_boxes = self.get_rider_pairs(boxes, image)
-        pair_box = pair_boxes.pop(0)
 
         if len(pair_boxes) == 0:
-            return self.target_box
+            return {"id": 1, "x1": 100, "x2": 200, "y1": 100, "y2": 200}
+
+        pair_box = pair_boxes.pop(0)
 
         if self.target_descriptor is None:
             self.target_descriptor = self.get_descriptor(image, pair_box)
@@ -86,7 +87,7 @@ class RiderDetector:
                 bi = boxes[i]
                 bj = boxes[j]
                 if self.do_overlap(bi, bj) and self.is_pair(bi, bj):
-                    pairs.append(self.cropper.complete_bbox(image, [boxes[i], boxes[j]]))
+                    pairs.append(self.cropper.complete_bbox(image, [bi, bj]))
         return pairs
 
     def calculate_score(self, descriptor):
@@ -107,11 +108,11 @@ class RiderDetector:
 
     def do_overlap(self, box1, box2):
         # If one rectangle is on left side of other
-        if box1.x1 > box2.x2 or box2.x1 > box1.x2:
+        if box1['x1'] > box2['x2'] or box2['x1'] > box1['x2']:
             return False
 
         # If one rectangle is above other
-        if box1.y1 < box2.y2 or box2.y1 < box1.y2:
+        if box1['y1'] < box2['y2'] or box2['y1'] < box1['y2']:
             return False
 
         return True
