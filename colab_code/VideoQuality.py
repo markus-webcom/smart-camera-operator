@@ -34,10 +34,11 @@ class VideoQuality:
         return b
 
     def smooth_boxes(self, boxes: list):
-        gaussX1 = gaussian_filter1d([int(box['x1']) for box in boxes], 0.5)
-        gaussX2 = gaussian_filter1d([int(box['x2']) for box in boxes], 0.5)
-        gaussY1 = gaussian_filter1d([int(box['y1']) for box in boxes], 0.5)
-        gaussY2 = gaussian_filter1d([int(box['y2']) for box in boxes], 0.5)
+        sigma = 5
+        gaussX1 = gaussian_filter1d([int(box['x1']) for box in boxes], sigma)
+        gaussX2 = gaussian_filter1d([int(box['x2']) for box in boxes], sigma)
+        gaussY1 = gaussian_filter1d([int(box['y1']) for box in boxes], sigma)
+        gaussY2 = gaussian_filter1d([int(box['y2']) for box in boxes], sigma)
 
         for i in range(0, len(boxes)):
             boxes[i] = {

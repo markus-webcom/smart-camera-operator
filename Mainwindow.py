@@ -39,7 +39,7 @@ class Mainwindow(QMainWindow):
     def start_clicked(self):
         self.execute_task_if_video_present(
             lambda: VideoProcessing(self.model_path, self.ui.progress_bar).process_frames(self.selected_video,
-                                                                                          crop=True, draw_boxes=False))
+                                                                                          crop=True))
 
     def execute_task_if_video_present(self, task):
         if self.selected_video is not None:

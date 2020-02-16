@@ -8,8 +8,6 @@ class Cropping:
     def complete_bbox(self, frame, bboxes):
         sizeX = 1280  # HD
         sizeY = 720
-        size = (sizeX, sizeY)
-        ratio = sizeX / sizeY
 
         box = self.filter_boxes(frame, bboxes)
 
