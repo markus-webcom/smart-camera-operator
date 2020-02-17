@@ -72,7 +72,7 @@ class VideoProcessing:
     def get_frames(self):
         success, img = self.video.read()
         frames = []
-        number = 10
+        number = 100
 
         while success and (number > 0):
             frames.append(img)

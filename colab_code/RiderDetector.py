@@ -1,5 +1,6 @@
 # Detection of rider by bounding boxes
 import cv2
+import numpy
 from mrcnn.model import MaskRCNN
 from colab_code.RiderConfig import RiderConfig
 from colab_code.Cropping import Cropping
@@ -12,6 +13,7 @@ class RiderDetector:
         self.target_descriptor = None
         self.target_box = None
         self.cropper = Cropping()
+        self.target_last_distance = 0
 
     def setModel(self, path_weights):
         config = RiderConfig()
@@ -22,25 +24,19 @@ class RiderDetector:
         return model
 
     def getBox(self, image):
-        """ Get Box for one image
-        Gibt letzte Box zurück, wenn er keine findet.
-        @:raises Exception"""
         boxes = self.extract_boxes(image)
         pair_boxes = self.get_rider_pairs(boxes, image)
 
         if len(pair_boxes) == 0:
-            return {"id": 1, "x1": 100, "x2": 200, "y1": 100, "y2": 200}
+            return self.target_box if self.target_box is not None else {"id": 1, "x1": 100, "x2": 200, "y1": 100, "y2": 200}
 
-        pair_box = pair_boxes.pop(0)
-        """
-        if self.target_descriptor is None:
-            self.target_descriptor = self.get_descriptor(image, pair_box)
-            self.target_box = pair_box
+        if self.target_box is None:
+            box = pair_boxes[0]
+            self.target_box = box
+            self.target_last_distance = self.norm_l1(box, pair_boxes[1]) if len(pair_boxes) > 1 else 1
+            return box
         else:
-            pass
-            # return self.find_target(image, pair_boxes)
-            """
-        return pair_box
+            return self.get_target(pair_boxes)
 
     def box_to_dict(self, box, class_id):
         return {"id": class_id, "x1": box[1], "x2": box[3], "y1": box[0], "y2": box[2]}
@@ -142,3 +138,28 @@ class RiderDetector:
 
     def is_pair(self, box1, box2):
         return (box1['id'] + box2['id']) == 3
+
+    def get_target(self, pair_boxes):
+        if len(pair_boxes) == 1:
+            return pair_boxes[0]
+        else:
+            return self.get_box_near_target(pair_boxes)
+
+    def norm_l1(self, box1, box2):
+        return numpy.abs(box1['x1'] - box2['x1']) + numpy.abs(box1['x2'] - box2['x2']) + numpy.abs(
+            box1['y1'] - box2['y1']) + numpy.abs(box1['y2'] - box2['y2'])
+
+    def get_box_near_target(self, pair_boxes):
+        curr_distance = 100000
+        min_distance_box = self.target_box
+
+        for box in pair_boxes:
+            distance = self.norm_l1(box, self.target_box)
+            if distance < curr_distance:
+                curr_distance = distance
+                min_distance_box = box
+
+        self.target_last_distance = (curr_distance + self.target_last_distance) / 2
+        self.target_box = min_distance_box
+
+        return min_distance_box
