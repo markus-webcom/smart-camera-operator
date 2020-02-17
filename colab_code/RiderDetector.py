@@ -75,7 +75,7 @@ class RiderDetector:
 
     def get_descriptor(self, image, box):
         cropped = self.cropper.crop_image(box, image)
-        _, descriptor = cv2.xfeatures2d.SIFT_create().detectAndCompute(cropped, None)
+        _, descriptor = cv2.ORB().detectAndCompute(cropped, None)
 
         return descriptor
 
@@ -107,15 +107,24 @@ class RiderDetector:
         return found
 
     def do_overlap(self, box1, box2):
-        # If one rectangle is on left side of other
-        if box1['x1'] > box2['x2'] or box2['x1'] > box1['x2']:
-            return False
+        width = self.calc_intersection(box1['x1'], box1['x2'], box2['x1'], box2['x2'])
+        height = self.calc_intersection(box1['y1'], box1['y2'], box2['y1'], box2['y2'])
 
-        # If one rectangle is above other
-        if box1['y1'] < box2['y2'] or box2['y1'] < box1['y2']:
-            return False
+        return (width * height) > 0
 
-        return True
+    def calc_intersection(self, a0, a1, b0, b1):
+        if a0 >= b0 and a1 <= b1:  # Contained
+            intersection = a1 - a0
+        elif a0 < b0 and a1 > b1:  # Contains
+            intersection = b1 - b0
+        elif a0 < b0 < a1:  # Intersects right
+            intersection = a1 - b0
+        elif a1 > b1 > a0:  # Intersects left
+            intersection = b1 - a0
+        else:  # No intersection (either side)
+            intersection = 0
+
+        return intersection
 
     def extract_boxes(self, image):
         results = self.model.detect([image], verbose=0)
@@ -131,4 +140,4 @@ class RiderDetector:
         return boxes
 
     def is_pair(self, box1, box2):
-        return box1.id + box2.id == 3
+        return (box1['id'] + box2['id']) == 3

@@ -14,6 +14,7 @@ class VideoProcessing:
         self.progress_bar = progress_bar
         self.size = (800, 450)
         self.fps = 0
+        self.out = None
 
     def paint_boxes_into_video(self, video_path: str):
         self.process_frames(video_path, crop=False)
