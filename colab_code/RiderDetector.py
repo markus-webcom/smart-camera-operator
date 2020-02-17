@@ -32,13 +32,14 @@ class RiderDetector:
             return {"id": 1, "x1": 100, "x2": 200, "y1": 100, "y2": 200}
 
         pair_box = pair_boxes.pop(0)
-
+        """
         if self.target_descriptor is None:
             self.target_descriptor = self.get_descriptor(image, pair_box)
             self.target_box = pair_box
         else:
             pass
             # return self.find_target(image, pair_boxes)
+            """
         return pair_box
 
     def box_to_dict(self, box, class_id):
