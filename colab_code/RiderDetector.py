@@ -26,9 +26,10 @@ class RiderDetector:
     def getBox(self, image):
         boxes = self.extract_boxes(image)
         pair_boxes = self.get_rider_pairs(boxes, image)
+        height, width, channels = image.shape
 
         if len(pair_boxes) == 0:
-            return self.target_box if self.target_box is not None else {"id": 1, "x1": 100, "x2": 200, "y1": 100, "y2": 200}
+            return self.target_box if self.target_box is not None else {"id": 1, "x1": 0, "x2": width, "y1": 0, "y2": height}
 
         if self.target_box is None:
             box = pair_boxes[0]

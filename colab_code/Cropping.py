@@ -51,8 +51,8 @@ class Cropping:
 
         TotalYPixels = Y2 - Y1  # Total amount of pixels of the bounding box in Y direction
         TotalXPixels = X2 - X1
-        TotalYPixels = 1.2 * TotalYPixels
-        TotalXPixels = 1.2 * TotalXPixels
+        TotalYPixels = 1.5 * TotalYPixels
+        TotalXPixels = 1.5 * TotalXPixels
 
         if (TotalXPixels > TotalYPixels):
             if TotalXPixels < 480: TotalXPixels = 480
