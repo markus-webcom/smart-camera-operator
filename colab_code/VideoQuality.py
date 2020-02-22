@@ -1,4 +1,7 @@
 from scipy.ndimage import gaussian_filter1d
+from colab_code.BoundingBox import BoundingBox
+
+
 class VideoQuality:
     # get last bbox if none found in current frame
     def fill_missing_bboxes(self, bboxes):
@@ -10,7 +13,7 @@ class VideoQuality:
     # calculate bbox by last 2 frames
     def calculate_missing_bbox_last_frames(self, bboxes):
         if bboxes.empty():
-            return self.make_bbox(-1, -1, -1, -1, 0)
+            return BoundingBox(-1, -1, -1, -1, 0)
         if bboxes.qsize() == 1:
             return bboxes.get()
         while bboxes.qsize() > 2:
@@ -23,28 +26,20 @@ class VideoQuality:
         return box
 
     def mean_boxes(self, first, second):
-        x1 = int((first["x1"] + second["x1"]) / 2)
-        x2 = int((first["x2"] + second["x2"]) / 2)
-        y1 = int((first["y1"] + second["y1"]) / 2)
-        y2 = int((first["y2"] + second["y2"]) / 2)
-        return self.make_bbox(x1, x2, y1, y2, 0)
-
-    def make_bbox(self, x1, x2, y1, y2, class_id):
-        b = {"id": class_id, "x1": x1, "x2": x2, "y1": y1, "y2": y2}
-        return b
+        x1 = int((first.getX1() + second.getX1()) / 2)
+        x2 = int((first.getX2() + second.getX2()) / 2)
+        y1 = int((first.getY1() + second.getY1()) / 2)
+        y2 = int((first.getY2() + second.getY2()) / 2)
+        return BoundingBox(x1, x2, y1, y2, 0)
 
     def smooth_boxes(self, boxes: list):
         sigma = 5
-        gaussX1 = gaussian_filter1d([int(box['x1']) for box in boxes], sigma)
-        gaussX2 = gaussian_filter1d([int(box['x2']) for box in boxes], sigma)
-        gaussY1 = gaussian_filter1d([int(box['y1']) for box in boxes], sigma)
-        gaussY2 = gaussian_filter1d([int(box['y2']) for box in boxes], sigma)
+        gaussX1 = gaussian_filter1d([int(box.getX1()) for box in boxes], sigma)
+        gaussX2 = gaussian_filter1d([int(box.getX2()) for box in boxes], sigma)
+        gaussY1 = gaussian_filter1d([int(box.getY1()) for box in boxes], sigma)
+        gaussY2 = gaussian_filter1d([int(box.getY2()) for box in boxes], sigma)
 
         for i in range(0, len(boxes)):
-            boxes[i] = {
-                'x1': gaussX1[i],
-                'x2': gaussX2[i],
-                'y1': gaussY1[i],
-                'y2': gaussY2[i]
-            }
+            class_id = boxes[i].getClassId()
+            boxes[i] = BoundingBox(gaussX1[i], gaussX2[i], gaussY1[i], gaussY2[i], class_id)
         return boxes

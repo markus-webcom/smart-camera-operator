@@ -1,3 +1,6 @@
+from colab_code.BoundingBox import BoundingBox
+
+
 # Cutting of frames according to the rider
 class Cropping:
     def __init__(self):
@@ -17,45 +20,46 @@ class Cropping:
 
     # create big bounding box by using max and min values for edges
     def filter_boxes(self, frame, box_list):
-
-        # collect all x, y values
-        X1arr = []
-        Y1arr = []
-        X2arr = []
-        Y2arr = []
-
-        for j in box_list:
-            X1arr.append(j["x1"])
-            Y1arr.append(j["y1"])
-            X2arr.append(j["x2"])
-            Y2arr.append(j["y2"])
-
-        # case no boxes are found
-        if (len(X1arr) == 0):
-            calculated_box = {"id": 0, "x1": -1, "x2": -1, "y1": -1, "y2": -1, "frame": frame}
+        if len(box_list) == 0:
+            height = frame.shape[0]
+            width = frame.shape[1]
+            calculated_box = BoundingBox(0, height, 0, width, 0)
         else:
+            # collect all x, y values
+            X1arr = list()
+            Y1arr = list()
+            X2arr = list()
+            Y2arr = list()
+
+            for j in box_list:
+                X1arr.append(j.getX1())
+                Y1arr.append(j.getY1())
+                X2arr.append(j.getX2())
+                Y2arr.append(j.getY2())
+
             X1 = min(X1arr)
             Y1 = min(Y1arr)
             X2 = max(X2arr)
             Y2 = max(Y2arr)
-            calculated_box = {"id": 0, "x1": X1, "x2": X2, "y1": Y1, "y2": Y2, "frame": frame}
-
+            calculated_box = BoundingBox(X1, X2, Y1, Y2, 0)
         return calculated_box
 
-    # consider borders and ratio of frames for cropping
+        # consider borders and ratio of frames for cropping
+
     def calculate_box(self, box, sizeX, sizeY, img):
-        X1 = box["x1"]
-        Y1 = box["y1"]
-        X2 = box["x2"]
-        Y2 = box["y2"]
+        X1 = box.getX1()
+        Y1 = box.getY1()
+        X2 = box.getX2()
+        Y2 = box.getY2()
 
         TotalYPixels = Y2 - Y1  # Total amount of pixels of the bounding box in Y direction
         TotalXPixels = X2 - X1
-        TotalYPixels = 1.2 * TotalYPixels
-        TotalXPixels = 1.2 * TotalXPixels
+        TotalYPixels = 1.5 * TotalYPixels
+        TotalXPixels = 1.5 * TotalXPixels
 
-        if (TotalXPixels > TotalYPixels):
-            if TotalXPixels < 480: TotalXPixels = 480
+        if TotalXPixels > TotalYPixels:
+            if TotalXPixels < 480:
+                TotalXPixels = 480
             XRatio = sizeX / TotalXPixels
             YRatio = sizeY / XRatio
             TotalYPixels = YRatio  # Total amount of pixel of the bounding box in X direction
@@ -92,19 +96,14 @@ class Cropping:
         CropX2 = int(CropX2)
         CropY1 = int(CropY1)
         CropY2 = int(CropY2)
-        box = self.make_bbox(CropX1, CropX2, CropY1, CropY2, box["id"])
-        return box
+        return BoundingBox(CropX1, CropX2, CropY1, CropY2, 0)
 
     # crop picture by x,y values
-    def crop_image(self, box, img):
-        X1 = box["x1"]
-        Y1 = box["y1"]
-        X2 = box["x2"]
-        Y2 = box["y2"]
-        if X1 != img.shape[1] and Y1 != img.shape[0]:
-            img = img[Y1:Y2, X1:X2]
-        return img
 
-    def make_bbox(self, x1, x2, y1, y2, class_id):
-        b = {"id": class_id, "x1": x1, "x2": x2, "y1": y1, "y2": y2}
-        return b
+    def crop_image(self, box, img):
+        X1 = box.getX1()
+        Y1 = box.getY1()
+        X2 = box.getX2()
+        Y2 = box.getY2()
+        img = img[Y1:Y2, X1:X2]
+        return img

@@ -30,6 +30,7 @@ class VideoProcessing:
             frames = self.crop_frames(frames, boxes) if crop else self.draw_boxes(frames, boxes)
             self.write(frames)
             frames = self.get_frames()
+            print(len(frames))
 
         self.shutdown()
 
@@ -72,7 +73,7 @@ class VideoProcessing:
     def get_frames(self):
         success, img = self.video.read()
         frames = []
-        number = 10
+        number = 50
 
         while success and (number > 0):
             frames.append(img)
@@ -84,6 +85,8 @@ class VideoProcessing:
 
     def init(self, video_path):
         self.video = cv2.VideoCapture(video_path)
+        length = int(self.video.get(cv2.CAP_PROP_FRAME_COUNT))
+        print(length)
         self.out = self.get_out_object()
 
     def get_out_object(self):

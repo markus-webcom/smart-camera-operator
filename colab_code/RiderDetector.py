@@ -3,6 +3,7 @@ import cv2
 from mrcnn.model import MaskRCNN
 from colab_code.RiderConfig import RiderConfig
 from colab_code.Cropping import Cropping
+from colab_code.BoundingBox import BoundingBox
 
 
 class RiderDetector:
@@ -29,7 +30,7 @@ class RiderDetector:
         pair_boxes = self.get_rider_pairs(boxes, image)
 
         if len(pair_boxes) == 0:
-            return {"id": 1, "x1": 100, "x2": 200, "y1": 100, "y2": 200}
+            return BoundingBox(100, 200, 100, 200, 1)
 
         pair_box = pair_boxes.pop(0)
         """
@@ -42,37 +43,8 @@ class RiderDetector:
             """
         return pair_box
 
-    def box_to_dict(self, box, class_id):
-        return {"id": class_id, "x1": box[1], "x2": box[3], "y1": box[0], "y2": box[2]}
-
-    def upscale_bbox(self, bbox, scale):
-        x1 = bbox["x1"] * scale
-        x2 = bbox["x2"] * scale
-        y1 = bbox["y1"] * scale
-        y2 = bbox["y2"] * scale
-        class_id = bbox["id"]
-        b = {"id": class_id, "x1": x1, "x2": x2, "y1": y1, "y2": y2}
-        return b
-
-    def upscale_bboxes_list(self, bbox_list, scale):
-        upscaled_bboxes = list()
-        for i in bbox_list:
-            upscaled_bboxes.append(self.upscale_bbox(i, scale))
-        return upscaled_bboxes
-
-    # only for debugging
-    def drawBox(self, image, box):
-        # cv2 colors are in BGR instead of RGB
-        colors = {0: (0, 255, 2550), 1: (0, 0, 255), 2: (255, 255, 0), 3: (255, 0, 0)}
-        y1 = int(box['y1'])
-        x1 = int(box['x1'])
-        y2 = int(box['y2'])
-        x2 = int(box['x2'])
-        class_id = int(box['id'])
-
-        image = cv2.rectangle(image, (x1, y1), (x2, y2), colors[class_id], 2)
-
-        return image
+    def box_to_BBox(self, box, class_id):
+        return BoundingBox(box[1], box[3], box[0], box[2], class_id)
 
     def get_descriptor(self, image, box):
         cropped = self.cropper.crop_image(box, image)
@@ -108,8 +80,8 @@ class RiderDetector:
         return found
 
     def do_overlap(self, box1, box2):
-        width = self.calc_intersection(box1['x1'], box1['x2'], box2['x1'], box2['x2'])
-        height = self.calc_intersection(box1['y1'], box1['y2'], box2['y1'], box2['y2'])
+        width = self.calc_intersection(box1.getX1(), box1.getX2(), box2.getX1(), box2.getX2())
+        height = self.calc_intersection(box1.getY1(), box1.getY2(), box2.getY1(), box2.getY2())
 
         return (width * height) > 0
 
@@ -135,10 +107,10 @@ class RiderDetector:
 
         boxes = []
         for i in range(0, len(class_ids)):
-            box = self.box_to_dict(rois[i], class_ids[i])
+            box = self.box_to_BBox(rois[i], class_ids[i])
             boxes.append(box)
 
         return boxes
 
     def is_pair(self, box1, box2):
-        return (box1['id'] + box2['id']) == 3
+        return (box1.getClassId() + box2.getClassId()) == 3
