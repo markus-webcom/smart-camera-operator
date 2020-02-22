@@ -12,7 +12,7 @@ class VideoProcessing:
         self.cropper = Cropping()
         self.videoQuality = VideoQuality()
         self.progress_bar = progress_bar
-        self.size = (800, 450)
+        self.size = (1920, 1080)
         self.fps = 0
         self.out = None
         self.video = None
@@ -21,16 +21,37 @@ class VideoProcessing:
         self.process_frames(video_path, crop=False)
 
     def process_frames(self, video_path: str, crop: bool = True):
-        self.init(video_path)
+        boxes = self.get_boxes_and_smooth(video_path)
+        self.process_and_write(video_path, boxes, crop)
 
+    def get_boxes_and_smooth(self, video_path: str) -> list:
+        self.init(video_path)
         frames = self.get_frames()
+        boxes = []
         while len(frames) > 0:
-            boxes = self.extract_boxes(frames)
-            boxes = self.videoQuality.smooth_boxes(boxes)
-            frames = self.crop_frames(frames, boxes) if crop else self.draw_boxes(frames, boxes)
+            next_boxes = self.extract_boxes(frames)
+            for box in next_boxes:
+                boxes.append(box)
+
+            del frames
+            frames = self.get_frames()
+        self.shutdown()
+
+        return self.videoQuality.smooth_boxes(boxes)
+
+    def process_and_write(self, video_path: str, boxes: list, crop):
+        self.init(video_path)
+        frames = self.get_frames()
+        i = 0
+        print(len(boxes))
+        while len(frames) > 0:
+            next_boxes = boxes[i:(i+len(frames) - 1)]
+            frames = self.crop_frames(frames, next_boxes) if crop else self.draw_boxes(frames, boxes)
             self.write(frames)
+            del frames
             frames = self.get_frames()
             print(len(frames))
+            i += len(frames)
 
         self.shutdown()
 
@@ -75,6 +96,7 @@ class VideoProcessing:
         frames = []
         number = 50
 
+
         while success and (number > 0):
             frames.append(img)
             success, img = self.video.read()
@@ -98,4 +120,3 @@ class VideoProcessing:
     def shutdown(self):
         self.video.release()
         self.out.release()
-
