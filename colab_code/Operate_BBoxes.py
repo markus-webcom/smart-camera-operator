@@ -8,6 +8,7 @@ class Operate_BBoxes:
         for i in bbox_list:
             i.scale_bbox(scale)
 
+
     # calculate linear boxes between two bounding boxes
     def bbox_mean(self, first_box, second_box, number_boxes_between):
         # Points from boxes

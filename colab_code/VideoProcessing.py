@@ -3,6 +3,7 @@ from tqdm import tnrange
 from colab_code.Cropping import Cropping
 from colab_code.RiderDetector import RiderDetector
 from colab_code.VideoQuality import VideoQuality
+from colab_code.Operate_BBoxes import Operate_BBoxes
 
 
 class VideoProcessing:
@@ -10,6 +11,7 @@ class VideoProcessing:
     def __init__(self, path_weights, progress_bar=None):
         self.detector = RiderDetector(path_weights)
         self.cropper = Cropping()
+        self.bboxOp = Operate_BBoxes()
         self.videoQuality = VideoQuality()
         self.progress_bar = progress_bar
         self.size = (1920, 1080)
@@ -45,7 +47,7 @@ class VideoProcessing:
         i = 0
         print(len(boxes))
         while len(frames) > 0:
-            next_boxes = boxes[i:(i+len(frames) - 1)]
+            next_boxes = boxes[i:(i + len(frames) - 1)]
             frames = self.crop_frames(frames, next_boxes) if crop else self.draw_boxes(frames, boxes)
             self.write(frames)
             del frames
@@ -59,15 +61,18 @@ class VideoProcessing:
         return cv2.resize(frame, (0, 0), fx=scale, fy=scale)
 
     def extract_boxes(self, frames) -> list:
-        downscale_factor = 1
+        downscale_factor = 0.5
+        upscale_factor = 1.0 / downscale_factor
         boxes = []
 
         for i in range(0, len(frames)):
+            print(i)
             if self.progress_bar is not None:
                 self.progress_bar.setValue((i / len(frames)) * 100)
 
             downsize_img = self.downscale_frame(frames[i], downscale_factor)
             boxes.append(self.detector.getBox(downsize_img))
+        self.bboxOp.scale_bboxes_list(boxes, upscale_factor)
 
         return boxes
 
@@ -95,7 +100,6 @@ class VideoProcessing:
         success, img = self.video.read()
         frames = []
         number = 50
-
 
         while success and (number > 0):
             frames.append(img)
