@@ -4,25 +4,28 @@ from colab_code.Cropping import Cropping
 from colab_code.RiderDetector import RiderDetector
 from colab_code.VideoQuality import VideoQuality
 from colab_code.Operate_BBoxes import Operate_BBoxes
-
+from PyQt5.QtWidgets import QApplication
 
 class VideoProcessing:
 
-    def __init__(self, path_weights, progress_bar=None):
+    def __init__(self, path_weights):
         self.detector = RiderDetector(path_weights)
         self.cropper = Cropping()
         self.bboxOp = Operate_BBoxes()
         self.videoQuality = VideoQuality()
-        self.progress_bar = progress_bar
-        self.size = (1920, 1080)
+        self.progress_bar = None
+        self.size = None
         self.fps = 0
         self.out = None
         self.video = None
 
-    def paint_boxes_into_video(self, video_path: str):
-        self.process_frames(video_path, crop=False)
+    def paint_boxes_into_video(self, video_path: str,ratio_x,ratio_y, progress_bar=None):
+        self.process_frames(video_path,ratio_x,ratio_y, False,progress_bar)
 
-    def process_frames(self, video_path: str, crop: bool = True):
+    def process_frames(self, video_path: str,ratio_x,ratio_y, crop: bool = True, progress_bar=None):
+        print(ratio_y,ratio_x)
+        self.size=(ratio_y, ratio_x)
+        self.progress_bar=progress_bar
         boxes = self.get_boxes_and_smooth(video_path)
         self.process_and_write(video_path, boxes, crop)
 
@@ -68,7 +71,8 @@ class VideoProcessing:
         for i in range(0, len(frames)):
             print(i)
             if self.progress_bar is not None:
-                self.progress_bar.setValue((i / len(frames)) * 100)
+                self.progress_bar.setValue(i + 1)
+                QApplication.processEvents()
 
             downsize_img = self.downscale_frame(frames[i], downscale_factor)
             boxes.append(self.detector.getBox(downsize_img))
@@ -113,12 +117,17 @@ class VideoProcessing:
         self.video = cv2.VideoCapture(video_path)
         length = int(self.video.get(cv2.CAP_PROP_FRAME_COUNT))
         print(length)
+        if self.progress_bar is not None:
+            self.progress_bar.setMaximum(length)
+            self.progress_bar.setValue(0)
+            self.progress_bar.setVisible(True)
         self.out = self.get_out_object()
 
     def get_out_object(self):
         self.fps = self.video.get(cv2.CAP_PROP_FPS)
         fourcc = cv2.VideoWriter_fourcc(*"mp4v")
         filename = 'result.mp4'
+        print(self.size)
         return cv2.VideoWriter(filename, fourcc, self.fps, self.size)
 
     def shutdown(self):

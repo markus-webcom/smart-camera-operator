@@ -38,16 +38,14 @@ class BoundingBox:
         start_point = (int(self.getX1()), int(self.getY1()))
         end_point = (int(self.getX2()), int(self.getY2()))
         pixelsum = image.shape[0] + image.shape[1]
-        line_thickness = 1
-        """
 
+        line_thickness = 1
         if(pixelsum>1000):
             line_thickness=5
         elif(pixelsum>1500):
             line_thickness=8
         elif(pixelsum>2000):
             line_thickness=12
-        """
 
         img = cv2.rectangle(image, start_point, end_point, colors[self.getClassId()], line_thickness)
         return img
