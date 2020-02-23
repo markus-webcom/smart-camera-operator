@@ -23,7 +23,6 @@ class VideoProcessing:
         self.process_frames(video_path,ratio_x,ratio_y, False,progress_bar)
 
     def process_frames(self, video_path: str,ratio_x,ratio_y, crop: bool = True, progress_bar=None):
-        print(ratio_y,ratio_x)
         self.size=(ratio_y, ratio_x)
         self.progress_bar=progress_bar
         boxes = self.get_boxes_and_smooth(video_path)
@@ -55,7 +54,6 @@ class VideoProcessing:
             self.write(frames)
             del frames
             frames = self.get_frames()
-            print(len(frames))
             i += len(frames)
 
         self.shutdown()
@@ -69,7 +67,6 @@ class VideoProcessing:
         boxes = []
 
         for i in range(0, len(frames)):
-            print(i)
             if self.progress_bar is not None:
                 self.progress_bar.setValue(i + 1)
                 QApplication.processEvents()
@@ -92,7 +89,7 @@ class VideoProcessing:
         frames_with_boxes = []
 
         for i in range(0, len(boxes)):
-            frames_with_boxes.append(self.detector.drawBox(frames[i], boxes[i]))
+            frames_with_boxes.append(boxes[i].drawBBox(frames[i]))
 
         return frames_with_boxes
 
@@ -127,7 +124,6 @@ class VideoProcessing:
         self.fps = self.video.get(cv2.CAP_PROP_FPS)
         fourcc = cv2.VideoWriter_fourcc(*"mp4v")
         filename = 'result.mp4'
-        print(self.size)
         return cv2.VideoWriter(filename, fourcc, self.fps, self.size)
 
     def shutdown(self):

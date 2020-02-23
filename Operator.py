@@ -100,11 +100,11 @@ class Operator:
         print(output_y,output_x)
         self.processing.process_frames(video_path,output_x, output_y, progress_bar=progressBar )
 
-    """
-    def convertQuickVideo(self, video_path, progressBar, output_x, output_y):
+
+    def drawBoxVideo(self, video_path, progressBar, output_x, output_y):
         progressBar.setVisible(True)
-        self.processing.process_frames_faster(video_path, progressBar, output_x, output_y)
-    """
+        self.processing.paint_boxes_into_video(video_path,output_x, output_y, progress_bar=progressBar )
+
 
     def getNthFrameFromVideo(self, video_path, frame_number):
         cap = cv2.VideoCapture(video_path)

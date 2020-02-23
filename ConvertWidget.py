@@ -19,7 +19,7 @@ class ConvertWidget(QWidget):
         self.selectedRatioY = 0
 
         self.ConvertPreciseBTN = QPushButton('Convert precise for each frame', self)
-        # self.ConvertQuickBTN = QPushButton('Convert with interpolation', self)
+        self.DrawBoxBTN = QPushButton('Draw Boxes in Video', self)
         self.ChooseFileBTN = QPushButton('Choose Video File', self)
         self.returnStartBTN = QPushButton('Startpage', self)
 
@@ -35,7 +35,7 @@ class ConvertWidget(QWidget):
 
         self.ConvertPreciseBTN.clicked.connect(self.convertPreciseClicked)
         self.ChooseFileBTN.clicked.connect(self.chooseFileClicked)
-        # self.ConvertQuickBTN.clicked.connect(self.convertQuickClicked)
+        self.DrawBoxBTN.clicked.connect(self.drawBoxesClicked)
 
         # progress bar
         self.progressBar = QProgressBar()
@@ -61,7 +61,7 @@ class ConvertWidget(QWidget):
         layout.addLayout(hbox3)
 
         layout.addWidget(self.ConvertPreciseBTN)
-        #layout.addWidget(self.ConvertQuickBTN)
+        layout.addWidget(self.DrawBoxBTN)
         layout.addWidget(self.progressBar)
         layout.addLayout(hbox)
 
@@ -75,12 +75,10 @@ class ConvertWidget(QWidget):
     def setOperator(self, new_operator):
         self.operator = new_operator
 
-    """
-    def convertQuickClicked(self):
+    def drawBoxesClicked(self):
         if self.inputFile is not None:
-            self.operator.convertQuickVideo(self.inputFile, self.progressBar, self.selectedRatioX, self.selectedRatioY)
+            self.operator.drawBoxVideo(self.inputFile, self.progressBar, self.selectedRatioX, self.selectedRatioY)
             self.progressBar.hide()
-    """
 
     def convertPreciseClicked(self):
         if self.inputFile is not None:
@@ -95,13 +93,11 @@ class ConvertWidget(QWidget):
         currentRatio = currentRatio.split(':')
         self.selectedRatioX = int(currentRatio[0])
         self.selectedRatioY = int(currentRatio[1])
-        #print(self.selectedRatioX, self.selectedRatioY)
 
     def onChangedCBox(self, text):
         currentRatio = text.split(':')
         self.selectedRatioX = int(currentRatio[0])
         self.selectedRatioY = int(currentRatio[1])
-        #print(self.selectedRatioX, self.selectedRatioY)
 
     def setInputRatio(self):
         vcap = cv2.VideoCapture(self.inputFile)
