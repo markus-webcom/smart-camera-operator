@@ -18,6 +18,7 @@ class VideoProcessing:
         self.fps = 0
         self.out = None
         self.video = None
+        self.frame_counter=0
 
     def paint_boxes_into_video(self, video_path: str,ratio_x,ratio_y, progress_bar=None):
         self.process_frames(video_path,ratio_x,ratio_y, False,progress_bar)
@@ -47,7 +48,7 @@ class VideoProcessing:
         self.init(video_path)
         frames = self.get_frames()
         i = 0
-        print(len(boxes))
+
         while len(frames) > 0:
             next_boxes = boxes[i:(i + len(frames) - 1)]
             frames = self.crop_frames(frames, next_boxes) if crop else self.draw_boxes(frames, boxes)
@@ -68,7 +69,8 @@ class VideoProcessing:
 
         for i in range(0, len(frames)):
             if self.progress_bar is not None:
-                self.progress_bar.setValue(i + 1)
+                self.frame_counter +=1
+                self.progress_bar.setValue(self.frame_counter)
                 QApplication.processEvents()
 
             downsize_img = self.downscale_frame(frames[i], downscale_factor)
@@ -100,7 +102,7 @@ class VideoProcessing:
     def get_frames(self):
         success, img = self.video.read()
         frames = []
-        number = 50
+        number = 10
 
         while success and (number > 0):
             frames.append(img)
@@ -113,7 +115,8 @@ class VideoProcessing:
     def init(self, video_path):
         self.video = cv2.VideoCapture(video_path)
         length = int(self.video.get(cv2.CAP_PROP_FRAME_COUNT))
-        print(length)
+        self.frame_counter = 0
+        print('Number of frames:',length)
         if self.progress_bar is not None:
             self.progress_bar.setMaximum(length)
             self.progress_bar.setValue(0)
