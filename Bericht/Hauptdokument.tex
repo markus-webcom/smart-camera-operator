@@ -1,0 +1,166 @@
+%---------------------------------------------------------------------------
+%
+%                          Vorlage der Arbeitsgruppe
+%             Computer Vision and Pattern Recognition Group (CVPR)
+%                           der Universität Münster
+%                         http://cvpr.uni-muenster.de
+%
+%---------------------------------------------------------------------------
+% Geeignet für:
+%  - Seminararbeiten
+%  - Bachelorarbeiten
+%  - Masterarbeiten
+%---------------------------------------------------------------------------
+% Autoren:
+%  - Daniel Tenbrinck
+%  - Fabian Gigengack
+%  - Michael Schmeing
+%  - Lucas Franek
+%  - Andreas Nienkötter
+%---------------------------------------------------------------------------
+% Version:
+%  - 1.0.3 (05.10.2016)
+%	 - Ersetzung von veralteten Befehlen durch Aktuelle
+%	 - Einige ausführlichere Beispiele
+%    - Einführung von listings
+%    - Aktuelle Version der Eidesstattlichen Erklärung
+%  - 1.0.2 (09.09.2011)
+%    - Titelblatt um Matrikelnummer und Studiengang ergänzt
+%  - 1.0.1 (05.07.2011)
+%---------------------------------------------------------------------------
+% 
+% "THE BEER-WARE LICENSE" (Revision 42):
+% The above mentioned authors wrote this file. As long as you retain this
+% notice you can do whatever you want with this stuff. If we meet some day,
+% and you think this stuff is worth it, you can buy us a beer in return.
+%  --------------------------------------------------------------------------
+
+\documentclass[a4paper, oneside,openany, 12pt, ngerman, listof=nochaptergap, bibliography=totoc,
+,listof=totoc,listof=entryprefix,]{scrbook} % Layout-Einstellungen für das Dokument
+%openany -> keine leeren Seiten nach chapter
+
+\usepackage[utf8]{inputenc} % UTF-8 Codierung
+\usepackage[ngerman]{babel} % Deutsche Beschriftung
+
+\usepackage{graphicx} % Um Bilder einzufügen
+%\usepackage{subfigure} % Um mehrere Bilder in eine figure einzufügen
+
+\usepackage{verbatim} % Um Quellcode in das Dokument einzufügen.
+\usepackage{xcolor} % Für Farben
+\usepackage[linkbordercolor=blue]{hyperref} % Für Links im Dokument
+\usepackage{algorithmic} % Für Pseudo-Code
+\usepackage{algorithm} % Wrapper für Pseudo-Code
+\usepackage[font={small}, labelfont=bf]{caption} % kleine Bildunterschriften
+\usepackage{subcaption}
+
+
+%\usepackage{subfig}
+%\captionsetup[subfloat]{position=top,
+%  farskip=10pt,topadjust=0pt,captionskip=10pt,
+%  nearskip=10pt,margin=10pt}
+
+%\setcounter{lofdepth}{2}
+
+\usepackage{geometry} % Für Feinanpassungen des Layouts
+
+\usepackage{listings} % Für Code-Listings
+\renewcommand{\lstlistingname}{Quelltext} %Ändert die Überschrift von Listing nach Quelltext
+
+%Ergänzungen
+\usepackage{todonotes}
+
+\usepackage{comment}
+\usepackage{amsthm}
+
+% Einstellungen für Abstand an den Rändern
+\geometry{a4paper,left=35mm,right=35mm,top=20mm,bottom=20mm, includeheadfoot}
+
+%Abkürzungen
+\usepackage{acronym}
+
+
+%Verzeichnisse in Inhaltsverzeichnis
+%\usepackage[nottoc]{tocbibind}
+
+%Zähler abbildungen
+\usepackage{chngcntr}
+\counterwithout{figure}{chapter}
+
+\usepackage{multicol}
+
+
+\usepackage{enumitem} 
+%\usepackage{abstract}
+
+\renewcaptionname{ngerman}{\figurename}{Abb.}
+
+%\BeforeStartingTOC[lof]{\def\autodot{:}}
+%\BeforeStartingTOC[lot]{\def\autodot{:}}
+
+\usepackage[strings]{underscore}
+\newenvironment{abstract}{%
+  \begin{center}\normalfont\usekomafont{disposition}Abstract\end{center}%
+}{%
+  \par
+  \vfil\null% X
+  \endtitlepage% X
+}
+
+\begin{document}
+%Einrückungen verhindern
+\setlength{\parindent}{0em} 
+\pagenumbering{roman}
+
+% Titelblatt
+\begin{titlepage}
+\include{chapter/Titelblatt}
+\end{titlepage}
+
+
+% Inhaltsverzeichnis
+\tableofcontents
+
+\cleardoublepage
+
+
+\newpage
+
+
+\pagenumbering{arabic}
+\mainmatter
+% Die Hauptkapitel der Arbeit
+\include{chapter/Einleitung}
+
+\include{chapter/Entwurfsentscheidungen }
+
+\include{chapter/Anwendungsaufbau}
+
+
+\include{chapter/Implementierung}
+
+\include{chapter/Ergebnis}
+
+
+\include{chapter/Zusammenfassung}
+
+\appendix
+%\addcontentsline{toc}{chapter}{Appendix}
+%\addtocontents{toc}{\protect\contentsline{chapter}{Appendix:}{}}
+\chapter{Videos Ergebnisse}
+\chapter{Videos Siegerehrung}
+
+
+
+
+% Literaturverzeichnis
+\bibliographystyle{unsrtdin}
+
+\bibliography{Quellen}
+
+
+
+
+% Eidesstattliche Erklärung
+%\include{chapter/EidesstattlicheErklaerung}
+
+\end{document}

@@ -1,0 +1,27 @@
+\chapter{Implementierung}
+\label{ch:implementierung}
+
+\section{Phase 1}
+
+\section{Phase 2}
+\subsection{Training des Model}
+Bevor wir mit dem Training des Detektors angefangen haben, mussten wir uns anhand einiger Tutorials die Verwendung von Mask Rcnn anlesen und an einigen Beispielen testen. 
+
+Im ersten Schritt haben wir die bereitgestellten Daten aus der Datenbank von Phase 1 aufbereitet, um diese zum Training zu verwenden. Dazu haben wir die Datenbank aufgeteilt, sodass pro Frame eine csv Datei mit allen Labeln im Format \dq image,label,x,y,width,height\dq existierte. Da jeder Frame mehrfach gelabelt wurde, haben wir mithilfe von Schwellwerten die zusammengehörigen Dopplungen bestimmt und davon den durchschnittlichen Wert abgespeichert. Anschließend haben wir die hohe Auflösung der Frames verringert, um die Trainingszeit zu verringern. Zuletzt haben wir die Daten in einer passenden Ordnerstruktur von \dq accepted_images\dq und dem darin liegenden Ordner \dq annotations\dq in ein Github Projekt eingebunden, sodass das Training von Google Colab aus erfolgen kann.
+
+Im zweiten Schritt haben wir die benötigten Klassen zum Training erstellt. Dazu wurde die Klasse RiderConfig als Unterklasse der Config Klasse von Mask Rcnn erstellt, in der die Parameter individuell angepasst wurden. Wichtig war die Anzahl der zu detektierenden Klassen, die neben Reiter und Pferd auch den Hintergrund umfasst. Zudem wurde die Leistung der verfügbaren GPU angepasst sowie die Trainings- und Validierungsschritte pro Epoche. 
+Weiter wurde die Klasse RiderDataset als Unterklasse der Dataset Klasse von Mask Rcnn erstellt. In dieser wurden die nötigen Funktionen zum Laden des Datensatzes in Trainings und Test Modus, zum Laden der Masken und extrahieren der Boxen anhand von Eckpunkten aus den cvs Dateien überschrieben.
+
+Damit konnten wir im dritten Schritt das Model trainieren, wozu wir aufbauend auf den MS COCO Gewichten mittels Transfer Lernen Zeit sparen konnten. Für das Training haben wir den Datensatz in 70\% Trainings-,15 \% Test- und 15\% Validierungsdaten unterteilt. Die erste Version unseres Detektors haben wir mit 75 Epochen mit 500 Schritten trainiert, bis der Verlust pro Epoche sehr gering wurde.
+\todo{genauer}
+
+\subsection{Extraktion der Rois}
+\subsection{weiters Labeln}
+
+
+\section{Phase 3}
+\subsection{GUI}
+\subsection{weiteres Training des Model}
+\subsection{Reiterpaar}
+\subsection{Sprünge/Verschwinden}
+\subsection{Verdecken}
