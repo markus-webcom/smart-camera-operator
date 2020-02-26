@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/W32TeX) (preloaded format=pdflatex 2019.4.6)  25 FEB 2020 23:48
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/W32TeX) (preloaded format=pdflatex 2019.4.6)  26 FEB 2020 23:49
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -1035,46 +1035,47 @@ chapter 3.
 
  (./chapter/Implementierung.tex
 chapter 4.
+[7
+
+
+
+]
 Package hyperref Info: bookmark level for unknown todo defaults to 0 on input l
-ine 16.
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 22.
-(c:/texlive/2018/texmf-dist/tex/latex/base/omscmr.fd
+ine 17.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 23.
+ (c:/texlive/2018/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 22.
- [7
-
-
-
-]) [8]
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 23.
+) [8] [9]
 \openout2 = `chapter/Ergebnis.aux'.
 
 
 (./chapter/Ergebnis.tex
 chapter 5.
-[9
+[10
 
 
 
-]) [10]
+]) [11]
 \openout2 = `chapter/Zusammenfassung.aux'.
 
  (./chapter/Zusammenfassung.tex
 chapter 6.
-) [11
+) [12
 
 
 
 ]
 chapter A.
-[12
+[13
 
 
 ]
 chapter B.
 No file Hauptdokument.bbl.
-[13
+[14
 
 ]
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 166.
@@ -1087,12 +1088,16 @@ Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 166.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 166.
 Package rerunfilecheck Info: File `Hauptdokument.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 166.
  ) 
 Here is how much of TeX's memory you used:
- 23208 strings out of 492616
- 431001 string characters out of 6132769
- 649755 words of memory out of 5000000
+ 23209 strings out of 492616
+ 431008 string characters out of 6132769
+ 647755 words of memory out of 5000000
  26624 multiletter control sequences out of 15000+600000
  9115 words of font info for 32 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -1102,10 +1107,10 @@ live/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><c:/texlive/2018/
 texmf-dist/fonts/type1/public/amsfonts/cm/cmsl12.pfb><c:/texlive/2018/texmf-dis
 t/fonts/type1/public/amsfonts/cm/cmssbx10.pfb><c:/texlive/2018/texmf-dist/fonts
 /type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on Hauptdokument.pdf (16 pages, 95197 bytes).
+Output written on Hauptdokument.pdf (17 pages, 95921 bytes).
 PDF statistics:
- 329 PDF objects out of 1000 (max. 8388607)
- 286 compressed objects within 3 object streams
- 56 named destinations out of 1000 (max. 500000)
+ 333 PDF objects out of 1000 (max. 8388607)
+ 289 compressed objects within 3 object streams
+ 57 named destinations out of 1000 (max. 500000)
  410 words of extra memory for PDF output out of 10000 (max. 10000000)
 

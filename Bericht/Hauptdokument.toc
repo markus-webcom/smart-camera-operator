@@ -21,18 +21,18 @@
 \contentsline {section}{\numberline {4.2}Phase 2}{7}{section.4.2}% 
 \contentsline {subsection}{\numberline {4.2.1}Training des Model}{7}{subsection.4.2.1}% 
 \contentsline {subsection}{\numberline {4.2.2}Extraktion der Rois}{8}{subsection.4.2.2}% 
-\contentsline {subsection}{\numberline {4.2.3}weiters Labeln}{8}{subsection.4.2.3}% 
-\contentsline {section}{\numberline {4.3}Phase 3}{8}{section.4.3}% 
-\contentsline {subsection}{\numberline {4.3.1}GUI}{8}{subsection.4.3.1}% 
-\contentsline {subsection}{\numberline {4.3.2}weiteres Training des Model}{8}{subsection.4.3.2}% 
-\contentsline {subsection}{\numberline {4.3.3}Reiterpaar}{8}{subsection.4.3.3}% 
-\contentsline {subsection}{\numberline {4.3.4}Spr\IeC {\"u}nge/Verschwinden}{8}{subsection.4.3.4}% 
-\contentsline {subsection}{\numberline {4.3.5}Verdecken}{8}{subsection.4.3.5}% 
-\contentsline {chapter}{\numberline {5}Ergebnisauswertung}{9}{chapter.5}% 
-\contentsline {section}{\numberline {5.1}Planung}{9}{section.5.1}% 
-\contentsline {section}{\numberline {5.2}Umsetzung GUI}{10}{section.5.2}% 
-\contentsline {section}{\numberline {5.3}Umsetzung Detektor}{10}{section.5.3}% 
-\contentsline {section}{\numberline {5.4}Umsetzung Tracker}{10}{section.5.4}% 
-\contentsline {chapter}{\numberline {6}Schlussfolgerung und Ausblick}{11}{chapter.6}% 
-\contentsline {chapter}{\numberline {A}Videos Ergebnisse}{12}{appendix.A}% 
-\contentsline {chapter}{\numberline {B}Videos Siegerehrung}{13}{appendix.B}% 
+\contentsline {subsection}{\numberline {4.2.3}weiters Labeln}{9}{subsection.4.2.3}% 
+\contentsline {section}{\numberline {4.3}Phase 3}{9}{section.4.3}% 
+\contentsline {subsection}{\numberline {4.3.1}GUI}{9}{subsection.4.3.1}% 
+\contentsline {subsection}{\numberline {4.3.2}weiteres Training des Model}{9}{subsection.4.3.2}% 
+\contentsline {subsection}{\numberline {4.3.3}Reiterpaar}{9}{subsection.4.3.3}% 
+\contentsline {subsection}{\numberline {4.3.4}Spr\IeC {\"u}nge/Verschwinden}{9}{subsection.4.3.4}% 
+\contentsline {subsection}{\numberline {4.3.5}Verdecken}{9}{subsection.4.3.5}% 
+\contentsline {chapter}{\numberline {5}Ergebnisauswertung}{10}{chapter.5}% 
+\contentsline {section}{\numberline {5.1}Planung}{10}{section.5.1}% 
+\contentsline {section}{\numberline {5.2}Umsetzung GUI}{11}{section.5.2}% 
+\contentsline {section}{\numberline {5.3}Umsetzung Detektor}{11}{section.5.3}% 
+\contentsline {section}{\numberline {5.4}Umsetzung Tracker}{11}{section.5.4}% 
+\contentsline {chapter}{\numberline {6}Schlussfolgerung und Ausblick}{12}{chapter.6}% 
+\contentsline {chapter}{\numberline {A}Videos Ergebnisse}{13}{appendix.A}% 
+\contentsline {chapter}{\numberline {B}Videos Siegerehrung}{14}{appendix.B}% 
