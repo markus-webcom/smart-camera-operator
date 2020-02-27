@@ -2,25 +2,90 @@
 \label{ch:anwendungsaufbau}
 
 \section{Klassendiagramm}
-\section{Designpattern}
-MVC und Observer in GUI
-\section{GUI}
-QT5
-Design css stylesheet
 \section{Videopipeline}
-Downsize Frames für schnellere Detektion
 
-Detect BBoxes per Frame
 
-Berechne Reiterpaar
 
-Berechne Randfälle und Ratio für Bildformat
+\begin{tikzpicture}[>=stealth,shorten >=1pt,auto,node distance=1cm,scale=1, transform shape,align=center,minimum size=7em,text width=6em,line width=0.14 em,rounded corners]
 
-Smooth BBoxes
+    \node[draw,fill=lightgray,fill opacity=0.3,text opacity=1] (A) at (0,0) 
+    {Eingabevideo};
+    \node[draw,right =of A,fill=lightgray,fill opacity=0.3,text opacity=1] (B) 
+    {Extraktion der Frames};
+    \node[draw,right =of B,fill=lightgray,fill opacity=0.3,text opacity=1] (C)
+    {Detektion der Bounding Boxen von Reitern und Pferden};
+    \node[draw,right =of C,fill=lightgray,fill opacity=0.3,text opacity=1] (D) 
+    {Berechnung der Gesamtbox aller Detektionen};
+    \node[draw, below =of D,fill=lightgray,fill opacity=0.3,text opacity=1] (E) 
+    {Ratio der Box anpassen};
+    \node[draw, below =of C,fill=lightgray,fill opacity=0.3,text opacity=1] (F) 
+    {Sonderfälle am  Bildrand beachten} ;
+    \node[draw, below =of B,fill=lightgray,fill opacity=0.3,text opacity=1] (G) 
+    {Zuschneiden der Frames} ;
+    \node[draw, below =of A,fill=lightgray,fill opacity=0.3,text opacity=1] (H)  
+    {Ausgabevideo} ;
 
-Schneide Rois anhand der BBoxen aus den Frames aus
+    \path [->] (A) edge node[left] {} (B);
+    \path [->](B) edge node[left] {} (C);
+    \path [->](C) edge node[left] {} (D);
+    \path [->](D) edge node[left] {} (E);
+    \path [->](E) edge node[right] {} (F);
+    \path [->](F) edge node[left] {} (G);
+    \path [->](G) edge node[below] {} (H);   
+\end{tikzpicture}
 
+
+
+\begin{tikzpicture}[>=stealth,shorten >=1pt,auto,node distance=1cm,scale=1, transform shape,align=center,,minimum size=7em,text width=6em,line width=0.14 em,rounded corners]
+
+    \node[draw,fill=lightgray,fill opacity=0.3,text opacity=1] (A) at (0,0) 
+    {Eingabevideo};
+    \node[draw,right =of A,fill=lightgray,fill opacity=0.3,text opacity=1] (B) 
+    {Extraktion der Frames};
+    \node[draw,right =of B,fill=lightgray,fill opacity=0.3,text opacity=1] (C)
+    {Verkleinern der Frames};
+    \node[draw,right =of C,fill=lightgray,fill opacity=0.3,text opacity=1] (D)
+    {Detektion der Bounding Boxen von Reitern und Pferden};
+	%second row
+	\node[draw,below =of D,fill=lightgray,fill opacity=0.3,text opacity=1] (E)
+    {Vergrößern der detektierten Boxen};    
+    \node[draw,below =of C,fill=lightgray,fill opacity=0.3,text opacity=1] (F) 
+    {Berechnung der der Boxen von Reiterpaaren};
+    \node[draw,below =of B,fill=lightgray,fill opacity=0.3,text opacity=1] (G)
+    {Auswahl und Tracken eines Reiterpaares};
+    \node[draw, below =of A,fill=lightgray,fill opacity=0.3,text opacity=1] (H) 
+    {Ratio der Box anpassen};
+    %third row
+    \node[draw, below =of H,fill=lightgray,fill opacity=0.3,text opacity=1] (I) 
+    {Sonderfälle am  Bildrand beachten} ;
+    \node[draw,below =of G,fill=lightgray,fill opacity=0.3,text opacity=1] (J)
+    {Glätten aller Boxen};
+    \node[draw, below =of F,fill=lightgray,fill opacity=0.3,text opacity=1] (K) 
+    {Zuschneiden der Frames} ;
+    \node[draw,below =of E,fill=lightgray,fill opacity=0.3,text opacity=1] (L)
+    {Einfügen der Audiospur};
+    \node[draw, below =of L,fill=lightgray,fill opacity=0.3,text opacity=1] (M)  
+    {Ausgabevideo} ;
+
+    \path [->] (A) edge node[left] {} (B);
+    \path [->](B) edge node[left] {} (C);
+    \path [->](C) edge node[left] {} (D);
+    \path [->](D) edge node[left] {} (E);
+    \path [->](E) edge node[right] {} (F);
+    \path [->](F) edge node[left] {} (G);
+    \path [->](G) edge node[below] {} (H);   
+    \path [->](H) edge node[below] {} (I);   
+    \path [->](I) edge node[below] {} (J);   
+    \path [->](J) edge node[below] {} (K);   
+    \path [->](K) edge node[below] {} (L);   
+    \path [->](L) edge node[below] {} (M);   
+\end{tikzpicture}
 
 \section{Zustandautomat}
+
+\section{GUI}
+QT5
+MVC und Observer in GUI
+Design css stylesheet
 
 

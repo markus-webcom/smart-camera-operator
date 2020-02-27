@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/W32TeX) (preloaded format=pdflatex 2019.4.6)  27 FEB 2020 15:42
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/W32TeX) (preloaded format=pdflatex 2019.4.6)  27 FEB 2020 22:47
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -825,39 +825,101 @@ Package: enumitem 2019/02/04 v3.8 Customized lists
 Package: underscore 2006/09/13
 LaTeX Info: Redefining \_ on input line 42.
 )
-(./Hauptdokument.aux (./chapter/Titelblatt.aux) (./chapter/Einleitung.aux)
+(c:/texlive/2018/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzli
+braryautomata.code.tex
+File: tikzlibraryautomata.code.tex 2019/02/02 v3.1.1 (3.1.1)
+
+(c:/texlive/2018/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzli
+braryshapes.multipart.code.tex
+File: tikzlibraryshapes.multipart.code.tex 2019/02/02 v3.1.1 (3.1.1)
+
+(c:/texlive/2018/texmf-dist/tex/generic/pgf/libraries/shapes/pgflibraryshapes.m
+ultipart.code.tex
+File: pgflibraryshapes.multipart.code.tex 2019/02/02 v3.1.1 (3.1.1)
+\pgfnodepartlowerbox=\box71
+\pgfnodeparttwobox=\box72
+\pgfnodepartthreebox=\box73
+\pgfnodepartfourbox=\box74
+\pgfnodeparttwentybox=\box75
+\pgfnodepartnineteenbox=\box76
+\pgfnodeparteighteenbox=\box77
+\pgfnodepartseventeenbox=\box78
+\pgfnodepartsixteenbox=\box79
+\pgfnodepartfifteenbox=\box80
+\pgfnodepartfourteenbox=\box81
+\pgfnodepartthirteenbox=\box82
+\pgfnodeparttwelvebox=\box83
+\pgfnodepartelevenbox=\box84
+\pgfnodeparttenbox=\box85
+\pgfnodepartninebox=\box86
+\pgfnodeparteightbox=\box87
+\pgfnodepartsevenbox=\box88
+\pgfnodepartsixbox=\box89
+\pgfnodepartfivebox=\box90
+)))
+(c:/texlive/2018/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzli
+brarytrees.code.tex
+File: tikzlibrarytrees.code.tex 2019/02/02 v3.1.1 (3.1.1)
+)
+(c:/texlive/2018/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzli
+brarydecorations.markings.code.tex
+(c:/texlive/2018/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzli
+brarydecorations.code.tex
+(c:/texlive/2018/texmf-dist/tex/generic/pgf/modules/pgfmoduledecorations.code.t
+ex
+\pgfdecoratedcompleteddistance=\dimen187
+\pgfdecoratedremainingdistance=\dimen188
+\pgfdecoratedinputsegmentcompleteddistance=\dimen189
+\pgfdecoratedinputsegmentremainingdistance=\dimen190
+\pgf@decorate@distancetomove=\dimen191
+\pgf@decorate@repeatstate=\count161
+\pgfdecorationsegmentamplitude=\dimen192
+\pgfdecorationsegmentlength=\dimen193
+)
+\tikz@lib@dec@box=\box91
+)
+(c:/texlive/2018/texmf-dist/tex/generic/pgf/libraries/decorations/pgflibrarydec
+orations.markings.code.tex))
+(c:/texlive/2018/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzli
+braryarrows.code.tex
+File: tikzlibraryarrows.code.tex 2019/02/02 v3.1.1 (3.1.1)
+
+(c:/texlive/2018/texmf-dist/tex/generic/pgf/libraries/pgflibraryarrows.code.tex
+File: pgflibraryarrows.code.tex 2019/02/02 v3.1.1 (3.1.1)
+\arrowsize=\dimen194
+)) (./Hauptdokument.aux (./chapter/Titelblatt.aux) (./chapter/Einleitung.aux)
 (./chapter/Entwurfsentscheidungen.aux) (./chapter/Anwendungsaufbau.aux)
 (./chapter/Implementierung.aux) (./chapter/Ergebnis.aux)
 (./chapter/Zusammenfassung.aux))
 \openout1 = `Hauptdokument.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 109.
-LaTeX Font Info:    ... okay on input line 109.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 109.
-LaTeX Font Info:    ... okay on input line 109.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 109.
-LaTeX Font Info:    ... okay on input line 109.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 109.
-LaTeX Font Info:    ... okay on input line 109.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 109.
-LaTeX Font Info:    ... okay on input line 109.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 109.
-LaTeX Font Info:    ... okay on input line 109.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 109.
-LaTeX Font Info:    ... okay on input line 109.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 108.
+LaTeX Font Info:    ... okay on input line 108.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 108.
+LaTeX Font Info:    ... okay on input line 108.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 108.
+LaTeX Font Info:    ... okay on input line 108.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 108.
+LaTeX Font Info:    ... okay on input line 108.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 108.
+LaTeX Font Info:    ... okay on input line 108.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 108.
+LaTeX Font Info:    ... okay on input line 108.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 108.
+LaTeX Font Info:    ... okay on input line 108.
 
 (c:/texlive/2018/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count161
-\scratchdimen=\dimen187
-\scratchbox=\box71
-\nofMPsegments=\count162
-\nofMParguments=\count163
+\scratchcounter=\count162
+\scratchdimen=\dimen195
+\scratchbox=\box92
+\nofMPsegments=\count163
+\nofMParguments=\count164
 \everyMPshowfont=\toks46
-\MPscratchCnt=\count164
-\MPscratchDim=\dimen188
-\MPnumerator=\count165
-\makeMPintoPDFobject=\count166
+\MPscratchCnt=\count165
+\MPscratchDim=\dimen196
+\MPnumerator=\count166
+\makeMPintoPDFobject=\count167
 \everyMPtoPDFconversion=\toks47
 ) (c:/texlive/2018/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
 Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
@@ -876,8 +938,8 @@ G,.JBIG2,.JB2,.eps]
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-\AtBeginShipoutBox=\box72
-Package hyperref Info: Link coloring OFF on input line 109.
+\AtBeginShipoutBox=\box93
+Package hyperref Info: Link coloring OFF on input line 108.
 
 (c:/texlive/2018/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
@@ -885,11 +947,11 @@ Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
 (c:/texlive/2018/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
 Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
-\c@section@level=\count167
+\c@section@level=\count168
 )
-LaTeX Info: Redefining \ref on input line 109.
-LaTeX Info: Redefining \pageref on input line 109.
-LaTeX Info: Redefining \nameref on input line 109.
+LaTeX Info: Redefining \ref on input line 108.
+LaTeX Info: Redefining \pageref on input line 108.
+LaTeX Info: Redefining \nameref on input line 108.
 
 (./Hauptdokument.out) (./Hauptdokument.out)
 \@outlinefile=\write5
@@ -901,7 +963,7 @@ Class scrbook Info: loading recommended package `bookmark'.
 (scrbook)           You can avoid loading `bookmark' with KOMA-Script option
 (scrbook)           `bookmarkpackage=false' before \begin{document} and
 (scrbook)           you can avoid this message with `\usepackage{bookmark}'
-(scrbook)           before \begin{document} on input line 109.
+(scrbook)           before \begin{document} on input line 108.
 
 (c:/texlive/2018/texmf-dist/tex/latex/oberdiek/bookmark.sty
 Package: bookmark 2016/05/17 v1.26 PDF bookmarks (HO)
@@ -911,7 +973,7 @@ File: bkm-pdftex.def 2016/05/17 v1.26 bookmark driver for pdfTeX (HO)
 Package auxhook Info: \AddLineBeginMainAux comes a little late,
 (auxhook)             because the main .aux file is already opened on input lin
 e 164.
-\BKM@id=\count168
+\BKM@id=\count169
 ))
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: listings package is loaded.
@@ -951,15 +1013,15 @@ Package caption Info: End \AtBeginDocument code.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-\c@lstlisting=\count169
+\c@lstlisting=\count170
 ABD: EveryShipout initializing macros
 
 Package todonotes Warning: The length marginparwidth is less than 2cm and will 
 most likely cause issues with the appearance of inserted todonotes. The issue c
 an be solved by adding a line like \setlength {\marginparwidth }{2cm} prior to 
-loading the todonotes package. on input line 109.
+loading the todonotes package. on input line 108.
 
-Package scrbase Info: activating ngerman \figurename on input line 109.
+Package scrbase Info: activating ngerman \figurename on input line 108.
 \openout2 = `chapter/Titelblatt.aux'.
 
 (./chapter/Titelblatt.tex
@@ -1007,7 +1069,7 @@ Overfull \hbox (16.64267pt too wide) in paragraph at lines 21--23
  []
 
 )
-Overfull \hbox (2.41975pt too wide) in paragraph at lines 27--132
+Overfull \hbox (2.41975pt too wide) in paragraph at lines 27--131
 \OT1/cmr/m/n/12 In Ka-pi-tel 2 ge-hen wir auf die grund-le-gen-den Ent-wurfs-en
 t-schei-dun-gen bez[]uglich
  []
@@ -1026,18 +1088,28 @@ chapter 2.
 
  (./chapter/Anwendungsaufbau.tex
 chapter 3.
-) [6
+
+Overfull \hbox (22.59605pt too wide) in paragraph at lines 35--36
+[] 
+ []
+
+
+Overfull \hbox (22.59605pt too wide) in paragraph at lines 82--83
+[][] 
+ []
+
+[6
 
 
 
-]
+]) [7]
 \openout2 = `chapter/Implementierung.aux'.
 
  (./chapter/Implementierung.tex
 chapter 4.
 Package hyperref Info: bookmark level for unknown todo defaults to 0 on input l
 ine 11.
-[7
+[8
 
 
 
@@ -1058,64 +1130,64 @@ Overfull \hbox (19.03764pt too wide) in paragraph at lines 27--27
 [][]\OT1/cmr/m/n/12 Reiterpaare  
  []
 
-) [8] [9]
+) [9] [10]
 \openout2 = `chapter/Ergebnis.aux'.
 
  (./chapter/Ergebnis.tex
 chapter 5.
-[10
+[11
 
 
 
-]) [11]
+]) [12]
 \openout2 = `chapter/Zusammenfassung.aux'.
 
  (./chapter/Zusammenfassung.tex
 chapter 6.
-) [12
+) [13
 
 
 
 ]
 chapter A.
-[13
+[14
 
 
 ]
 chapter B.
 No file Hauptdokument.bbl.
-[14
+[15
 
 ]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 166.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 166.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 165.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 165.
  (./Hauptdokument.aux (./chapter/Titelblatt.aux) (./chapter/Einleitung.aux) (./
 chapter/Entwurfsentscheidungen.aux) (./chapter/Anwendungsaufbau.aux)
 (./chapter/Implementierung.aux) (./chapter/Ergebnis.aux)
 (./chapter/Zusammenfassung.aux))
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 166.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 166.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 165.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 165.
 Package rerunfilecheck Info: File `Hauptdokument.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 166.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 165.
  ) 
 Here is how much of TeX's memory you used:
- 23225 strings out of 492616
- 431375 string characters out of 6132769
- 650755 words of memory out of 5000000
- 26639 multiletter control sequences out of 15000+600000
+ 24882 strings out of 492616
+ 482989 string characters out of 6132769
+ 703678 words of memory out of 5000000
+ 28264 multiletter control sequences out of 15000+600000
  9115 words of font info for 32 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 73i,9n,85p,9092b,944s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 73i,9n,85p,9092b,952s stack positions out of 5000i,500n,10000p,200000b,80000s
 <c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/tex
 live/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><c:/texlive/2018/
 texmf-dist/fonts/type1/public/amsfonts/cm/cmsl12.pfb><c:/texlive/2018/texmf-dis
 t/fonts/type1/public/amsfonts/cm/cmssbx10.pfb><c:/texlive/2018/texmf-dist/fonts
 /type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on Hauptdokument.pdf (17 pages, 96428 bytes).
+Output written on Hauptdokument.pdf (18 pages, 100850 bytes).
 PDF statistics:
- 330 PDF objects out of 1000 (max. 8388607)
- 286 compressed objects within 3 object streams
+ 329 PDF objects out of 1000 (max. 8388607)
+ 284 compressed objects within 3 object streams
  58 named destinations out of 1000 (max. 500000)
- 402 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 394 words of extra memory for PDF output out of 10000 (max. 10000000)
 
