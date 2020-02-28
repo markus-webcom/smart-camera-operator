@@ -50,7 +50,7 @@
 \usepackage[linkbordercolor=blue]{hyperref} % Für Links im Dokument
 \usepackage{algorithmic} % Für Pseudo-Code
 \usepackage{algorithm} % Wrapper für Pseudo-Code
-\usepackage[skip=2pt,font={small}, labelfont=bf]{caption} % kleine Bildunterschriften
+\usepackage[font={small}, labelfont=bf]{caption} % kleine Bildunterschriften
 %\setlength{\abovecaptionskip}{1pc}  % 1pc=12pt
 %\setlength{\belowcaptionskip}{1pc}
 \usepackage{subcaption}
@@ -87,13 +87,14 @@
 \usepackage{multicol}
 
 
+\usepackage[titletoc]{appendix}
+\usepackage{titlesec}
+
+
 \usepackage{enumitem} 
-%\usepackage{abstract}
 
 \renewcaptionname{ngerman}{\figurename}{Abb.}
 
-%\BeforeStartingTOC[lof]{\def\autodot{:}}
-%\BeforeStartingTOC[lot]{\def\autodot{:}}
 
 \usepackage[strings]{underscore}
 \newenvironment{abstract}{%
@@ -110,13 +111,13 @@
 \begin{document}
 %Einrückungen verhindern
 \setlength{\parindent}{0em} 
-\pagenumbering{roman}
+
 
 % Titelblatt
 \begin{titlepage}
 \include{chapter/Titelblatt}
 \end{titlepage}
-
+\pagenumbering{roman}
 
 % Inhaltsverzeichnis
 \tableofcontents
@@ -144,14 +145,13 @@
 
 \include{chapter/Zusammenfassung}
 
-\appendix
-%\addcontentsline{toc}{chapter}{Appendix}
-%\addtocontents{toc}{\protect\contentsline{chapter}{Appendix:}{}}
-\chapter{Videos Ergebnisse}
-\chapter{Videos Siegerehrung}
+\begin{appendices}
+\chapter{Videos}
+\section{Ergebnisse}
+\section{Siegerehrung}
+\end{appendices}
 
-
-
+\backmatter
 
 % Literaturverzeichnis
 \bibliographystyle{unsrtdin}
