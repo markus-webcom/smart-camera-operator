@@ -14,7 +14,9 @@ Gui nutzt das Designpattern des Model View Controller: Controller MainWindow?, M
 
 \begin{figure}[h]
 \centering
+\resizebox{.9\linewidth}{!}{
 \begin{tikzpicture}[>=stealth,shorten >=1pt,auto,node distance=1cm,scale=1, transform shape,align=center,minimum size=7em,text width=6em,line width=0.14 em,rounded corners]
+
 
     \node[draw,fill=lightgray,fill opacity=0.3,text opacity=1] (A) at (0,0) 
     {Eingabevideo};
@@ -41,6 +43,7 @@ Gui nutzt das Designpattern des Model View Controller: Controller MainWindow?, M
     \path [->](F) edge node[left] {} (G);
     \path [->](G) edge node[below] {} (H);   
 \end{tikzpicture}
+}
 \vspace*{-1cm}
 \caption{Video-Pipeline Phase 2}
 \end{figure}
@@ -50,6 +53,7 @@ Diese Video-Pipeline konnten wir dann in der dritten Phase um weiter Aspekte erw
 
 \begin{figure}[h]
 \centering
+\resizebox{.9\linewidth}{!}{
 \begin{tikzpicture}[>=stealth,shorten >=1pt,auto,node distance=1cm,scale=1, transform shape,align=center,,minimum size=7em,text width=6em,line width=0.14 em,rounded corners]
 
     \node[draw,fill=lightgray,fill opacity=0.3,text opacity=1] (A) at (0,0) 
@@ -94,6 +98,7 @@ Diese Video-Pipeline konnten wir dann in der dritten Phase um weiter Aspekte erw
     \path [->](K) edge node[below] {} (L);   
     \path [->](L) edge node[below] {} (M);   
 \end{tikzpicture}
+}
 \caption{Video-Pipeline Phase 3}
 \end{figure}
 
