@@ -39,8 +39,17 @@ Anschließend haben wir die hohe Auflösung der Frames verringert, um die Traini
 Im zweiten Schritt haben wir die benötigten Klassen zum Training erstellt. Dazu wurde die Klasse RiderConfig als Unterklasse der Config Klasse von Mask Rcnn erstellt, in der die Parameter individuell angepasst wurden. Wichtig war die Anzahl der zu detektierenden Klassen, die neben Reiter und Pferd auch den Hintergrund umfasst. Zudem wurde die Leistung der verfügbaren GPU angepasst sowie die Trainings- und Validierungsschritte pro Epoche. 
 Weiter wurde die Klasse RiderDataset als Unterklasse der Dataset Klasse von Mask Rcnn erstellt. In dieser wurden die nötigen Funktionen zum Laden des Datensatzes in Trainings und Test Modus, zum Laden der Masken und extrahieren der Boxen anhand von Eckpunkten aus den cvs Dateien überschrieben.
 
-Damit konnten wir im dritten Schritt das Model trainieren, wozu wir aufbauend auf den MS COCO Gewichten mittels Transfer Lernen Zeit sparen konnten. Für das Training haben wir den Datensatz in 70\% Trainings-,15 \% Test- und 15\% Validierungsdaten unterteilt. Die erste Version unseres Detektors haben wir mit 75 Epochen mit 500 Schritten trainiert, bis der Verlust pro Epoche sehr gering wurde.
-\todo{genauer}
+Damit konnten wir im dritten Schritt mit dem Training des Models beginnen konnten, wozu wir aufbauend auf den MS COCO Gewichten Transfer Lernen genutzt haben. Für das Training haben wir den Datensatz in 70\% Trainings-,15 \% Test- und 15\% Validierungsdaten unterteilt. Die erste Version unseres Detektors haben wir mit 75 Epochen mit 500 Schritten trainiert, bis der Verlust pro Epoche sehr gering wurde. Die damit erreichte Leistung unseres Detektors war für die bereitgestellten Videos ausreichend zuverlässig(siehe \ref{fig:SegmentierungPhase2}), sodass wir danach mit diesem die ersten Videos erstellen konnten  .
+\todo{genauere Zahlen loss...}
+
+\begin{figure}
+\centering
+\includegraphics[height=4cm,trim={12cm 0 3cm 0},clip]{./img/IndoorMaske.png}
+\includegraphics[height=4cm,trim={15cm 0 0 0},clip]{./img/IndoorMaske2.png}
+\includegraphics[height=4cm,trim={1cm 0 3cm 0},clip]{./img/OutdoorMaske.png}
+\caption{Segmentierung von Reiter und Pferd nach dem Training der zweiten Phase}
+\label{fig:SegmentierungPhase2}
+\end{figure}
 
 Zur vielfältigen Nutzung des erstellten Detektors, haben wir das Training mit weiteren gelabelten Bilddaten ermöglicht, um den Detektor auch in anderen Hallen zuverlässiger verwenden zu können. Dazu werden die Bilder eines Ordners nacheinander angezeigt, wobei die detektierten Pferde und Reiter mit farbigen Bounding Boxen eingezeichnet werden. Anhand dieser Boxen kann der Nutzer entscheiden, ob die Daten geeignet sind, sodass die akzeptierten Bilder und deren Boxen wie in der Ordnerstruktur von \ref{fig:folderstructure} wiederum abgespeichert werden, um den Detektor damit weiter zu trainieren.
 

@@ -24,11 +24,11 @@
 \contentsline {section}{\numberline {4.1}Phase 1}{8}{section.4.1}% 
 \contentsline {section}{\numberline {4.2}Phase 2}{8}{section.4.2}% 
 \contentsline {section}{\numberline {4.3}Phase 3}{10}{section.4.3}% 
-\contentsline {chapter}{\numberline {5}Ergebnisauswertung}{11}{chapter.5}% 
-\contentsline {section}{\numberline {5.1}Planung}{11}{section.5.1}% 
-\contentsline {section}{\numberline {5.2}Umsetzung und Zielerreichung}{12}{section.5.2}% 
-\contentsline {section}{\numberline {5.3}Verbesserungen}{12}{section.5.3}% 
-\contentsline {chapter}{\numberline {6}Schlussfolgerung und Ausblick}{13}{chapter.6}% 
-\contentsline {chapter}{Anhang \numberline {A}Videos}{14}{Anhang.1.A}% 
-\contentsline {section}{\numberline {A.1}Ergebnisse}{14}{section.1.A.1}% 
-\contentsline {section}{\numberline {A.2}Siegerehrung}{14}{section.1.A.2}% 
+\contentsline {chapter}{\numberline {5}Ergebnisauswertung}{12}{chapter.5}% 
+\contentsline {section}{\numberline {5.1}Planung}{12}{section.5.1}% 
+\contentsline {section}{\numberline {5.2}Umsetzung und Zielerreichung}{13}{section.5.2}% 
+\contentsline {section}{\numberline {5.3}Verbesserungen}{13}{section.5.3}% 
+\contentsline {chapter}{\numberline {6}Schlussfolgerung und Ausblick}{14}{chapter.6}% 
+\contentsline {chapter}{Anhang \numberline {A}Videos}{15}{Anhang.1.A}% 
+\contentsline {section}{\numberline {A.1}Ergebnisse}{15}{section.1.A.1}% 
+\contentsline {section}{\numberline {A.2}Siegerehrung}{15}{section.1.A.2}% 

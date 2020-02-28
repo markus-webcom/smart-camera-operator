@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/W32TeX) (preloaded format=pdflatex 2019.4.6)  28 FEB 2020 21:28
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/W32TeX) (preloaded format=pdflatex 2019.4.6)  28 FEB 2020 22:36
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -1485,16 +1485,32 @@ Underfull \hbox (badness 10000) in paragraph at lines 33--33
 
 
 ]
-Overfull \hbox (19.03764pt too wide) in paragraph at lines 53--53
+<./img/IndoorMaske.png, id=140, 895.345pt x 501.875pt>
+File: ./img/IndoorMaske.png Graphic file (type png)
+<use ./img/IndoorMaske.png>
+Package pdftex.def Info: ./img/IndoorMaske.png  used on input line 47.
+(pdftex.def)             Requested size: 106.24937pt x 113.81102pt.
+<./img/IndoorMaske2.png, id=143, 894.34125pt x 500.87125pt>
+File: ./img/IndoorMaske2.png Graphic file (type png)
+<use ./img/IndoorMaske2.png>
+Package pdftex.def Info: ./img/IndoorMaske2.png  used on input line 48.
+(pdftex.def)             Requested size: 106.23578pt x 113.81102pt.
+<./img/OutdoorMaske.png, id=145, 861.2175pt x 576.1525pt>
+File: ./img/OutdoorMaske.png Graphic file (type png)
+<use ./img/OutdoorMaske.png>
+Package pdftex.def Info: ./img/OutdoorMaske.png  used on input line 49.
+(pdftex.def)             Requested size: 147.63112pt x 113.81102pt.
+ [9 <./img/IndoorMaske.png> <./img/IndoorMaske2.png> <./img/OutdoorMaske.png>]
+Overfull \hbox (19.03764pt too wide) in paragraph at lines 62--62
 [][]\OT1/cmr/m/n/12 Reiterpaare  
  []
 
 
-Overfull \hbox (19.03764pt too wide) in paragraph at lines 53--53
+Overfull \hbox (19.03764pt too wide) in paragraph at lines 62--62
 [][]\OT1/cmr/m/n/12 Reiterpaare  
  []
 
-[9]) [10]
+[10]) [11]
 \openout2 = `chapter/Ergebnis.aux'.
 
  (./chapter/Ergebnis.tex
@@ -1505,23 +1521,23 @@ File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 6.
- [11
+ [12
 
 
 
-]) [12]
+]) [13]
 \openout2 = `chapter/Zusammenfassung.aux'.
 
 
 (./chapter/Zusammenfassung.tex
 chapter 6.
-) [13
+) [14
 
 
 
 ]
 chapter A.
-[14
+[15
 
 
 ]
@@ -1536,13 +1552,17 @@ Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 209.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 209.
 Package rerunfilecheck Info: File `Hauptdokument.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 209.
  ) 
 Here is how much of TeX's memory you used:
- 45301 strings out of 492616
- 968142 string characters out of 6132769
+ 45320 strings out of 492616
+ 968558 string characters out of 6132769
  1155583 words of memory out of 5000000
- 48588 multiletter control sequences out of 15000+600000
+ 48601 multiletter control sequences out of 15000+600000
  538590 words of font info for 45 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  142i,11n,182p,9092b,1886s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1554,10 +1574,10 @@ pe1/public/amsfonts/cm/cmsl12.pfb><c:/texlive/2018/texmf-dist/fonts/type1/publi
 c/amsfonts/cm/cmssbx10.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfo
 nts/cm/cmsy10.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cm
 tt12.pfb>
-Output written on Hauptdokument.pdf (16 pages, 133334 bytes).
+Output written on Hauptdokument.pdf (17 pages, 2149632 bytes).
 PDF statistics:
- 278 PDF objects out of 1000 (max. 8388607)
- 230 compressed objects within 3 object streams
- 46 named destinations out of 1000 (max. 500000)
- 310 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 298 PDF objects out of 1000 (max. 8388607)
+ 240 compressed objects within 3 object streams
+ 48 named destinations out of 1000 (max. 500000)
+ 343 words of extra memory for PDF output out of 10000 (max. 10000000)
 
