@@ -2,10 +2,16 @@
 \label{ch:anwendungsaufbau}
 
 \section{Klassendiagramm}
-\section{Videopipeline}
 
 
+Schnittstelle zwischen Gui und Backend: Operator
+Gui nutzt das Designpattern des Model View Controller: Controller MainWindow?, Model= Backend, View= Widgets
 
+
+\section{Video-Pipeline}
+
+\begin{figure}[h]
+\centering
 \begin{tikzpicture}[>=stealth,shorten >=1pt,auto,node distance=1cm,scale=1, transform shape,align=center,minimum size=7em,text width=6em,line width=0.14 em,rounded corners]
 
     \node[draw,fill=lightgray,fill opacity=0.3,text opacity=1] (A) at (0,0) 
@@ -33,9 +39,15 @@
     \path [->](F) edge node[left] {} (G);
     \path [->](G) edge node[below] {} (H);   
 \end{tikzpicture}
+\vspace*{-1cm}
+\caption{Video-Pipeline Phase 2}
+\end{figure}
+Anhand der Ziele von den Phasen zwei haben wir die Vorgehensweise mit einer Video-Pipeline geplant, welche wir dann schrittweise mit sinnvoller Aufgabenteilung umsetzen konnten. Die erste Version umfasst dabei lediglich die grundlegenden Funktionen, die für das sinnvolle bestimmen der Rois nötige sind. So wird hier pro Frame eines Videos für alle Detektionen ein gemeinsamer Bildausschnitt berechnet und diese zu einem Ausgabevideo zusammengefügt.
+Diese Video-Pipeline konnten wir dann in der dritten Phase um weiter Aspekte erweitern, wobei diesmal der Fokus auf der Qualität des Ausgabevideos lag. Die Detektion konnte auf Frames mit geringerer Auflösung schneller durchgeführt werden, weshalb die Größe der gefundenen Boxen anschließen angepasst werden musste. Anstatt dem vorherigen Ansatz alle Reiter und Pferde zu verfolgen, wird nun ein einzelnes Reiterpaar ausgewählt. Die Qualität des Ausgabevideos wird durch weniger sprunghafte Unterschiede in der Größe der aufeinanderfolgen Rois verbessert, sodass der Bildfluss flüssiger wird. Zusätzlich wird nun auch die Audiodatei des Ursprungsvideos dem Ausgabevideo hinzugefügt.
 
 
-
+\begin{figure}[h]
+\centering
 \begin{tikzpicture}[>=stealth,shorten >=1pt,auto,node distance=1cm,scale=1, transform shape,align=center,,minimum size=7em,text width=6em,line width=0.14 em,rounded corners]
 
     \node[draw,fill=lightgray,fill opacity=0.3,text opacity=1] (A) at (0,0) 
@@ -80,12 +92,12 @@
     \path [->](K) edge node[below] {} (L);   
     \path [->](L) edge node[below] {} (M);   
 \end{tikzpicture}
+\caption{Video-Pipeline Phase 3}
+\end{figure}
 
 \section{Zustandautomat}
 
-\section{GUI}
-QT5
-MVC und Observer in GUI
-Design css stylesheet
+
+
 
 

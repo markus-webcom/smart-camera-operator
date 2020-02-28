@@ -11,17 +11,16 @@
 \contentsline {section}{\numberline {2.5}Maschine Learning}{5}{section.2.5}% 
 \contentsline {chapter}{\numberline {3}Anwendungsaufbau}{6}{chapter.3}% 
 \contentsline {section}{\numberline {3.1}Klassendiagramm}{6}{section.3.1}% 
-\contentsline {section}{\numberline {3.2}Videopipeline}{6}{section.3.2}% 
+\contentsline {section}{\numberline {3.2}Video-Pipeline}{6}{section.3.2}% 
 \contentsline {section}{\numberline {3.3}Zustandautomat}{7}{section.3.3}% 
-\contentsline {section}{\numberline {3.4}GUI}{7}{section.3.4}% 
 \contentsline {chapter}{\numberline {4}Implementierung}{8}{chapter.4}% 
 \contentsline {section}{\numberline {4.1}Phase 1}{8}{section.4.1}% 
 \contentsline {section}{\numberline {4.2}Phase 2}{8}{section.4.2}% 
 \contentsline {subsection}{\numberline {4.2.1}Training des Model}{8}{subsection.4.2.1}% 
 \contentsline {subsection}{\numberline {4.2.2}Extraktion der Rois}{9}{subsection.4.2.2}% 
 \contentsline {section}{\numberline {4.3}Phase 3}{10}{section.4.3}% 
-\contentsline {subsection}{\numberline {4.3.1}GUI}{10}{subsection.4.3.1}% 
-\contentsline {subsection}{\numberline {4.3.2}weiteres Training des Model}{10}{subsection.4.3.2}% 
+\contentsline {subsection}{\numberline {4.3.1}Weiterentwicklung des Detektors}{10}{subsection.4.3.1}% 
+\contentsline {subsection}{\numberline {4.3.2}Benutzeroberfl\IeC {\"a}che}{10}{subsection.4.3.2}% 
 \contentsline {subsection}{\numberline {4.3.3}Reiterpaar}{10}{subsection.4.3.3}% 
 \contentsline {subsection}{\numberline {4.3.4}Spr\IeC {\"u}nge/Verschwinden}{10}{subsection.4.3.4}% 
 \contentsline {subsection}{\numberline {4.3.5}Verdecken}{10}{subsection.4.3.5}% 

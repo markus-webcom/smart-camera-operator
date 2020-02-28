@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/W32TeX) (preloaded format=pdflatex 2019.4.6)  28 FEB 2020 15:58
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/W32TeX) (preloaded format=pdflatex 2019.4.6)  28 FEB 2020 18:24
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -893,20 +893,20 @@ File: pgflibraryarrows.code.tex 2019/02/02 v3.1.1 (3.1.1)
 (./chapter/Zusammenfassung.aux))
 \openout1 = `Hauptdokument.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 108.
-LaTeX Font Info:    ... okay on input line 108.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 108.
-LaTeX Font Info:    ... okay on input line 108.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 108.
-LaTeX Font Info:    ... okay on input line 108.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 108.
-LaTeX Font Info:    ... okay on input line 108.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 108.
-LaTeX Font Info:    ... okay on input line 108.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 108.
-LaTeX Font Info:    ... okay on input line 108.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 108.
-LaTeX Font Info:    ... okay on input line 108.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 110.
+LaTeX Font Info:    ... okay on input line 110.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 110.
+LaTeX Font Info:    ... okay on input line 110.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 110.
+LaTeX Font Info:    ... okay on input line 110.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 110.
+LaTeX Font Info:    ... okay on input line 110.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 110.
+LaTeX Font Info:    ... okay on input line 110.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 110.
+LaTeX Font Info:    ... okay on input line 110.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 110.
+LaTeX Font Info:    ... okay on input line 110.
 
 (c:/texlive/2018/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
@@ -939,7 +939,7 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
 \AtBeginShipoutBox=\box93
-Package hyperref Info: Link coloring OFF on input line 108.
+Package hyperref Info: Link coloring OFF on input line 110.
 
 (c:/texlive/2018/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
@@ -949,9 +949,9 @@ Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
 \c@section@level=\count168
 )
-LaTeX Info: Redefining \ref on input line 108.
-LaTeX Info: Redefining \pageref on input line 108.
-LaTeX Info: Redefining \nameref on input line 108.
+LaTeX Info: Redefining \ref on input line 110.
+LaTeX Info: Redefining \pageref on input line 110.
+LaTeX Info: Redefining \nameref on input line 110.
 
 (./Hauptdokument.out) (./Hauptdokument.out)
 \@outlinefile=\write5
@@ -963,7 +963,7 @@ Class scrbook Info: loading recommended package `bookmark'.
 (scrbook)           You can avoid loading `bookmark' with KOMA-Script option
 (scrbook)           `bookmarkpackage=false' before \begin{document} and
 (scrbook)           you can avoid this message with `\usepackage{bookmark}'
-(scrbook)           before \begin{document} on input line 108.
+(scrbook)           before \begin{document} on input line 110.
 
 (c:/texlive/2018/texmf-dist/tex/latex/oberdiek/bookmark.sty
 Package: bookmark 2016/05/17 v1.26 PDF bookmarks (HO)
@@ -1019,9 +1019,9 @@ ABD: EveryShipout initializing macros
 Package todonotes Warning: The length marginparwidth is less than 2cm and will 
 most likely cause issues with the appearance of inserted todonotes. The issue c
 an be solved by adding a line like \setlength {\marginparwidth }{2cm} prior to 
-loading the todonotes package. on input line 108.
+loading the todonotes package. on input line 110.
 
-Package scrbase Info: activating ngerman \figurename on input line 108.
+Package scrbase Info: activating ngerman \figurename on input line 110.
 \openout2 = `chapter/Titelblatt.aux'.
 
 (./chapter/Titelblatt.tex
@@ -1043,14 +1043,14 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <8> on input line 3.
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <6> on input line 3.
- [2
-
-
-])
+)
 \tf@toc=\write6
 \openout6 = `Hauptdokument.toc'.
 
- [3]
+ [2
+
+
+] [3]
 \openout2 = `chapter/Einleitung.aux'.
 
 
@@ -1069,7 +1069,7 @@ Overfull \hbox (16.64267pt too wide) in paragraph at lines 21--23
  []
 
 )
-Overfull \hbox (2.41975pt too wide) in paragraph at lines 27--131
+Overfull \hbox (2.41975pt too wide) in paragraph at lines 27--133
 \OT1/cmr/m/n/12 In Ka-pi-tel 2 ge-hen wir auf die grund-le-gen-den Ent-wurfs-en
 t-schei-dun-gen bez[]uglich
  []
@@ -1089,20 +1089,20 @@ chapter 2.
  (./chapter/Anwendungsaufbau.tex
 chapter 3.
 
-Overfull \hbox (22.59605pt too wide) in paragraph at lines 35--36
-[] 
- []
-
-
-Overfull \hbox (22.59605pt too wide) in paragraph at lines 82--83
-[][] 
+Overfull \hbox (22.59605pt too wide) in paragraph at lines 41--43
+ [][] 
  []
 
 [6
 
 
 
-]) [7]
+]
+Overfull \hbox (22.59605pt too wide) in paragraph at lines 94--95
+ [][] 
+ []
+
+) [7]
 \openout2 = `chapter/Implementierung.aux'.
 
  (./chapter/Implementierung.tex
@@ -1123,7 +1123,7 @@ Overfull \hbox (19.03764pt too wide) in paragraph at lines 29--29
 [][]\OT1/cmr/m/n/12 Reiterpaare  
  []
 
-) [9] [10]
+[9]) [10]
 \openout2 = `chapter/Ergebnis.aux'.
 
  (./chapter/Ergebnis.tex
@@ -1159,42 +1159,41 @@ No file Hauptdokument.bbl.
 [15
 
 ]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 165.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 165.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 167.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 167.
  (./Hauptdokument.aux (./chapter/Titelblatt.aux) (./chapter/Einleitung.aux) (./
 chapter/Entwurfsentscheidungen.aux) (./chapter/Anwendungsaufbau.aux)
 (./chapter/Implementierung.aux) (./chapter/Ergebnis.aux)
 (./chapter/Zusammenfassung.aux))
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 165.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 165.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 167.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 167.
 Package rerunfilecheck Info: File `Hauptdokument.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
 
 
 LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 165.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 167.
  ) 
 Here is how much of TeX's memory you used:
- 24881 strings out of 492616
- 482983 string characters out of 6132769
- 703678 words of memory out of 5000000
- 28263 multiletter control sequences out of 15000+600000
- 9115 words of font info for 32 fonts, out of 8000000 for 9000
+ 24896 strings out of 492616
+ 483194 string characters out of 6132769
+ 698687 words of memory out of 5000000
+ 28277 multiletter control sequences out of 15000+600000
+ 9723 words of font info for 34 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 73i,9n,85p,9092b,952s stack positions out of 5000i,500n,10000p,200000b,80000s
-pdfTeX warning (dest): name{subsection.4.2.3} has been referenced but does no
-t exist, replaced by a fixed one
-
-<c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/texli
-ve/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><c:/texlive/2018/te
-xmf-dist/fonts/type1/public/amsfonts/cm/cmsl12.pfb><c:/texlive/2018/texmf-dist/
-fonts/type1/public/amsfonts/cm/cmssbx10.pfb><c:/texlive/2018/texmf-dist/fonts/t
-ype1/public/amsfonts/cm/cmsy10.pfb>
-Output written on Hauptdokument.pdf (18 pages, 101149 bytes).
+ 73i,10n,85p,9092b,1064s stack positions out of 5000i,500n,10000p,200000b,80000s
+<c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><c:/tex
+live/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/texlive/2018
+/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2018/texmf-dis
+t/fonts/type1/public/amsfonts/cm/cmr12.pfb><c:/texlive/2018/texmf-dist/fonts/ty
+pe1/public/amsfonts/cm/cmsl12.pfb><c:/texlive/2018/texmf-dist/fonts/type1/publi
+c/amsfonts/cm/cmssbx10.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfo
+nts/cm/cmsy10.pfb>
+Output written on Hauptdokument.pdf (18 pages, 126395 bytes).
 PDF statistics:
- 326 PDF objects out of 1000 (max. 8388607)
- 281 compressed objects within 3 object streams
+ 329 PDF objects out of 1000 (max. 8388607)
+ 282 compressed objects within 3 object streams
  58 named destinations out of 1000 (max. 500000)
- 386 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 378 words of extra memory for PDF output out of 10000 (max. 10000000)
 
