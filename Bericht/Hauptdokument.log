@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/W32TeX) (preloaded format=pdflatex 2019.4.6)  28 FEB 2020 22:58
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/W32TeX) (preloaded format=pdflatex 2019.4.6)  1 MAR 2020 00:44
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -1524,7 +1524,7 @@ File: ./img/OutdoorMask2.png Graphic file (type png)
 <use ./img/OutdoorMask2.png>
 Package pdftex.def Info: ./img/OutdoorMask2.png  used on input line 74.
 (pdftex.def)             Requested size: 124.53963pt x 113.81102pt.
-
+[10 <./img/IndoorMask6.png> <./img/IndoorMask3.png> <./img/OutdoorMask2.png>]
 Overfull \hbox (19.00708pt too wide) in paragraph at lines 85--85
 [][]\OT1/cmr/m/n/12 Screenshots 
  []
@@ -1534,8 +1534,7 @@ Overfull \hbox (19.00708pt too wide) in paragraph at lines 85--85
 [][]\OT1/cmr/m/n/12 Screenshots 
  []
 
-[10 <./img/IndoorMask6.png> <./img/IndoorMask3.png> <./img/OutdoorMask2.png>])
-[11]
+[11]) [12]
 \openout2 = `chapter/Ergebnis.aux'.
 
  (./chapter/Ergebnis.tex
@@ -1546,23 +1545,23 @@ File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 6.
- [12
+ [13
 
 
 
-]) [13]
+]) [14]
 \openout2 = `chapter/Zusammenfassung.aux'.
 
 
 (./chapter/Zusammenfassung.tex
 chapter 6.
-) [14
+) [15
 
 
 
 ]
 chapter A.
-[15
+[16
 
 
 ]
@@ -1580,10 +1579,10 @@ Package rerunfilecheck Info: File `Hauptdokument.out' has not changed.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 209.
  ) 
 Here is how much of TeX's memory you used:
- 45346 strings out of 492616
- 969154 string characters out of 6132769
- 1161583 words of memory out of 5000000
- 48622 multiletter control sequences out of 15000+600000
+ 45354 strings out of 492616
+ 969254 string characters out of 6132769
+ 1161581 words of memory out of 5000000
+ 48629 multiletter control sequences out of 15000+600000
  538590 words of font info for 45 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  142i,12n,182p,9092b,1886s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1595,10 +1594,10 @@ pe1/public/amsfonts/cm/cmsl12.pfb><c:/texlive/2018/texmf-dist/fonts/type1/publi
 c/amsfonts/cm/cmssbx10.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfo
 nts/cm/cmsy10.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cm
 tt12.pfb>
-Output written on Hauptdokument.pdf (17 pages, 4504817 bytes).
+Output written on Hauptdokument.pdf (18 pages, 4508310 bytes).
 PDF statistics:
- 314 PDF objects out of 1000 (max. 8388607)
- 247 compressed objects within 3 object streams
- 50 named destinations out of 1000 (max. 500000)
+ 318 PDF objects out of 1000 (max. 8388607)
+ 250 compressed objects within 3 object streams
+ 51 named destinations out of 1000 (max. 500000)
  376 words of extra memory for PDF output out of 10000 (max. 10000000)
 
