@@ -8,6 +8,8 @@ Wie vorgesehen hat jedes Gruppenmitglied die Online-Platform von Rimondo genutzt
 \subsection*{Training des Model}
 Bevor wir mit dem Training des Detektors angefangen haben, mussten wir uns in die Thematik von Image Detection und in die Verwendung von Mask Rcnn einlesen und an diese an einigen Beispielen testen. 
 
+\todo{Masken Reiter Pferd Beispiel}
+
 
 Im ersten Schritt haben wir die bereitgestellten Daten aus der Datenbank von Phase 1 aufbereitet, um diese zum Training zu verwenden. Dazu haben wir die Datenbank aufgeteilt, sodass pro Frame eine csv Datei mit allen Labeln im Format \dq image,label,x,y,width,height\dq existierte. Da jeder Frame mehrfach gelabelt wurde, haben wir mithilfe von Schwellwerten die zusammengehörigen Dopplungen bestimmt und davon den durchschnittlichen Wert abgespeichert. 
 
@@ -57,6 +59,7 @@ Mithilfe von OpenCV werden alle Frames des Eingabevideos einzeln durchlaufen und
 Ausgehend von der Gesamt-Bounding-Box müssen für die Erstellung erster Videos noch nötige Sonderfälle beachtet werden. So wird der Zoom unter 480 Pixel verhindert, um eine gute Bildqualität zu ermöglichen. Die längere Seite der Bounding-Box ist ausschlaggebend für die Berechnung der passenden Ratio des Bildausschnittes, sodass dann die optimalen  Eckpunkte berechnet werden können. Wichtig ist es noch die Ränder eines Frames zu berücksichtigen und die Ratio entsprechend zu korrigieren.
 Im letzten Schritt werden die Rois mithilfe der kalkulierten Gesamtbox aus jedem Frame ausgeschnitten  . Nachdem alle Frames auf die gleiche Größe gebracht werden, was durch die gleiche Ratio aller Frames keine Verzerrung zur Folge hat, werden die Frames mit OpenCV in ein Ausgabevideo geschrieben.
 
+\todo{Reiterpaare}
 \subsection*{Reiterpaar Erkennung}
 
 
@@ -69,7 +72,7 @@ Im letzten Schritt werden die Rois mithilfe der kalkulierten Gesamtbox aus jedem
 \includegraphics[height=4cm,trim={6cm 0 6cm 0},clip]{./img/IndoorMask6.png}
 \includegraphics[height=4cm,trim={6cm 0 6cm 0},clip]{./img/IndoorMask3.png}
 \includegraphics[height=4cm,trim={6cm 0 6cm 0},clip]{./img/OutdoorMask2.png}
-\caption{Segmentierung von Reiter und Pferd nach dem Training der dritten Phase}
+\caption{Segmentierung von Reiter und Pferd nach dem Training der zweiten Phase}
 \label{fig:SegmentierungPhase3}
 \end{figure}
 
