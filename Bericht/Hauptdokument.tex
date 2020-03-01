@@ -47,6 +47,14 @@
 
 \usepackage{verbatim} % Um Quellcode in das Dokument einzufügen.
 \usepackage{xcolor} % Für Farben
+%\usepackage[linkbordercolor=blue]{hyperref} % Für Links im Dokument
+\usepackage[colorlinks = true,
+            linkcolor = black,
+            urlcolor  = blue,
+            citecolor = black,
+            anchorcolor = blue]{hyperref}
+\usepackage{algorithmic} % Für Pseudo-Code
+\usepackage{algorithm} % Wrapper für Pseudo-Code
 \usepackage[linkbordercolor=blue]{hyperref} % Für Links im Dokument
 \usepackage[font={small}, labelfont=bf]{caption} % kleine Bildunterschriften
 %\setlength{\abovecaptionskip}{1pc}  % 1pc=12pt
@@ -73,6 +81,7 @@
 
 %Abkürzungen
 \usepackage{acronym}
+
 
 % Folder structure
 \usepackage[edges]{forest}
@@ -186,6 +195,10 @@
 
 \begin{appendices}
 \chapter{Videos}
+
+Alle Videos befinden sich in einem
+\href{https://uni-muenster.sciebo.de/s/FCpRRcPnGg2HgHa}{Sciebo-Ordner}
+, in dem die Ergebnis- und Siegerehrungsvideos getrennt zu finden sind.
 \section{Ergebnisse}
 \section{Siegerehrung}
 \end{appendices}
