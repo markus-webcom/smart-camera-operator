@@ -5,6 +5,7 @@ from colab_code.RiderDetector import RiderDetector
 from colab_code.VideoQuality import VideoQuality
 from colab_code.Operate_BBoxes import Operate_BBoxes
 from PyQt5.QtWidgets import QApplication
+from numpy import median
 
 class VideoProcessing:
 
@@ -40,8 +41,8 @@ class VideoProcessing:
 
             del frames
             frames = self.get_frames()
-        self.shutdown()
-
+	boxes = self.removeJumpsFromBoxList(boxes)
+        self.shutdown()	
         return self.videoQuality.smooth_boxes(boxes)
 
     def process_and_write(self, video_path: str, boxes: list, crop):
@@ -94,6 +95,50 @@ class VideoProcessing:
             frames_with_boxes.append(boxes[i].drawBBox(frames[i]))
 
         return frames_with_boxes
+
+    # Checks previous boxes and removes current box if too far away
+    def removeJumpsFromBoxList(self, boxes):
+        numOfLastBoxes = 25     # Number of last boxes who are checked with median
+        allowedDistance = 300    # Max Distance allowed
+        allowedBoxesToReset = 75 # When to interrupt
+
+        numOfResetBoxes = 0
+        
+        for index, box in enumerate(boxes):
+          lastBoxes = []
+          
+          if index-numOfLastBoxes >= 0:
+            lastNBoxes = boxes[index-numOfLastBoxes:index]
+            lastNBoxesX = list()
+            lastNBoxesY = list()
+
+            # Add all X/Y Values to their lists
+            for Box in lastNBoxes:  
+              lastNBoxesX.append(self.calcMiddlepoint(Box.getX1(), Box.getX2()))
+              lastNBoxesY.append(self.calcMiddlepoint(Box.getY1(), Box.getY2()))
+            boxCenterX = self.calcMiddlepoint(box.getX1(), box.getX2())
+            boxCenterY = self.calcMiddlepoint(box.getY1(), box.getY2())
+            medianX = median(lastNBoxesX)
+            medianY = median(lastNBoxesY)
+            distance = (((boxCenterX - medianX) ** 2) + ((boxCenterY - medianY) ** 2)) ** 0.5
+
+            # If too far away ignore this box
+            if distance > allowedDistance:
+              # Check if its allowed to replace more boxes otherwise reset
+              if numOfResetBoxes <= allowedBoxesToReset:
+                boxes[index] = boxes[index-1]
+                numOfResetBoxes += 1 
+              else:
+                numOfResetBoxes = 0
+            else:
+              numOfResetBoxes = 0
+        
+        return boxes
+
+    # Calcs the value inbetween two 1d Values
+    def calcMiddlepoint(self, x, y):
+        result = (x-y)/2 + x
+        return result
 
     def write(self, frames: list):
         for img in frames:
