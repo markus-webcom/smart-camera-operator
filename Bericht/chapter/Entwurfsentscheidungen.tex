@@ -23,7 +23,7 @@ Für wissenschaftliche Berechnungen kam Numpy bei großen Bilddatenmengen, bei V
 \paragraph{keras}$~$\\
 \paragraph{PyQt} $~$\\
 Für die Gestaltung der grafischen Nutzeroberfläche haben wir uns entschieden PyQt5 einzusetzen, da uns diese Bibliothek bereits aus der Programmiersprache C++ in ähnlicher Form bekannt war. Zudem besticht diese im Vergleich zu Alternativen wie TKinter durch den Ansatz GUI vom Backend zu trennen und die Möglichkeit ein modernes Design zu erstellen.
-	
+
 	
 \section{Maschine Learning}
 Vergleich und Auswahl
@@ -32,4 +32,24 @@ Vergleich und Auswahl
 \paragraph{Mask rcnn}
 Mask RCNN \footnote{\href{https://github.com/matterport/Mask_RCNN}{Mask RCNN}}
 
+\section{Mask RCNN}
+Wir haben uns aus folgenden Gründen für Mask-RCNN entschieden:
+\begin{itemize}
+	\item \textbf{zuverlässige Detektion:}
 
+		Auch unter schwierigen Bedingungen verspricht M-RCNN eine präzise, zuverlässige Detektion.
+		Nach der zweiten Iteration des Praktikums sahen wir, dass die anderen Gruppen mit YOLO deutlich mehr Probleme hatten als wir mit M-RCNN. Auch wenn die Performance an YOLO nie herankam, war die Qualität der Klassifikation und Regionenbestimmung immer sehr hoch.
+	\item \textbf{leichter Einstieg:}
+
+		Auch wenn es subjektiv (noch) nicht so weit verbreitet ist wie YOLO fanden sich zwar wenige - dafür aber sehr gute Quellen zum Einstieg inklusive Tutorials und jupyter notebooks direkt aus dem git repository der Entwickler.
+	\item \textbf{Segmentierung:}
+
+		M-RCNN kann Segmentierungsmasken berechnen.
+		Auch wenn wir die Masken letztendlich noch nicht verwendet haben, erschien es uns als sehr vorteilhaft, diesen Trumpf in der Hinterhand zu haben.
+	\item \textbf{Interesse:}
+
+		Beim Stöbern haben wir gesehen, dass M-RCNN ein relativ neues Verfahren ist.
+		Da wir wussten, dass die meisten anderen Gruppen sich für YOLO entscheiden würden sind wir nicht zuletzt auch deshalb den Weg mit M-RCNN gegangen.
+		Wir wollten sehen, wie es sich verhält im Vergleich zu YOLO. Sinn und Ziel des Praktikums ist es ja auch gewesen, Neues auszuprobieren und zu experimentieren/erforschen und aktuelle Verfahren und state-of-the-art-Techniken kennenzulernen.
+
+\end{itemize}

@@ -68,7 +68,7 @@ Diese Video-Pipeline konnten wir dann in der dritten Phase um weiter Aspekte erw
 	\node[draw,below =of D,fill=lightgray,fill opacity=0.3,text opacity=1] (E)
     {Vergrößern der detektierten Boxen};    
     \node[draw,below =of C,fill=lightgray,fill opacity=0.3,text opacity=1] (F) 
-    {Berechnung der der Boxen von Reiterpaaren};
+    {Berechnung der Boxen von Reiterpaaren};
     \node[draw,below =of B,fill=lightgray,fill opacity=0.3,text opacity=1] (G)
     {Auswahl und Tracken eines Reiterpaares};
     \node[draw, below =of A,fill=lightgray,fill opacity=0.3,text opacity=1] (H) 
@@ -102,9 +102,29 @@ Diese Video-Pipeline konnten wir dann in der dritten Phase um weiter Aspekte erw
 \caption{Video-Pipeline Phase 3}
 \end{figure}
 
-\section{Zustandautomat}
+\newpage
+\section{Zustandsautomat}
 
+Folgender Moore-Automat soll zeigen, wie der Smart Camera Operator idealerweise funktionieren soll.
+Er startet im \emph{missing} Zustand.
+Die Transitionen \emph{gefunden} und \emph{nicht gefunden} beziehen sich auf ein Reiterpaar, das im Bild gefunden wurde - oder nicht.
+In der unteren Hälfte jedes Zustands befinden sich die Aktionen, die durchgeführt werden solange sich der Automat in dem Zustand befindet.
 
+\begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=6cm,thick,
+	every node/.style={font=\sffamily\bfseries},
+	main node/.style={rounded corners,fill=lightgray!20,draw,font=\sffamily}]
 
+	\node[main node, rectangle split, rectangle split parts=2] (A) at (0,0)
+	{\textbf{missing} \nodepart{second}zoom out, detect };
+	\node[main node, rectangle split, rectangle split parts=2] (B) [right of =A]
+	{\textbf{found} \nodepart{second} zoom in, track};
+	\node[main node, rectangle split, rectangle split parts=2] (C) [right of =B]
+	{\textbf{lost} \nodepart{second} stop track, detect};
+    
+	\path [->] (A) edge node[above]	 	{gefunden} 			(B);
+	\path [->] (B) edge node[above]	 	{nicht gefunden}		(C);
+	\path [->] (C) edge[bend right] node[above] {gefunden} 			(B)
+		   edge[bend left] node[below] 	{nicht gefunden}		(A);
 
+\end{tikzpicture}
 

@@ -100,4 +100,27 @@ Als nächstes nutzten wir statt der Geraden Ausgleichskurven, wobei sich bereits
 \subsubsection*{Sprünge/Verschwinden}
 \subsubsection*{Verdecken}
 
+\subsection*{Reiterpaarerkennung}
+Aus der Detektion erhalten wir eine Menge aus RoIs(bounding boxen).
+Jede Box umrandet einen Mensch oder ein Pferd. Diese Menge aus RoIs wird gefiltert. Wir möchten nur Reiterpaare haben. Ein Reiterpaar ist ein Mensch sehr nah an oder auf einem Pferd.
 
+Eine Box ist ein Rechteck. Wir können also berechnen, wie groß der Flächeninhalt der überlappenden Rechtecke ist. Flächeninhalt gleich Null bedeutet, sie überlappen sich überhaupt nicht.
+Dadurch ist es nicht nur möglich zu berechnen, ob eine Pferd nah an einem Menschen ist - sondern auch wie nah. Es kann ein Threshold gewählt werden, der die Größe des Flächeninhalts prüft. Beispielsweise hätte ein Mensch \emph{auf} einem Pferd einen größeren Flächeninhalt als ein Mensch \emph{neben} einem Pferd. Je nach Wunsch kann das also angepasst werden bei uns.
+
+
+Wenn eine Mensch-RoI also eine Pferd-RoI überlappt, zeichnen wir um beide eine Reiterpaar-RoI.
+
+\subsection*{Glättung}
+Um die Folge der RoIs zu glätten, damit sich nach dem Zuschneiden ein sanftes Seherlebnis für den Zuschauer bietet, haben wir verschiedene Verfahren ausprobiert.
+
+
+Das effektivste, effizienteste und gleichzeitig das einfachste Verfahren, das wir hatten war ein eindimensionaler Gaußfilter.
+Wir haben eine Folge aus RoIs.
+Jede RoI hat 4 Attribute - die Koordinaten $(x1,y1), (x2,y2)$ des Rechtecks.
+Wir schieben über alle $x1, y1, x2, y2$ aller RoIs einen 1d-Gaußfilter mit $\sigma=5$ drüber.
+Wir schieben also insgesamt 4 Mal einen Filter über die RoIs für jedes der 4 Attribute.
+
+
+Eine weitere Möglichkeit wäre es gewesen, die Richtungsänderungen zu erkennen/berechnen und dann einfach die RoIs linear von einer Richtungsänderung zur nächsten wandern zu lassen. Das wäre auch für die Echtzeit-Anwendung nötig gewesen, da hier die Kamera ja rotieren muss bei Richtungsänderung.
+Die Richtungsänderungen lassen sich mit \emph{optical flow} berechnen.
+Wir haben aber auch eine für unseren Anwendungsfall effizientere Möglichkeit gefunden, die aber aus Platzgründen und weil sie sowieso nicht implementiert wurde hier nicht weiter thematisiert wird.
