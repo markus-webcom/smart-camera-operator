@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/W32TeX) (preloaded format=pdflatex 2019.4.6)  1 MAR 2020 00:44
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/W32TeX) (preloaded format=pdflatex 2019.4.6)  1 MAR 2020 17:47
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -289,6 +289,7 @@ Now handling font encoding PD1 ...
 (c:/texlive/2018/texmf-dist/tex/latex/latexconfig/hyperref.cfg
 File: hyperref.cfg 2002/06/06 v1.2 hyperref configuration of TeXLive
 )
+Package hyperref Info: Option `colorlinks' set `true' on input line 4393.
 Package hyperref Info: Hyper figures OFF on input line 4519.
 Package hyperref Info: Link nesting OFF on input line 4524.
 Package hyperref Info: Hyper index ON on input line 4527.
@@ -311,7 +312,7 @@ Package hyperref Info: Hyper figures OFF on input line 6380.
 Package hyperref Info: Link nesting OFF on input line 6385.
 Package hyperref Info: Hyper index ON on input line 6388.
 Package hyperref Info: backreferencing OFF on input line 6395.
-Package hyperref Info: Link coloring OFF on input line 6400.
+Package hyperref Info: Link coloring ON on input line 6398.
 Package hyperref Info: Link coloring with OCG OFF on input line 6405.
 Package hyperref Info: PDF/A mode OFF on input line 6410.
 LaTeX Info: Redefining \ref on input line 6450.
@@ -1161,7 +1162,7 @@ Class scrbook Warning: Usage of package `titlesec' together
 (scrbook)              the extended optional argument of the section
 (scrbook)              commands.
 (scrbook)              Nevertheless, using requested
-(scrbook)              package `titlesec' on input line 134.
+(scrbook)              package `titlesec' on input line 139.
 
 (c:/texlive/2018/texmf-dist/tex/latex/titlesec/titlesec.sty
 Package: titlesec 2016/03/21 v2.10.2 Sectioning titles
@@ -1198,7 +1199,7 @@ Package titlesec Warning: Non standard sectioning command detected
 )
 
 Class scrbook Warning: Activating an ugly workaround for a missing
-(scrbook)              feature of package `titlesec` on input line 134.
+(scrbook)              feature of package `titlesec` on input line 139.
 
 (c:/texlive/2018/texmf-dist/tex/latex/enumitem/enumitem.sty
 Package: enumitem 2019/02/04 v3.8 Customized lists
@@ -1253,20 +1254,20 @@ File: pgflibraryarrows.code.tex 2019/02/02 v3.1.1 (3.1.1)
 (./chapter/Zusammenfassung.aux))
 \openout1 = `Hauptdokument.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 153.
-LaTeX Font Info:    ... okay on input line 153.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 153.
-LaTeX Font Info:    ... okay on input line 153.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 153.
-LaTeX Font Info:    ... okay on input line 153.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 153.
-LaTeX Font Info:    ... okay on input line 153.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 153.
-LaTeX Font Info:    ... okay on input line 153.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 153.
-LaTeX Font Info:    ... okay on input line 153.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 153.
-LaTeX Font Info:    ... okay on input line 153.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 158.
+LaTeX Font Info:    ... okay on input line 158.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 158.
+LaTeX Font Info:    ... okay on input line 158.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 158.
+LaTeX Font Info:    ... okay on input line 158.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 158.
+LaTeX Font Info:    ... okay on input line 158.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 158.
+LaTeX Font Info:    ... okay on input line 158.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 158.
+LaTeX Font Info:    ... okay on input line 158.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 158.
+LaTeX Font Info:    ... okay on input line 158.
 
 (c:/texlive/2018/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
@@ -1299,7 +1300,7 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
 \AtBeginShipoutBox=\box114
-Package hyperref Info: Link coloring OFF on input line 153.
+Package hyperref Info: Link coloring ON on input line 158.
 
 (c:/texlive/2018/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
@@ -1309,9 +1310,9 @@ Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
 \c@section@level=\count357
 )
-LaTeX Info: Redefining \ref on input line 153.
-LaTeX Info: Redefining \pageref on input line 153.
-LaTeX Info: Redefining \nameref on input line 153.
+LaTeX Info: Redefining \ref on input line 158.
+LaTeX Info: Redefining \pageref on input line 158.
+LaTeX Info: Redefining \nameref on input line 158.
 
 (./Hauptdokument.out) (./Hauptdokument.out)
 \@outlinefile=\write6
@@ -1323,7 +1324,7 @@ Class scrbook Info: loading recommended package `bookmark'.
 (scrbook)           You can avoid loading `bookmark' with KOMA-Script option
 (scrbook)           `bookmarkpackage=false' before \begin{document} and
 (scrbook)           you can avoid this message with `\usepackage{bookmark}'
-(scrbook)           before \begin{document} on input line 153.
+(scrbook)           before \begin{document} on input line 158.
 
 (c:/texlive/2018/texmf-dist/tex/latex/oberdiek/bookmark.sty
 Package: bookmark 2016/05/17 v1.26 PDF bookmarks (HO)
@@ -1380,9 +1381,9 @@ ABD: EveryShipout initializing macros
 Package todonotes Warning: The length marginparwidth is less than 2cm and will 
 most likely cause issues with the appearance of inserted todonotes. The issue c
 an be solved by adding a line like \setlength {\marginparwidth }{2cm} prior to 
-loading the todonotes package. on input line 153.
+loading the todonotes package. on input line 158.
 
-Package scrbase Info: activating ngerman \figurename on input line 153.
+Package scrbase Info: activating ngerman \figurename on input line 158.
 \openout2 = `chapter/Titelblatt.aux'.
 
 (./chapter/Titelblatt.tex
@@ -1416,13 +1417,16 @@ neu.pdf>] (./Hauptdokument.toc)
 
 (./chapter/Einleitung.tex
 chapter 1.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 6.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 6.
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has 
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.17 D
-      ie zweite Phase, vom 19.11.2019 bis 19.12.2019, umfasste das Training ...
-[1
+l.16 
+      [1
 
 
 
@@ -1434,13 +1438,7 @@ Overfull \hbox (16.64267pt too wide) in paragraph at lines 21--23
  Ope-ra-tor\, vom 20.12.2019
  []
 
-)
-Overfull \hbox (2.41975pt too wide) in paragraph at lines 27--176
-\OT1/cmr/m/n/12 In Ka-pi-tel 2 ge-hen wir auf die grund-le-gen-den Ent-wurfs-en
-t-schei-dun-gen bez[]uglich
- []
-
-[2] [3]
+) [2] [3]
 \openout2 = `chapter/Entwurfsentscheidungen.aux'.
 
  (./chapter/Entwurfsentscheidungen.tex
@@ -1449,16 +1447,31 @@ chapter 2.
 
 
 
-]) [5]
+]
+Underfull \hbox (badness 10000) in paragraph at lines 21--22
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 22--23
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 23--24
+
+ []
+
+[5]) [6]
 \openout2 = `chapter/Anwendungsaufbau.aux'.
 
  (./chapter/Anwendungsaufbau.tex
 chapter 3.
-[6
+[7
 
 
 
-]) [7]
+]) [8]
 \openout2 = `chapter/Implementierung.aux'.
 
  (./chapter/Implementierung.tex
@@ -1470,7 +1483,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 33--33
 [][]|\OT1/cmr/m/n/10.95 Ord-ner-struk-tur
  []
 
-[8
+[9
 
 
 
@@ -1484,22 +1497,22 @@ Overfull \hbox (4.51556pt too wide) in paragraph at lines 43--43
 [][]\OT1/cmr/m/n/12 genauere 
  []
 
-<./img/IndoorMaske.png, id=140, 895.345pt x 501.875pt>
+<./img/IndoorMaske.png, id=151, 895.345pt x 501.875pt>
 File: ./img/IndoorMaske.png Graphic file (type png)
 <use ./img/IndoorMaske.png>
 Package pdftex.def Info: ./img/IndoorMaske.png  used on input line 47.
 (pdftex.def)             Requested size: 106.24937pt x 113.81102pt.
-<./img/IndoorMaske2.png, id=143, 894.34125pt x 500.87125pt>
+<./img/IndoorMaske2.png, id=154, 894.34125pt x 500.87125pt>
 File: ./img/IndoorMaske2.png Graphic file (type png)
 <use ./img/IndoorMaske2.png>
 Package pdftex.def Info: ./img/IndoorMaske2.png  used on input line 48.
 (pdftex.def)             Requested size: 106.23578pt x 113.81102pt.
-<./img/OutdoorMaske.png, id=145, 861.2175pt x 576.1525pt>
+<./img/OutdoorMaske.png, id=156, 861.2175pt x 576.1525pt>
 File: ./img/OutdoorMaske.png Graphic file (type png)
 <use ./img/OutdoorMaske.png>
 Package pdftex.def Info: ./img/OutdoorMaske.png  used on input line 49.
 (pdftex.def)             Requested size: 147.63112pt x 113.81102pt.
-[9 <./img/IndoorMaske.png> <./img/IndoorMaske2.png> <./img/OutdoorMaske.png>]
+[10 <./img/IndoorMaske.png> <./img/IndoorMaske2.png> <./img/OutdoorMaske.png>]
 Overfull \hbox (19.03764pt too wide) in paragraph at lines 62--62
 [][]\OT1/cmr/m/n/12 Reiterpaare  
  []
@@ -1509,22 +1522,22 @@ Overfull \hbox (19.03764pt too wide) in paragraph at lines 62--62
 [][]\OT1/cmr/m/n/12 Reiterpaare  
  []
 
-<./img/IndoorMask6.png, id=160, 910.40125pt x 519.9425pt>
+<./img/IndoorMask6.png, id=172, 910.40125pt x 519.9425pt>
 File: ./img/IndoorMask6.png Graphic file (type png)
 <use ./img/IndoorMask6.png>
 Package pdftex.def Info: ./img/IndoorMask6.png  used on input line 72.
 (pdftex.def)             Requested size: 124.53963pt x 113.81102pt.
-<./img/IndoorMask3.png, id=162, 910.40125pt x 519.9425pt>
+<./img/IndoorMask3.png, id=174, 910.40125pt x 519.9425pt>
 File: ./img/IndoorMask3.png Graphic file (type png)
 <use ./img/IndoorMask3.png>
 Package pdftex.def Info: ./img/IndoorMask3.png  used on input line 73.
 (pdftex.def)             Requested size: 124.53963pt x 113.81102pt.
-<./img/OutdoorMask2.png, id=164, 910.40125pt x 519.9425pt>
+<./img/OutdoorMask2.png, id=176, 910.40125pt x 519.9425pt>
 File: ./img/OutdoorMask2.png Graphic file (type png)
 <use ./img/OutdoorMask2.png>
 Package pdftex.def Info: ./img/OutdoorMask2.png  used on input line 74.
 (pdftex.def)             Requested size: 124.53963pt x 113.81102pt.
-[10 <./img/IndoorMask6.png> <./img/IndoorMask3.png> <./img/OutdoorMask2.png>]
+[11 <./img/IndoorMask6.png> <./img/IndoorMask3.png> <./img/OutdoorMask2.png>]
 Overfull \hbox (19.00708pt too wide) in paragraph at lines 85--85
 [][]\OT1/cmr/m/n/12 Screenshots 
  []
@@ -1534,7 +1547,7 @@ Overfull \hbox (19.00708pt too wide) in paragraph at lines 85--85
 [][]\OT1/cmr/m/n/12 Screenshots 
  []
 
-[11]) [12]
+[12]) [13]
 \openout2 = `chapter/Ergebnis.aux'.
 
  (./chapter/Ergebnis.tex
@@ -1545,44 +1558,44 @@ File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 6.
- [13
+ [14
 
 
 
-]) [14]
+]) [15]
 \openout2 = `chapter/Zusammenfassung.aux'.
 
 
 (./chapter/Zusammenfassung.tex
 chapter 6.
-) [15
+) [16
 
 
 
 ]
 chapter A.
-[16
+[17
 
 
 ]
 No file Hauptdokument.bbl.
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 209.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 209.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 218.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 218.
 (./Hauptdokument.aux (./chapter/Titelblatt.aux) (./chapter/Einleitung.aux)
 (./chapter/Entwurfsentscheidungen.aux) (./chapter/Anwendungsaufbau.aux)
 (./chapter/Implementierung.aux) (./chapter/Ergebnis.aux)
 (./chapter/Zusammenfassung.aux))
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 209.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 209.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 218.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 218.
 Package rerunfilecheck Info: File `Hauptdokument.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 209.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 218.
  ) 
 Here is how much of TeX's memory you used:
- 45354 strings out of 492616
- 969254 string characters out of 6132769
- 1161581 words of memory out of 5000000
- 48629 multiletter control sequences out of 15000+600000
+ 45365 strings out of 492616
+ 969397 string characters out of 6132769
+ 1161630 words of memory out of 5000000
+ 48637 multiletter control sequences out of 15000+600000
  538590 words of font info for 45 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  142i,12n,182p,9092b,1886s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1590,14 +1603,15 @@ Here is how much of TeX's memory you used:
 live/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/texlive/2018
 /texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2018/texmf-dis
 t/fonts/type1/public/amsfonts/cm/cmr12.pfb><c:/texlive/2018/texmf-dist/fonts/ty
-pe1/public/amsfonts/cm/cmsl12.pfb><c:/texlive/2018/texmf-dist/fonts/type1/publi
-c/amsfonts/cm/cmssbx10.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfo
-nts/cm/cmsy10.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cm
-tt12.pfb>
-Output written on Hauptdokument.pdf (18 pages, 4508310 bytes).
+pe1/public/amsfonts/cm/cmr7.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/
+amsfonts/cm/cmr8.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm
+/cmsl12.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10
+.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/
+texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
+Output written on Hauptdokument.pdf (19 pages, 4526295 bytes).
 PDF statistics:
- 318 PDF objects out of 1000 (max. 8388607)
- 250 compressed objects within 3 object streams
- 51 named destinations out of 1000 (max. 500000)
+ 337 PDF objects out of 1000 (max. 8388607)
+ 266 compressed objects within 3 object streams
+ 54 named destinations out of 1000 (max. 500000)
  376 words of extra memory for PDF output out of 10000 (max. 10000000)
 
