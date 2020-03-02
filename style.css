@@ -127,6 +127,7 @@ QComboBox
     border-style: solid;
     border: 1px solid #1e1e1e;
     border-radius: 5;
+	font-size: 36px;
 }
 
 QComboBox:hover,QPushButton:hover
@@ -177,7 +178,10 @@ QGroupBox:focus
 {
     border: 1px solid darkgray;
 }
-
+QLabel 
+{
+	font-size: 36px;
+}
 QTextEdit:focus
 {
     border: 1px solid darkgray;

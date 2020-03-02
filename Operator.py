@@ -15,7 +15,7 @@ from PyQt5.QtWidgets import *
 
 class Operator:
     def __init__(self):
-        self.model_path = 'D:\\Programming\\mask_rcnn_rider_cfg_0110.h5'
+        self.model_path = 'D:\\Programming\\mask_rcnn_rider_cfg_0131.h5'
         self.model_path = os.path.normpath(self.model_path)
         self.detector = RiderDetector(self.model_path)
         self.processing = VideoProcessing(self.model_path)

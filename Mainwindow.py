@@ -20,7 +20,7 @@ class MainWindow(QMainWindow):
     def __init__(self, parent=None):
         super(MainWindow, self).__init__(parent)
         self.setGeometry(150, 150, 400, 450)
-        self.setFixedSize(2500, 1700)
+        self.setFixedSize(1500, 1200)
         self.central_widget = QStackedWidget()
         self.setCentralWidget(self.central_widget)
         self.showStartWidget()

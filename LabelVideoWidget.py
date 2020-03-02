@@ -31,15 +31,16 @@ class LabelVideoWidget(QWidget):
         self.goTrainBTN = QPushButton('Train with labeled data', self)
         self.goTrainBTN.setEnabled(False)
         self.returnStartBTN = QPushButton('Startpage', self)
-        self.acceptAllBTN=QPushButton('Accept all', self)
+        #self.acceptAllBTN=QPushButton('Accept all', self)
 
         self.DiscardBTN.clicked.connect(self.discard_clicked)
         self.AcceptBTN.clicked.connect(self.accept_clicked)
         self.chooseFolderBTN.clicked.connect(self.clicked_chooseFolderBTN)
-        self.acceptAllBTN.clicked.connect(self.acceptAll_clicked)
+        #self.acceptAllBTN.clicked.connect(self.acceptAll_clicked)
 
         # Display for pictures as pixmap
         self.picDisplay = QLabel('proxy for pictures')
+        self.picDisplay.setAlignment(Qt.AlignHCenter)
 
         # progress bar
         self.progressBar = QProgressBar()
@@ -55,7 +56,7 @@ class LabelVideoWidget(QWidget):
         hbox2 = QHBoxLayout()
 
         hbox.addWidget(self.AcceptBTN)
-        hbox.addWidget( self.acceptAllBTN)
+        #hbox.addWidget( self.acceptAllBTN)
         hbox.addWidget(self.DiscardBTN)
 
         hbox2.addWidget(QLabel(''))
@@ -107,7 +108,7 @@ class LabelVideoWidget(QWidget):
 
                 pixmap = QPixmap(image)
 
-                bigger_pixmap = pixmap.scaled(2000, 1500, Qt.KeepAspectRatio)
+                bigger_pixmap = pixmap.scaled(1500, 1200, Qt.KeepAspectRatio)
 
                 self.picDisplay.setPixmap(bigger_pixmap)
 

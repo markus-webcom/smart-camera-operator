@@ -4,6 +4,7 @@ import cv2
 # from PyQt5.QtGui import QApplication, QMainWindow, QPushButton, QWidget
 from PyQt5.QtWidgets import *
 from PyQt5.QtCore import Qt
+from PyQt5.QtGui import *
 
 
 class ConvertWidget(QWidget):
@@ -18,24 +19,24 @@ class ConvertWidget(QWidget):
         self.selectedRatioX = 0
         self.selectedRatioY = 0
 
-        self.ConvertPreciseBTN = QPushButton('Convert precise for each frame', self)
-        self.DrawBoxBTN = QPushButton('Draw Boxes in Video', self)
+        self.ConvertPreciseBTN = QPushButton('Convert Video with the Smart Camera Operator', self)
+        #self.DrawBoxBTN = QPushButton('Draw Boxes in Video', self)
         self.ChooseFileBTN = QPushButton('Choose Video File', self)
         self.returnStartBTN = QPushButton('Startpage', self)
 
         self.ratioInLabel = QLabel('Input ratio: :')
         self.ratioOutLabel = QLabel('Output ratio: :')
         self.ratioInputLabel = QLabel('')
-        self.ratioInLabel.setFixedHeight(20)
-        self.ratioOutLabel.setFixedHeight(20)
-        self.ratioInputLabel.setFixedHeight(20)
+        self.ratioInLabel.setFixedHeight(40)
+        self.ratioOutLabel.setFixedHeight(40)
+        self.ratioInputLabel.setFixedHeight(40)
 
         self.ratioCBox = QComboBox(self)
         self.ratioCBox.activated[str].connect(self.onChangedCBox)
 
         self.ConvertPreciseBTN.clicked.connect(self.convertPreciseClicked)
         self.ChooseFileBTN.clicked.connect(self.chooseFileClicked)
-        self.DrawBoxBTN.clicked.connect(self.drawBoxesClicked)
+        #self.DrawBoxBTN.clicked.connect(self.drawBoxesClicked)
 
         # progress bar
         self.progressBar = QProgressBar()
@@ -59,9 +60,10 @@ class ConvertWidget(QWidget):
         layout.addWidget(self.ChooseFileBTN)
         layout.addLayout(hbox2)
         layout.addLayout(hbox3)
+        layout.addWidget(QLabel(''))
 
         layout.addWidget(self.ConvertPreciseBTN)
-        layout.addWidget(self.DrawBoxBTN)
+        #layout.addWidget(self.DrawBoxBTN)
         layout.addWidget(self.progressBar)
         layout.addLayout(hbox)
 
@@ -155,5 +157,5 @@ class ConvertWidget(QWidget):
 
     def setFormatOptions(self, formats):
         for f in formats:
-            item = f"{f[1]}:{f[0]}"
+            item = f"{f[0]}:{f[1]}"
             self.ratioCBox.addItem(item)

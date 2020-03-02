@@ -41,8 +41,8 @@ class VideoProcessing:
 
             del frames
             frames = self.get_frames()
-	boxes = self.removeJumpsFromBoxList(boxes)
-        self.shutdown()	
+        boxes = self.removeJumpsFromBoxList(boxes)
+        self.shutdown()
         return self.videoQuality.smooth_boxes(boxes)
 
     def process_and_write(self, video_path: str, boxes: list, crop):
