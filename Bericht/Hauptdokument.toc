@@ -5,17 +5,17 @@
 \contentsline {section}{\numberline {2.2}Setup}{4}{section.2.2}% 
 \contentsline {section}{\numberline {2.3}Versionsverwaltung}{4}{section.2.3}% 
 \contentsline {section}{\numberline {2.4}Toolselection}{5}{section.2.4}% 
-\contentsline {paragraph}{Pandas}{5}{section.2.4}% 
-\contentsline {paragraph}{Opencv}{5}{section.2.4}% 
-\contentsline {paragraph}{Numpy}{5}{section.2.4}% 
-\contentsline {paragraph}{Scipy}{5}{section.2.4}% 
-\contentsline {paragraph}{tensorflow}{5}{section.2.4}% 
-\contentsline {paragraph}{keras}{5}{section.2.4}% 
-\contentsline {paragraph}{PyQt}{6}{section.2.4}% 
+\contentsline {paragraph}{Pandas}{5}{section*.3}% 
+\contentsline {paragraph}{Opencv}{5}{section*.3}% 
+\contentsline {paragraph}{Numpy}{5}{section*.3}% 
+\contentsline {paragraph}{Scipy}{5}{section*.3}% 
+\contentsline {paragraph}{tensorflow}{5}{section*.3}% 
+\contentsline {paragraph}{keras}{6}{section*.3}% 
+\contentsline {paragraph}{PyQt}{6}{section*.3}% 
 \contentsline {section}{\numberline {2.5}Maschine Learning}{6}{section.2.5}% 
-\contentsline {paragraph}{Yolo}{6}{section.2.5}% 
-\contentsline {paragraph}{ImageAI}{6}{section.2.5}% 
-\contentsline {paragraph}{Mask rcnn}{6}{section.2.5}% 
+\contentsline {paragraph}{Yolo}{6}{section*.4}% 
+\contentsline {paragraph}{ImageAI}{6}{section*.4}% 
+\contentsline {paragraph}{Mask rcnn}{6}{section*.4}% 
 \contentsline {section}{\numberline {2.6}Mask RCNN}{6}{section.2.6}% 
 \contentsline {chapter}{\numberline {3}Anwendungsaufbau}{8}{chapter.3}% 
 \contentsline {section}{\numberline {3.1}Programmaufbau}{8}{section.3.1}% 
@@ -28,8 +28,8 @@
 \contentsline {chapter}{\numberline {5}Ergebnisauswertung}{17}{chapter.5}% 
 \contentsline {section}{\numberline {5.1}Planung}{18}{section.5.1}% 
 \contentsline {section}{\numberline {5.2}Umsetzung und Zielerreichung}{18}{section.5.2}% 
-\contentsline {section}{\numberline {5.3}Verbesserungen}{18}{section.5.3}% 
-\contentsline {chapter}{\numberline {6}Schlussfolgerung und Ausblick}{19}{chapter.6}% 
-\contentsline {chapter}{Anhang \numberline {A}Videos}{20}{Anhang.1.A}% 
-\contentsline {section}{\numberline {A.1}Ergebnisse}{20}{section.1.A.1}% 
-\contentsline {section}{\numberline {A.2}Siegerehrung}{20}{section.1.A.2}% 
+\contentsline {section}{\numberline {5.3}Verbesserungen}{19}{section.5.3}% 
+\contentsline {chapter}{\numberline {6}Schlussfolgerung und Ausblick}{20}{chapter.6}% 
+\contentsline {chapter}{Anhang \numberline {A}Videos}{21}{Anhang.1.A}% 
+\contentsline {section}{\numberline {A.1}Ergebnisse}{21}{section.1.A.1}% 
+\contentsline {section}{\numberline {A.2}Siegerehrung}{21}{section.1.A.2}% 

@@ -4,7 +4,8 @@
 \section{Programmaufbau}
 
 \subsection*{Klassendiagramm}
-
+\todo[inline]{Diagramm fehlt}
+\todo[inline]{Abschnitt fehlt}
 
 Schnittstelle zwischen Gui und Backend: Operator
 Gui nutzt das Designpattern des Model View Controller: Controller MainWindow?, Model= Backend, View= Widgets
@@ -105,11 +106,14 @@ Diese Video-Pipeline konnten wir dann in der dritten Phase um weiter Aspekte erw
 \newpage
 \section{Zustandsautomat}
 
-Folgender Moore-Automat soll zeigen, wie der Smart Camera Operator idealerweise funktionieren soll.
-Er startet im \emph{missing} Zustand.
+Folgender Moore-Automat \ref{fig:MoorAutomat} soll zeigen, wie der Smart Camera Operator idealerweise funktionieren soll.
+Der Automat startet im \emph{missing} Zustand.
 Die Transitionen \emph{gefunden} und \emph{nicht gefunden} beziehen sich auf ein Reiterpaar, das im Bild gefunden wurde - oder nicht.
 In der unteren Hälfte jedes Zustands befinden sich die Aktionen, die durchgeführt werden solange sich der Automat in dem Zustand befindet.
 
+\begin{figure}[h]
+\centering
+\resizebox{.9\linewidth}{!}{
 \begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=6cm,thick,
 	every node/.style={font=\sffamily\bfseries},
 	main node/.style={rounded corners,fill=lightgray!20,draw,font=\sffamily}]
@@ -127,4 +131,7 @@ In der unteren Hälfte jedes Zustands befinden sich die Aktionen, die durchgefü
 		   edge[bend left] node[below] 	{nicht gefunden}		(A);
 
 \end{tikzpicture}
-
+}
+\caption{Zustandsautomat des Smart Camera Operators}
+\label{fig:MoorAutomat}
+\end{figure}

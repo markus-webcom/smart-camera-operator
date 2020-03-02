@@ -40,7 +40,7 @@ Im zweiten Schritt haben wir die benötigten Klassen zum Training erstellt. Dazu
 Weiter wurde die Klasse RiderDataset als Unterklasse der Dataset Klasse von Mask Rcnn erstellt. In dieser wurden die nötigen Funktionen zum Laden des Datensatzes in Trainings und Test Modus, zum Laden der Masken und extrahieren der Boxen anhand von Eckpunkten aus den cvs Dateien überschrieben.
 
 Damit konnten wir im dritten Schritt mit dem Training des Models beginnen konnten, wozu wir aufbauend auf den MS COCO Gewichten Transfer Lernen genutzt haben. Für das Training haben wir den Datensatz in 70\% Trainings-,15 \% Test- und 15\% Validierungsdaten unterteilt. Die erste Version unseres Detektors haben wir mit 75 Epochen mit 500 Schritten trainiert, bis der Verlust pro Epoche sehr gering wurde. Die damit erreichte Leistung unseres Detektors war für die bereitgestellten Videos ausreichend zuverlässig(siehe \ref{fig:SegmentierungPhase2}), sodass wir danach mit diesem die ersten Videos erstellen konnten  .
-\todo{genauere Zahlen loss...}
+\todo[inline]{Zahlen fehlen noch}
 
 \begin{figure}
 \centering
@@ -61,14 +61,12 @@ Im letzten Schritt werden die Rois mithilfe der kalkulierten Gesamtbox aus jedem
 
 
 \subsection*{Reiterpaarerkennung}
-Aus der Detektion erhalten wir eine Menge aus RoIs(bounding boxen).
-Jede Box umrandet einen Mensch oder ein Pferd. Diese Menge aus RoIs wird gefiltert. Wir möchten nur Reiterpaare haben. Ein Reiterpaar ist ein Mensch sehr nah an oder auf einem Pferd.
+Aus der Detektion erhalten wir eine Menge aus RoIs in Form von Boundign einen Mensch oder ein Pferd umranden. Diese Menge aus RoIs wird nun  gefiltert, da wir nur noch Reiterpaare weiterbetrachten wollen. Ein Reiterpaar ist definiert als ein Mensch, der sehr nah an oder auf einem Pferd befindet.
 
-Eine Box ist ein Rechteck. Wir können also berechnen, wie groß der Flächeninhalt der überlappenden Rechtecke ist. Flächeninhalt gleich Null bedeutet, sie überlappen sich überhaupt nicht.
-Dadurch ist es nicht nur möglich zu berechnen, ob eine Pferd nah an einem Menschen ist - sondern auch wie nah. Es kann ein Threshold gewählt werden, der die Größe des Flächeninhalts prüft. Beispielsweise hätte ein Mensch \emph{auf} einem Pferd einen größeren Flächeninhalt als ein Mensch \emph{neben} einem Pferd. Je nach Wunsch kann das also angepasst werden bei uns.
+Da die Bounding Boxen Rechtecke sind, können wir also berechnen, wie groß der Flächeninhalt der überlappenden Rechtecke von Reiter und Pferd ist. Ein Flächeninhalt gleich Null bedeutet dann, dass sie sich überhaupt nicht überlappen.
+Dadurch ist es nicht nur möglich zu berechnen, ob ein Pferd nah an einem Menschen ist - sondern auch wie nah. Es kann ein Threshold gewählt werden, der die Größe des errechneten Flächeninhalts prüft. Beispielsweise hätte ein Mensch \emph{auf} einem Pferd einen größeren Flächeninhalt als ein Mensch \emph{neben} einem Pferd, was je nach Wunsch also angepasst werden kann.
 
-
-Wenn eine Mensch-RoI also eine Pferd-RoI überlappt, zeichnen wir um beide eine Reiterpaar-RoI.
+Wenn eine Mensch-RoI also eine Pferd-RoI überlappt, zeichnen wir um beide eine Reiterpaar-RoI. Damit haben wir einzelne Pferde, Reiter und Fehldetektionen vom Tracking ausgeschlossen.
 
 
 \section{Phase 3}
@@ -100,9 +98,7 @@ Mit Beginn der dritten Phase wurden weitere Reitvideos zur Verfügung gestellt, 
 Im Hinblick auf die Kundengruppe haben wir das Kennzeichnung weiterer Bilddaten und die Konvertierung eines Videos für autonome Kameraführung in eine GUI eingebunden. Die GUI wurde mit PyQt5 erstellt und das Standardaussehen durch Einbinden eines Stylesheets modifiziert. Mit dieser minimalen Benutzeroberfläche kann der Nutzer nun zunächst auswählen ob weitere Daten gelabelt werden sollen oder ein Video umgewandelt werden soll \ref{fig:gui}. Bei der Auswahl weiter Bilddaten können sowohl Ordner mit Bildern als auch Videos mithilfe extrahierter Frames verwendet werden. Dazu kann der Nutzer pro Bild entscheiden ob die eingezeichnete Detektion gut genug ist diese akzeptieren oder ablehnen und im Anschluss den Detektor damit weiter trainieren. Für die Umwandlung eines Videos wird nach Auswahl der Datei und der Auflösung des Ausgabeformates ein Video unseres Smart Camera Operators erstellt.
 
 
-
-\subsection*{Videoqualität}
-\subsubsection*{Performance}
+\subsection*{Performance}
 Da der Fokus unserer Gruppe auf der Genauigkeit des Detektors liegt, haben wir nur einige grundlegende Verbesserungen der Performance vorgenommen, welche dem nicht entgegenwirken. 
 Im ersten Schritt wir dazu anhand der Auflösung des Eingabevideos entschieden, ob die Frames vor der Detektion verkleinert werden sollten. Dies war bei den aufgenommenen Videos mit 4k Auflösung sinnvolle, da Mask Rcnn auch mit einfacher HD Auflösungen ähnlich gute Ergebnisse liefert. Somit konnte der Zeitaufwand der Detektion von ca. 0.81  auf ca. 0.48 Sekunden pro Detektion verbessert werden. Anschließend müssen die detektierten Boxen wieder entsprechend hochskaliert werden um mit den Ursprungsbilder übereinzustimmen.
 
@@ -113,20 +109,23 @@ Als nächstes nutzten wir statt der Geraden Ausgleichskurven, wobei sich bereits
 
 
 
-\subsubsection*{Sprünge/Verschwinden}
-\subsubsection*{Verdecken}
+\subsection*{Videoqualität}
+Der Schwerpunkt der Phase richtet sich auf ein robusteres und flüssigeres Tracking, was wir mit besonderen Fokus auf Ausnahmesituationen und die Qualität der Kameraführung umgesetzt haben.
 
-\subsection*{Glättung}
+
+
+\subsubsection*{Sprünge/Verschwinden/Verdecken}
+\todo[inline]{Abschnitt fehlt}
+
+\subsubsection*{Glättung}
 Um die Folge der RoIs zu glätten, damit sich nach dem Zuschneiden ein sanftes Seherlebnis für den Zuschauer bietet, haben wir verschiedene Verfahren ausprobiert.
 
 
-Das effektivste, effizienteste und gleichzeitig das einfachste Verfahren, das wir hatten war ein eindimensionaler Gaußfilter.
-Wir haben eine Folge aus RoIs.
-Jede RoI hat 4 Attribute - die Koordinaten $(x1,y1), (x2,y2)$ des Rechtecks.
-Wir schieben über alle $x1, y1, x2, y2$ aller RoIs einen 1d-Gaußfilter mit $\sigma=5$ drüber.
-Wir schieben also insgesamt 4 Mal einen Filter über die RoIs für jedes der 4 Attribute.
+Das effektivste, effizienteste und gleichzeitig das einfachste Verfahren, das zum Einsatz kam, war ein eindimensionaler Gaußfilter.
+Wir haben eine Folge aus RoIs, dabei hat jede RoI 4 Attribute - die Koordinaten $(x1,y1), (x2,y2)$ des Rechtecks.
+Wir verwenden für alle Koordinaten $x1, y1, x2, y2$ aller RoIs einen 1d-Gaußfilter mit $\sigma=5$, genauer nutzen wir also insgesamt 4 Mal einen Filter über die RoIs für jedes der 4 Attribute.
 
-
+\todo[inline]{Ausführung in Verbesserungen?}
 Eine weitere Möglichkeit wäre es gewesen, die Richtungsänderungen zu erkennen/berechnen und dann einfach die RoIs linear von einer Richtungsänderung zur nächsten wandern zu lassen. Das wäre auch für die Echtzeit-Anwendung nötig gewesen, da hier die Kamera ja rotieren muss bei Richtungsänderung.
 Die Richtungsänderungen lassen sich mit \emph{optical flow} berechnen.
 Wir haben aber auch eine für unseren Anwendungsfall effizientere Möglichkeit gefunden, die aber aus Platzgründen und weil sie sowieso nicht implementiert wurde hier nicht weiter thematisiert wird.
