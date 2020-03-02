@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/W32TeX) (preloaded format=pdflatex 2019.4.6)  1 MAR 2020 19:01
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/W32TeX) (preloaded format=pdflatex 2019.4.6)  2 MAR 2020 11:29
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -1525,73 +1525,66 @@ File: ./img/OutdoorMaske.png Graphic file (type png)
 Package pdftex.def Info: ./img/OutdoorMaske.png  used on input line 49.
 (pdftex.def)             Requested size: 147.63112pt x 113.81102pt.
 [12 <./img/IndoorMaske.png> <./img/IndoorMaske2.png> <./img/OutdoorMaske.png>]
-Overfull \hbox (19.03764pt too wide) in paragraph at lines 62--62
-[][]\OT1/cmr/m/n/12 Reiterpaare  
- []
-
-
-Overfull \hbox (19.03764pt too wide) in paragraph at lines 62--62
-[][]\OT1/cmr/m/n/12 Reiterpaare  
- []
-
-<./img/IndoorMask6.png, id=186, 910.40125pt x 519.9425pt>
-File: ./img/IndoorMask6.png Graphic file (type png)
-<use ./img/IndoorMask6.png>
-Package pdftex.def Info: ./img/IndoorMask6.png  used on input line 72.
-(pdftex.def)             Requested size: 124.53963pt x 113.81102pt.
-<./img/IndoorMask3.png, id=188, 910.40125pt x 519.9425pt>
-File: ./img/IndoorMask3.png Graphic file (type png)
-<use ./img/IndoorMask3.png>
-Package pdftex.def Info: ./img/IndoorMask3.png  used on input line 73.
-(pdftex.def)             Requested size: 124.53963pt x 113.81102pt.
-<./img/OutdoorMask2.png, id=190, 910.40125pt x 519.9425pt>
-File: ./img/OutdoorMask2.png Graphic file (type png)
-<use ./img/OutdoorMask2.png>
-Package pdftex.def Info: ./img/OutdoorMask2.png  used on input line 74.
-(pdftex.def)             Requested size: 124.53963pt x 113.81102pt.
-[13 <./img/IndoorMask6.png> <./img/IndoorMask3.png> <./img/OutdoorMask2.png>]
-Overfull \hbox (19.00708pt too wide) in paragraph at lines 85--85
-[][]\OT1/cmr/m/n/12 Screenshots 
- []
-
-
-Overfull \hbox (19.00708pt too wide) in paragraph at lines 85--85
-[][]\OT1/cmr/m/n/12 Screenshots 
- []
-
-[14]
-Overfull \hbox (9.44409pt too wide) in paragraph at lines 107--109
+Overfull \hbox (9.44409pt too wide) in paragraph at lines 67--69
 []\OT1/cmr/m/n/12 Eine Box ist ein Recht-eck. Wir k[]onnen al-so be-rech-nen, w
 ie gro^^Y der Fl[]acheninhalt
  []
 
 
-Overfull \hbox (23.15643pt too wide) in paragraph at lines 107--109
+Overfull \hbox (23.15643pt too wide) in paragraph at lines 67--69
 \OT1/cmr/m/n/12 der []uberlappenden Recht-e-cke ist. Fl[]acheninhalt gleich Nul
 l be-deu-tet, sie []uberlappen
  []
 
-) [15]
+<./img/IndoorMask6.png, id=186, 910.40125pt x 519.9425pt>
+File: ./img/IndoorMask6.png Graphic file (type png)
+<use ./img/IndoorMask6.png>
+Package pdftex.def Info: ./img/IndoorMask6.png  used on input line 79.
+(pdftex.def)             Requested size: 124.53963pt x 113.81102pt.
+<./img/IndoorMask3.png, id=188, 910.40125pt x 519.9425pt>
+File: ./img/IndoorMask3.png Graphic file (type png)
+<use ./img/IndoorMask3.png>
+Package pdftex.def Info: ./img/IndoorMask3.png  used on input line 80.
+(pdftex.def)             Requested size: 124.53963pt x 113.81102pt.
+<./img/OutdoorMask2.png, id=190, 910.40125pt x 519.9425pt>
+File: ./img/OutdoorMask2.png Graphic file (type png)
+<use ./img/OutdoorMask2.png>
+Package pdftex.def Info: ./img/OutdoorMask2.png  used on input line 81.
+(pdftex.def)             Requested size: 124.53963pt x 113.81102pt.
+[13]
+<./img/GuiConvert2.png, id=197, 1134.48843pt x 953.81343pt>
+File: ./img/GuiConvert2.png Graphic file (type png)
+<use ./img/GuiConvert2.png>
+Package pdftex.def Info: ./img/GuiConvert2.png  used on input line 93.
+(pdftex.def)             Requested size: 179.25114pt x 150.69214pt.
+<./img/GuiLabel.png, id=198, 1133.73563pt x 957.5775pt>
+File: ./img/GuiLabel.png Graphic file (type png)
+<use ./img/GuiLabel.png>
+Package pdftex.def Info: ./img/GuiLabel.png  used on input line 95.
+(pdftex.def)             Requested size: 179.25114pt x 151.3891pt.
+ [14 <./img/IndoorMask6.png> <./img/IndoorMask3.png> <./img/OutdoorMask2.png> <
+./img/GuiConvert2.png> <./img/GuiLabel.png>] [15]) [16]
 \openout2 = `chapter/Ergebnis.aux'.
 
- (./chapter/Ergebnis.tex
+
+(./chapter/Ergebnis.tex
 chapter 5.
-[16
+[17
 
 
 
-]) [17]
+]) [18]
 \openout2 = `chapter/Zusammenfassung.aux'.
 
  (./chapter/Zusammenfassung.tex
 chapter 6.
-) [18
+) [19
 
 
 
 ]
 chapter A.
-[19
+[20
 
 
 ]
@@ -1609,10 +1602,10 @@ Package rerunfilecheck Info: File `Hauptdokument.out' has not changed.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 217.
  ) 
 Here is how much of TeX's memory you used:
- 45417 strings out of 492616
- 970508 string characters out of 6132769
+ 45412 strings out of 492616
+ 970370 string characters out of 6132769
  1161583 words of memory out of 5000000
- 48685 multiletter control sequences out of 15000+600000
+ 48678 multiletter control sequences out of 15000+600000
  539244 words of font info for 47 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  142i,12n,182p,9092b,1886s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1628,10 +1621,10 @@ xlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb><c:/texlive/2
 018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2018/texmf
 -dist/fonts/type1/public/amsfonts/cm/cmti12.pfb><c:/texlive/2018/texmf-dist/fon
 ts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on Hauptdokument.pdf (21 pages, 4564727 bytes).
+Output written on Hauptdokument.pdf (22 pages, 5898203 bytes).
 PDF statistics:
- 363 PDF objects out of 1000 (max. 8388607)
- 287 compressed objects within 3 object streams
+ 371 PDF objects out of 1000 (max. 8388607)
+ 290 compressed objects within 3 object streams
  57 named destinations out of 1000 (max. 500000)
- 384 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 394 words of extra memory for PDF output out of 10000 (max. 10000000)
 

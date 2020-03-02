@@ -59,15 +59,22 @@ Mithilfe von OpenCV werden alle Frames des Eingabevideos einzeln durchlaufen und
 Ausgehend von der Gesamt-Bounding-Box müssen für die Erstellung erster Videos noch nötige Sonderfälle beachtet werden. So wird der Zoom unter 480 Pixel verhindert, um eine gute Bildqualität zu ermöglichen. Die längere Seite der Bounding-Box ist ausschlaggebend für die Berechnung der passenden Ratio des Bildausschnittes, sodass dann die optimalen  Eckpunkte berechnet werden können. Wichtig ist es noch die Ränder eines Frames zu berücksichtigen und die Ratio entsprechend zu korrigieren.
 Im letzten Schritt werden die Rois mithilfe der kalkulierten Gesamtbox aus jedem Frame ausgeschnitten  . Nachdem alle Frames auf die gleiche Größe gebracht werden, was durch die gleiche Ratio aller Frames keine Verzerrung zur Folge hat, werden die Frames mit OpenCV in ein Ausgabevideo geschrieben.
 
-\todo{Reiterpaare}
-\subsection*{Reiterpaar Erkennung}
 
+\subsection*{Reiterpaarerkennung}
+Aus der Detektion erhalten wir eine Menge aus RoIs(bounding boxen).
+Jede Box umrandet einen Mensch oder ein Pferd. Diese Menge aus RoIs wird gefiltert. Wir möchten nur Reiterpaare haben. Ein Reiterpaar ist ein Mensch sehr nah an oder auf einem Pferd.
+
+Eine Box ist ein Rechteck. Wir können also berechnen, wie groß der Flächeninhalt der überlappenden Rechtecke ist. Flächeninhalt gleich Null bedeutet, sie überlappen sich überhaupt nicht.
+Dadurch ist es nicht nur möglich zu berechnen, ob eine Pferd nah an einem Menschen ist - sondern auch wie nah. Es kann ein Threshold gewählt werden, der die Größe des Flächeninhalts prüft. Beispielsweise hätte ein Mensch \emph{auf} einem Pferd einen größeren Flächeninhalt als ein Mensch \emph{neben} einem Pferd. Je nach Wunsch kann das also angepasst werden bei uns.
+
+
+Wenn eine Mensch-RoI also eine Pferd-RoI überlappt, zeichnen wir um beide eine Reiterpaar-RoI.
 
 
 \section{Phase 3}
 \subsection*{Weiterentwicklung des Detektors}
 
-\begin{figure}[b]
+\begin{figure}
 \centering
 \includegraphics[height=4cm,trim={6cm 0 6cm 0},clip]{./img/IndoorMask6.png}
 \includegraphics[height=4cm,trim={6cm 0 6cm 0},clip]{./img/IndoorMask3.png}
@@ -81,8 +88,17 @@ Mit Beginn der dritten Phase wurden weitere Reitvideos zur Verfügung gestellt, 
 
 \subsection*{Benutzeroberfläche}
 
-Im Hinblick auf die Kundengruppe haben wir das Kennzeichnung weiterer Bilddaten und die Konvertierung eines Videos für autonome Kameraführung in eine GUI eingebunden. Die GUI wurde mit PyQt5 erstellt und das Standardaussehen durch Einbinden eines Stylesheets modifiziert. Mit dieser minimalen Benutzeroberfläche kann der Nutzer nun zunächst auswählen ob weitere Daten gelabelt werden sollen oder ein Video umgewandelt werden soll. Bei der Auswahl weiter Bilddaten können sowohl Ordner mit Bildern als auch Videos mithilfe extrahierter Frames verwendet werden. Dazu kann der Nutzer pro Bild entscheiden ob die eingezeichnete Detektion gut genug ist diese akzeptieren oder ablehnen und im Anschluss den Detektor damit weiter trainieren. Für die Umwandlung eines Videos wird nach Auswahl der Datei und der Auflösung des Ausgabeformates ein Video unseres Smart Camera Operators erstellt.
-\todo{Screenshots Gui Start, Gui Labelling, Gui Convert}
+\begin{figure}[b]
+\centering
+\includegraphics[width=0.45\textwidth]{./img/GuiConvert2.png}
+%\includegraphics[width=0.32\textwidth]{./img/GuiConvert.png}
+\includegraphics[width=0.45\textwidth]{./img/GuiLabel.png}
+\caption{Benutzeroberläche Konvertieren und Labeln eines Videos}
+\label{fig:gui}
+\end{figure}
+
+Im Hinblick auf die Kundengruppe haben wir das Kennzeichnung weiterer Bilddaten und die Konvertierung eines Videos für autonome Kameraführung in eine GUI eingebunden. Die GUI wurde mit PyQt5 erstellt und das Standardaussehen durch Einbinden eines Stylesheets modifiziert. Mit dieser minimalen Benutzeroberfläche kann der Nutzer nun zunächst auswählen ob weitere Daten gelabelt werden sollen oder ein Video umgewandelt werden soll \ref{fig:gui}. Bei der Auswahl weiter Bilddaten können sowohl Ordner mit Bildern als auch Videos mithilfe extrahierter Frames verwendet werden. Dazu kann der Nutzer pro Bild entscheiden ob die eingezeichnete Detektion gut genug ist diese akzeptieren oder ablehnen und im Anschluss den Detektor damit weiter trainieren. Für die Umwandlung eines Videos wird nach Auswahl der Datei und der Auflösung des Ausgabeformates ein Video unseres Smart Camera Operators erstellt.
+
 
 
 \subsection*{Videoqualität}
@@ -99,16 +115,6 @@ Als nächstes nutzten wir statt der Geraden Ausgleichskurven, wobei sich bereits
 
 \subsubsection*{Sprünge/Verschwinden}
 \subsubsection*{Verdecken}
-
-\subsection*{Reiterpaarerkennung}
-Aus der Detektion erhalten wir eine Menge aus RoIs(bounding boxen).
-Jede Box umrandet einen Mensch oder ein Pferd. Diese Menge aus RoIs wird gefiltert. Wir möchten nur Reiterpaare haben. Ein Reiterpaar ist ein Mensch sehr nah an oder auf einem Pferd.
-
-Eine Box ist ein Rechteck. Wir können also berechnen, wie groß der Flächeninhalt der überlappenden Rechtecke ist. Flächeninhalt gleich Null bedeutet, sie überlappen sich überhaupt nicht.
-Dadurch ist es nicht nur möglich zu berechnen, ob eine Pferd nah an einem Menschen ist - sondern auch wie nah. Es kann ein Threshold gewählt werden, der die Größe des Flächeninhalts prüft. Beispielsweise hätte ein Mensch \emph{auf} einem Pferd einen größeren Flächeninhalt als ein Mensch \emph{neben} einem Pferd. Je nach Wunsch kann das also angepasst werden bei uns.
-
-
-Wenn eine Mensch-RoI also eine Pferd-RoI überlappt, zeichnen wir um beide eine Reiterpaar-RoI.
 
 \subsection*{Glättung}
 Um die Folge der RoIs zu glätten, damit sich nach dem Zuschneiden ein sanftes Seherlebnis für den Zuschauer bietet, haben wir verschiedene Verfahren ausprobiert.
