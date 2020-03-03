@@ -68,33 +68,26 @@ Die vorgegebenen Phasen aus der Aufgabenstellung dieses Projektes stellten sich 
 Durch die recht allgemeine Formulierung der Ziele in Phase drei, die einen Fokus auf robustes und flüssiges Tracking, haben wir die daraus abgeleiteten Gruppenziele in den Vordergrund gestellt. Obwohl einige Konzepte, die aus Effizienz- oder Performancegründen verworfen wurden, erprobt wurden, konnten die Projektziele eingehalten werden. 
 
 \section{Umsetzung und Zielerreichung}
+Im Folgende betrachten wir die Umsetzung der einzelnen Ziele und die Einstufung von bestehenden Fehler sowie deren Wichtigkeit
 
-\subsection*{Umsetzung GUI}
-•	Genereller Überblick
 
-•	Spezielle Bedienelemente
-
-•	Ausführung vorgegebener Handlungsabläufe
-
-•	Leichte Erlernbarkeit
-\todo[inline]{Abschnitt fehlt}
 
 \subsection*{Umsetzung Detektor}
-\todo[inline]{Abschnitt fehlt}
+Der erste Schritt für die autonome Kameraführung war die Erstellung eines Detektors für Reiter und Pferd sowie später auch für Reiterpaare. Diesen konnten wir erfolgreich mithilfe von Maschine Learning umsetzten, indem wir die erstellten Trainingsdaten der ersten Phase als Grundlage genutzt haben und den Detektor später um weitere Datensätze erweitert haben. Mit Wahl von Mask RCNN haben wir schon am Ende der zweiten Phase ausreichende Genauigkeit erreicht, dass wir problemlos zusätzliche Daten mit weiteren Videomaterial labeln konnten, obwohl sich die Umgebung und die Reiterpaare unterschieden. Die Schnelligkeit des Labelings konnten wir durch eine graphische Benutzeroberfläche gewährleisten, mit welcher ein Nutzer die möglichen Detekionen beurteilen kann. Trotz der erfolgten Erweiterung des Detektors ist es in jeder neuen Umgebung auch weiterhin nötig diesen weiter zu trainieren, da durchaus fehlerhafte Erkennungen auftreten können.
+
+
 
 \subsection*{Umsetzung Tracker}
 \todo[inline]{Abschnitt fehlt}
 
-\section{Verbesserungen}
-\todo[inline]{Abschnitt fehlt}
-Performance da Live Übertragung braucht mit ca. 25 fps schnellere Detektion
 
-Tracken bei Verdeckung noch robuster
 
-Tracken von Kreuzenden Reitern
+\section{Ausblick}
+Durch die zeitlichen Vorgaben konnten nicht alle Ideen und Ansätze ausprobiert werden, jedoch sehen wir in einigen Aspekten großes Potenzial zur Verbesserung und Erweiterung.
 
-erweitern des Models um mehr Datensätze für verschiedene Reitdisziplinen wie Springreiten
+Der erstellte Detektor für Reiterpaare sollte sowohl für eine Vielzahl von Umgebungen mit anderen Reitern und Pferden trainiert werden, als auch für verschiedene Reitdisziplinen wie beispielsweise Springreiten oder Westernreiten. 
+Um eine noch robustere Verfolgung eines Reiterpaares zu ermöglichen sind weitere Sonderfälle, wie das Kreuzen und längeres Verdecken von Reitern zu beachten. Ebenfalls sind Ausnahmesituationen wie Stürze von Interesse, da in diesem Fall Reiter und Pferd nicht mehr als Paar erkannt würden.
+Ein ausgiebiger Praxistest würde uns an dieser Stelle Aufschluss über nötige Erweiterungen und Problematiken geben.
 
-Kamerarotation/Translation erfordert andere Struktur da live Berechnungen nötig sind
+Im Hinblick auf den Einsatz für Live Tracking müsste der bestehende Smart Camera Operator an einigen Stellen modifiziert werden, da im Rahmen des Projektes nur mit Aufzeichnungen gearbeitet wurde. Besonders müsste die Performance dafür deutlich erhöht werden, damit die Erkennung für ca. 25 fps erreicht werden kann. Davon ausgehend könnten dann auch Kamerabewegungen ermöglicht werden, die dem fokussierten Reiterpaar mittels Translationen und Rotationen folgt.
 
-Testen der Anwendung in der Praxis durchführen
