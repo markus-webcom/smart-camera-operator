@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/W32TeX) (preloaded format=pdflatex 2019.4.6)  3 MAR 2020 22:47
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/W32TeX) (preloaded format=pdflatex 2019.4.6)  3 MAR 2020 22:53
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -1467,11 +1467,27 @@ LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
 
 (./chapter/Anwendungsaufbau.tex
 chapter 3.
+<./img/Klassendiagram.jpg, id=137, 963.6pt x 432.61626pt>
+File: ./img/Klassendiagram.jpg Graphic file (type jpg)
+<use ./img/Klassendiagram.jpg>
+Package pdftex.def Info: ./img/Klassendiagram.jpg  used on input line 9.
+(pdftex.def)             Requested size: 398.3386pt x 178.83267pt.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
 [8
 
 
 
-] [9]) [10]
+ <./img/Klassendiagram.jpg>]
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[9]
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+) [10] [11]
 \openout2 = `chapter/Implementierung.aux'.
 
  (./chapter/Implementierung.tex
@@ -1481,70 +1497,70 @@ Underfull \hbox (badness 10000) in paragraph at lines 33--33
 [][]|\OT1/cmr/m/n/10.95 Ord-ner-struk-tur
  []
 
-[11
+[12
 
 
 
 ]
-<./img/IndoorMaske.png, id=173, 895.345pt x 501.875pt>
+<./img/IndoorMaske.png, id=178, 895.345pt x 501.875pt>
 File: ./img/IndoorMaske.png Graphic file (type png)
 <use ./img/IndoorMaske.png>
 Package pdftex.def Info: ./img/IndoorMaske.png  used on input line 47.
 (pdftex.def)             Requested size: 106.24937pt x 113.81102pt.
-<./img/IndoorMaske2.png, id=176, 894.34125pt x 500.87125pt>
+<./img/IndoorMaske2.png, id=181, 894.34125pt x 500.87125pt>
 File: ./img/IndoorMaske2.png Graphic file (type png)
 <use ./img/IndoorMaske2.png>
 Package pdftex.def Info: ./img/IndoorMaske2.png  used on input line 48.
 (pdftex.def)             Requested size: 106.23578pt x 113.81102pt.
-<./img/OutdoorMaske.png, id=178, 861.2175pt x 576.1525pt>
+<./img/OutdoorMaske.png, id=183, 861.2175pt x 576.1525pt>
 File: ./img/OutdoorMaske.png Graphic file (type png)
 <use ./img/OutdoorMaske.png>
 Package pdftex.def Info: ./img/OutdoorMaske.png  used on input line 49.
 (pdftex.def)             Requested size: 147.63112pt x 113.81102pt.
- [12 <./img/IndoorMaske.png> <./img/IndoorMaske2.png> <./img/OutdoorMaske.png>]
-<./img/IndoorMask6.png, id=193, 910.40125pt x 519.9425pt>
+ [13 <./img/IndoorMaske.png> <./img/IndoorMaske2.png> <./img/OutdoorMaske.png>]
+<./img/IndoorMask6.png, id=198, 910.40125pt x 519.9425pt>
 File: ./img/IndoorMask6.png Graphic file (type png)
 <use ./img/IndoorMask6.png>
 Package pdftex.def Info: ./img/IndoorMask6.png  used on input line 77.
 (pdftex.def)             Requested size: 124.53963pt x 113.81102pt.
-<./img/IndoorMask3.png, id=195, 910.40125pt x 519.9425pt>
+<./img/IndoorMask3.png, id=200, 910.40125pt x 519.9425pt>
 File: ./img/IndoorMask3.png Graphic file (type png)
 <use ./img/IndoorMask3.png>
 Package pdftex.def Info: ./img/IndoorMask3.png  used on input line 78.
 (pdftex.def)             Requested size: 124.53963pt x 113.81102pt.
-<./img/OutdoorMask2.png, id=197, 910.40125pt x 519.9425pt>
+<./img/OutdoorMask2.png, id=202, 910.40125pt x 519.9425pt>
 File: ./img/OutdoorMask2.png Graphic file (type png)
 <use ./img/OutdoorMask2.png>
 Package pdftex.def Info: ./img/OutdoorMask2.png  used on input line 79.
 (pdftex.def)             Requested size: 124.53963pt x 113.81102pt.
- [13]
-<./img/GuiConvert2.png, id=204, 1134.48843pt x 953.81343pt>
+ [14]
+<./img/GuiConvert2.png, id=209, 1134.48843pt x 953.81343pt>
 File: ./img/GuiConvert2.png Graphic file (type png)
 <use ./img/GuiConvert2.png>
 Package pdftex.def Info: ./img/GuiConvert2.png  used on input line 91.
 (pdftex.def)             Requested size: 179.25114pt x 150.69214pt.
-<./img/GuiLabel.png, id=205, 1133.73563pt x 957.5775pt>
+<./img/GuiLabel.png, id=210, 1133.73563pt x 957.5775pt>
 File: ./img/GuiLabel.png Graphic file (type png)
 <use ./img/GuiLabel.png>
 Package pdftex.def Info: ./img/GuiLabel.png  used on input line 93.
 (pdftex.def)             Requested size: 179.25114pt x 151.3891pt.
- [14 <./img/IndoorMask6.png> <./img/IndoorMask3.png> <./img/OutdoorMask2.png> <
-./img/GuiConvert2.png> <./img/GuiLabel.png>] [15]) [16]
+ [15 <./img/IndoorMask6.png> <./img/IndoorMask3.png> <./img/OutdoorMask2.png> <
+./img/GuiConvert2.png> <./img/GuiLabel.png>] [16]) [17]
 \openout2 = `chapter/Ergebnis.aux'.
 
 
 (./chapter/Ergebnis.tex
 chapter 5.
-[17
+[18
 
 
 
-] [18]) [19]
+] [19]) [20]
 \openout2 = `chapter/Zusammenfassung.aux'.
 
  (./chapter/Zusammenfassung.tex
 chapter 6.
-) [20
+) [21
 
 
 
@@ -1553,7 +1569,7 @@ chapter 6.
 
  (./chapter/Anhang.tex
 chapter A.
-) [21
+) [22
 
 
 
@@ -1576,10 +1592,10 @@ LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 212.
  ) 
 Here is how much of TeX's memory you used:
- 45457 strings out of 492616
- 971193 string characters out of 6132769
- 1161953 words of memory out of 5000000
- 48703 multiletter control sequences out of 15000+600000
+ 45464 strings out of 492616
+ 971337 string characters out of 6132769
+ 1166002 words of memory out of 5000000
+ 48707 multiletter control sequences out of 15000+600000
  539244 words of font info for 47 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  142i,12n,182p,9092b,1886s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1595,10 +1611,10 @@ xlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb><c:/texlive/2
 018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2018/texmf
 -dist/fonts/type1/public/amsfonts/cm/cmti12.pfb><c:/texlive/2018/texmf-dist/fon
 ts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on Hauptdokument.pdf (23 pages, 5905403 bytes).
+Output written on Hauptdokument.pdf (24 pages, 5962845 bytes).
 PDF statistics:
- 391 PDF objects out of 1000 (max. 8388607)
- 308 compressed objects within 4 object streams
- 70 named destinations out of 1000 (max. 500000)
- 394 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 396 PDF objects out of 1000 (max. 8388607)
+ 311 compressed objects within 4 object streams
+ 71 named destinations out of 1000 (max. 500000)
+ 399 words of extra memory for PDF output out of 10000 (max. 10000000)
 
