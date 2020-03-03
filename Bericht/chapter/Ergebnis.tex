@@ -72,15 +72,15 @@ Im Folgende betrachten wir die Umsetzung der einzelnen Ziele und die Einstufung 
 
 
 
-\subsection*{Umsetzung Detektor}
+\subsection*{ Detektor}
 Der erste Schritt für die autonome Kameraführung war die Erstellung eines Detektors für Reiter und Pferd sowie später auch für Reiterpaare. Diesen konnten wir erfolgreich mithilfe von Maschine Learning umsetzten, indem wir die erstellten Trainingsdaten der ersten Phase als Grundlage genutzt haben und den Detektor später um weitere Datensätze erweitert haben. Mit Wahl von Mask RCNN haben wir schon am Ende der zweiten Phase ausreichende Genauigkeit erreicht, dass wir problemlos zusätzliche Daten mit weiteren Videomaterial labeln konnten, obwohl sich die Umgebung und die Reiterpaare unterschieden. Die Schnelligkeit des Labelings konnten wir durch eine graphische Benutzeroberfläche gewährleisten, mit welcher ein Nutzer die möglichen Detekionen beurteilen kann. Trotz der erfolgten Erweiterung des Detektors ist es in jeder neuen Umgebung auch weiterhin nötig diesen weiter zu trainieren, da durchaus fehlerhafte Erkennungen auftreten können.
+Das Detektieren von Reiterpaaren konnten wir simpel mithilfe der Überdeckung von Reiter und Pferd lösen. Als Folge dessen konnten wir einzelne Reiter und Pferde ausschließen, was in neuen Umgebungen robusteres Detektieren zur Folge hat.
 
 
 
-\subsection*{Umsetzung Tracker}
-\todo[inline]{Abschnitt fehlt}
-
-
+\subsection*{ Tracker}
+Um eine flüssige und robuste Verfolgung des Reiterpaares zu ermöglichen haben wir viele grundlegende Problematiken betrachtet und schrittweise gelöst. Neben der Behandlung der Bildränder haben wir auch die Problematik von Verdeckung und dem fehlerhaften oder fehlenden detektieren von mehreren und einzelnen Reitern behandelt. Mit den errechneten Bounding Boxen konnten wir die jeweiligen RoIs der einzelnen Frames bestimmen und mit der Anwendung eines Gaußfilters auch eine angenehme Videoqualität ermöglichen.
+\todo[inline]{Abschnitt unvollständig}
 
 \section{Ausblick}
 Durch die zeitlichen Vorgaben konnten nicht alle Ideen und Ansätze ausprobiert werden, jedoch sehen wir in einigen Aspekten großes Potenzial zur Verbesserung und Erweiterung.
