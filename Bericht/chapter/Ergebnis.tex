@@ -1,67 +1,6 @@
 \chapter{Ergebnisauswertung}
 \label{ch:ergebnis}
 
-Qualitative Auswertung:
-
-•	Diskussion Zielerreichung
-
-•	Untersuchung der Bedienung
-
-
-•	Empfehlung noch nicht implementierter Funktionen
-
-\vspace{1cm}
-
-Bugs:
-
-•	Prototyp
-
-•	fehlender Praxistest
-
-•	bisher nur Grundfunktionen
-
-\vspace{1cm}
-
-Verbesserungen:
-
-•	Performance für Live Übertragung
-
-•	Model Training erweitern
-
-•	Festlegung welchem Reiterpaar situationsbedingt gefolgt werden soll
-
-•	Bildentzerrung?
-
-
-\vspace{1cm}
-Zusammenfassung der Beobachtungen
-	
-	
-•	Einstufung der Fehler und ihre Wichtigkeit
-
-•	Fehlertoleranz
-
-•	Ursachenanalyse
-	
-•	Verbesserungsvorschläge
-	
-•	Interssenskonflike(Performance und Zeitaufwand)
-	
-•	Beurteilung der Resourcen (Zeit, Vorwissen, erworbene Kenntnisse )
-
-•	Effektivität
-
-•	Effizienz
-
-•	Zufriedenstellung/Akzeptanz
-
-•	Aufgabenangemessenheit
-
-•	Erlernbarkeit
-
-•	Erwartungskonformität
-
-
 
 \section{Planung}
 Die vorgegebenen Phasen aus der Aufgabenstellung dieses Projektes stellten sich als sehr hilfreich für ein sinnvolles schrittweises Vorgehen und dessen Umsetzung heraus, besonders im Hinblick auf fehlendes Vorwissen aller Gruppenmitglieder in der Thematik Maschine Learning. Während die erste Phase problemlos ablief, gestaltete sich der praktische Einstieg in der zweiten Phase dagegen relativ langwierig, bis wir einen ersten Prototypen unseres Detektors erstellen konnten. Als Folge dessen war es uns nicht vollständig möglich das Ziel eines Reiterpaardetektors bereits komplett fertigzustellen, da dieser an einigen Stellen noch Fehler aufwies, welche jedoch direkt zu Beginn der dritten Phase behoben wurden. Ebenfalls sollte in der zweiten Phase das Labelling weiterer Daten umgesetzt werden, wobei die entsprechend vereinfachte Benutzung dieses Zieles erst mithilfe der GUI in Phase drei hinzugefügt wurde. Diese zeitlichen Verschiebungen konnten jedoch  mit effizienter Aufgabenteilung gut bewältigt werden und stellten kein Hindernis für die letzte Phase dar.
@@ -72,25 +11,29 @@ Im Folgende betrachten wir die Umsetzung der einzelnen Ziele und die Einstufung 
 
 
 
-\subsection*{ Detektor}
+\subsection*{ Detektion}
 Der erste Schritt für die autonome Kameraführung war die Erstellung eines Detektors für Reiter und Pferde sowie später auch für Reiterpaare. Diesen konnten wir erfolgreich mithilfe von Maschine Learning umsetzten, indem wir die erstellten Trainingsdaten der ersten Phase sowie Transfer Learning als Grundlage genutzt haben und den Detektor später um weitere Datensätze erweitert haben. Mit Wahl von Mask RCNN haben wir schon am Ende der zweiten Phase ausreichende Genauigkeit erreicht, dass wir problemlos zusätzliche Daten mit weiteren Videomaterial labeln konnten, obwohl sich die Umgebung und die Reiterpaare unterschieden. Die Schnelligkeit des Labelings konnten wir durch eine graphische Benutzeroberfläche gewährleisten, mit welcher ein Nutzer die möglichen Detekionen beurteilen kann. Dies stellt für den Einsatz der Software mit ungeschulten Nutzern einen großen Vorteil dar, die mit wenigen Interaktionen ein Video nach der Aufnahme konvertieren können. Trotz der erfolgten Erweiterung des Detektors ist es in jeder neuen Umgebung auch weiterhin nötig diesen weiter zu trainieren, da durchaus fehlerhafte Erkennungen auftreten können.
 Das Detektieren von Reiterpaaren konnten wir simpel mithilfe der Überdeckung von Reiter und Pferd lösen. Als Folge dessen konnten wir einzelne Reiter und Pferde vom Tracking ausschließen, was in neuen Umgebungen robusteres Detektieren zur Folge hat.
 
-Während unser Ziel eines robusten Detektors mit Mask RCNN gut umsetzbar war, stellt die Performance trotz Nutzung von GPU einen Nachteil gegenüber anderen Frameworks wie YOLO dar. Im Hinblick auf Liveübertragungen müsste dieser Interessenskonflikt genauer beurteilt werden und Möglichkeit gefunden werden, dass nicht für jeden Frame Detektionen benötigt werden.
+Während unser Ziel eines robusten Detektors mit Mask RCNN gut umsetzbar war, stellt die Performance trotz Nutzung von GPU einen Nachteil gegenüber anderen Frameworks wie YOLO dar. Im Hinblick auf Liveübertragungen müsste dieser Interessenskonflikt genauer beurteilt werden und Möglichkeit gefunden werden, dass nicht für jeden Frame Detektionen benötigt werden. Die getesteten Verbesserungen mithilfe von polynominaler Regression ergab zwar nicht die gesuchte Geschwindigkeit, das Verfahren konnte jedoch eine gute Videoqualität erzielen, weshalb sich ein weitere Überprüfung sicherlich lohnen würde.
 
 
-\subsection*{ Tracker}
-Um eine flüssige und robuste Verfolgung des Reiterpaares zu ermöglichen haben wir viele grundlegende Problematiken betrachtet und schrittweise gelöst. Neben der Behandlung der Bildränder haben wir auch das Verdecken und das fehlerhafte oder fehlende detektieren von mehreren und einzelnen Reitern behandelt. Nachdem wir Sprünge und Verschwinden der errechneten RoIs bestimmen und einen Gaußfilters angewendet haben, ermöglichten wir auch eine angenehme Videoqualität. 
-Der erstellte Tracker weist an einigen Stellen noch Fehler beim verfolgen eines einzelnen Reiters auf, wenn die Verdeckung zu lange anhält, sodass auch das Kreuzen von Reitern nicht immer die gewünschten Ergebnisse liefert. Im Hinblick auf den Einsatz bei Reitsportturnieren sind die Einzelprüfungen jedoch der wichtigste Bereich, welchen wir am meisten optimiert haben.
+\subsection*{ Tracking}
+Um eine flüssige und robuste Verfolgung des einzelnen Reiterpaares stellte sich als größere Herausforderung heraus als wir zu Anfang angenommen hatten. Um dies dennoch zu ermöglichen haben wir viele grundlegende Problematiken betrachtet und diese versucht schrittweise zu lösen. 
+Neben der Behandlung der Bildränder haben wir auch das Verdecken und das fehlerhafte oder fehlende Detektieren einzelnen Paaren behandelt. Nachdem wir Sprünge und Verschwinden der errechneten RoIs bestimmen und einen Gaußfilters angewendet haben, konnten wir die Videoqualität zufriedenstellend verbessern. An dieser Stelle würde es sich anbieten andere Filter auszutesten um herauszufinden welcher das beste Verhältnis zwischen Rechenaufwand und Qualität leistet, der verwendete Gaußfilter hat für die Nachbearbeitung von Videos jedoch bereits eine gute Qualität geliefert.
+
+Der erstellte Tracker weist an einigen Stellen noch geringe Fehler beim Verfolgen eines einzelnen Reiters auf, wenn die Verdeckung zu lange anhält, sodass auch das Kreuzen von Reitern nicht immer die gewünschten Ergebnisse liefert. 
+Wir mussten feststellen, dass einige Aspekte von manueller Kameraführung im Allgemeinen schwer umsetzbar sind, da beispielsweise situationsbedingt entschieden wird, welches Reiterpaar gefilmt werden soll. 
+Im Hinblick auf den Einsatz bei Reitsportturnieren sind die Einzelprüfungen jedoch der wichtigste Bereich, welchen wir am meisten optimiert haben.
 
 
-\section{Verbesserungen}
+\section{Ausblick}
 Durch die zeitlichen Vorgaben konnten nicht alle Ideen und Ansätze ausprobiert werden, jedoch sehen wir in einigen Aspekten großes Potenzial zur Verbesserung und Erweiterung.
 
-Der erstellte Detektor für Reiterpaare sollte sowohl für eine Vielzahl von Umgebungen mit anderen Reitern und Pferden trainiert werden, als auch für verschiedene Reitdisziplinen wie beispielsweise Springreiten oder Westernreiten. 
-Um eine noch robustere Verfolgung eines Reiterpaares zu ermöglichen sind weitere Sonderfälle, wie das Kreuzen und längeres Verdecken von Reitern zu beachten. Ebenfalls sind Ausnahmesituationen wie Stürze von Interesse, da in diesem Fall Reiter und Pferd nicht mehr als Paar erkannt würden.
+Der erstellte Detektor für Reiterpaare sollte sowohl für weitere Umgebungen, besonders im Außenbereich mit anderen Reitern und Pferden, weiter trainiert werden, als auch für verschiedene Reitdisziplinen wie beispielsweise Springreiten oder Voltigieren, bei denen sich die Bewegungsmuster verändern. 
+Um eine noch robustere Verfolgung eines Reiterpaares zu ermöglichen sind weitere Sonderfälle, wie das Kreuzen und längeres Verdecken von Reitern, genauer zu beachten. Ebenfalls sind Ausnahmesituationen wie Stürze von Interesse, da in diesem Fall Reiter und Pferd nicht mehr als Paar erkannt würden.
 Ein ausgiebiger Praxistest würde uns an dieser Stelle Aufschluss über nötige Erweiterungen und Problematiken geben.
 
-Im Hinblick auf den Einsatz für Live Tracking müsste der bestehende Smart Camera Operator an einigen Stellen modifiziert werden, da im Rahmen des Projektes nur mit Aufzeichnungen gearbeitet wurde. Besonders müsste die Performance dafür deutlich erhöht werden, damit die Erkennung für ca. 25 fps erreicht werden kann. Davon ausgehend könnten dann auch Kamerabewegungen ermöglicht werden, die dem fokussierten Reiterpaar mittels Translationen und Rotationen folgt.
+Während für das Praktikum eine feste Position und Blickrichtung der Kamera vorgegeben waren, müsste der bestehende Smart Camera Operator im Hinblick auf den Einsatz für Live Tracking an einigen Stellen modifiziert werden, da dies andere Herausforderungen als die nachträgliche Bearbeitung von Aufzeichnungen mit sich bringt. Besonders müsste die Performance dafür deutlich erhöht werden, damit die Erkennung für ca. 25 fps erreicht werden kann. Davon ausgehend könnten dann auch Kamerabewegungen ermöglicht werden, die dem fokussierten Reiterpaar mittels Translationen und Rotationen folgt.
 
-Entzerrung Bild 
+Die Verbesserung der Kameraführung hat noch großen Spielraum offen, bis ein professioneller Kameramann ersetzt werden kann, da diese durch ihre Erfahrung im Vorteil sind. Für einen Ausgleich könnte herausgefunden werden, an welchen Stellen sich ein Zoom auf den Reiter oder das Pferd für die jeweilige Turnierart lohnt, da Springreiten andere Anforderungen als Dressurreiten hat.

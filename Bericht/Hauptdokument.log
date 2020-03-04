@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/W32TeX) (preloaded format=pdflatex 2019.4.6)  4 MAR 2020 18:04
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/W32TeX) (preloaded format=pdflatex 2019.4.6)  4 MAR 2020 21:01
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -1553,18 +1553,18 @@ chapter 5.
 
 
 
-] [16]
-Overfull \hbox (3.13599pt too wide) in paragraph at lines 79--80
+]
+Overfull \hbox (3.13599pt too wide) in paragraph at lines 18--19
 \OT1/cmr/m/n/12 an-de-ren Fra-me-works wie YO-LO dar. Im Hin-blick auf Li-ve[]u
 bertragungen m[]usste
  []
 
-[17]) [18]
+[16]) [17]
 \openout2 = `chapter/Zusammenfassung.aux'.
 
  (./chapter/Zusammenfassung.tex
 chapter 6.
-) [19
+) [18
 
 
 
@@ -1575,7 +1575,7 @@ chapter 6.
 chapter A.
 Package hyperref Info: bookmark level for unknown todo defaults to 0 on input l
 ine 7.
-) [20
+) [19
 
 
 
@@ -1594,8 +1594,8 @@ Package rerunfilecheck Info: File `Hauptdokument.out' has not changed.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 212.
  ) 
 Here is how much of TeX's memory you used:
- 45385 strings out of 492616
- 970003 string characters out of 6132769
+ 45384 strings out of 492616
+ 969996 string characters out of 6132769
  1165644 words of memory out of 5000000
  48643 multiletter control sequences out of 15000+600000
  539244 words of font info for 47 fonts, out of 8000000 for 9000
@@ -1613,10 +1613,10 @@ xlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb><c:/texlive/2
 018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2018/texmf
 -dist/fonts/type1/public/amsfonts/cm/cmti12.pfb><c:/texlive/2018/texmf-dist/fon
 ts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on Hauptdokument.pdf (22 pages, 5921854 bytes).
+Output written on Hauptdokument.pdf (21 pages, 5922247 bytes).
 PDF statistics:
- 366 PDF objects out of 1000 (max. 8388607)
- 283 compressed objects within 3 object streams
- 57 named destinations out of 1000 (max. 500000)
+ 362 PDF objects out of 1000 (max. 8388607)
+ 280 compressed objects within 3 object streams
+ 56 named destinations out of 1000 (max. 500000)
  375 words of extra memory for PDF output out of 10000 (max. 10000000)
 
