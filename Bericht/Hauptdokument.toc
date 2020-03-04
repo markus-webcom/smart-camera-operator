@@ -1,35 +1,35 @@
 \babel@toc {ngerman}{}
 \contentsline {chapter}{\numberline {1}Einleitung}{1}{chapter.1}% 
-\contentsline {chapter}{\numberline {2}Entwurfsentscheidungen}{4}{chapter.2}% 
-\contentsline {section}{\numberline {2.1}Programmiersprache}{4}{section.2.1}% 
-\contentsline {section}{\numberline {2.2}Setup}{4}{section.2.2}% 
-\contentsline {section}{\numberline {2.3}Versionsverwaltung}{4}{section.2.3}% 
-\contentsline {section}{\numberline {2.4}Toolselection}{5}{section.2.4}% 
-\contentsline {paragraph}{Pandas}{5}{section*.3}% 
-\contentsline {paragraph}{Opencv}{5}{section*.3}% 
-\contentsline {paragraph}{Numpy}{5}{section*.3}% 
-\contentsline {paragraph}{Scipy}{5}{section*.3}% 
-\contentsline {paragraph}{tensorflow}{6}{section*.3}% 
-\contentsline {paragraph}{keras}{6}{section*.3}% 
-\contentsline {paragraph}{PyQt}{6}{section*.3}% 
-\contentsline {section}{\numberline {2.5}Maschine Learning}{6}{section.2.5}% 
-\contentsline {paragraph}{Yolo}{6}{section*.4}% 
-\contentsline {paragraph}{ImageAI}{6}{section*.4}% 
-\contentsline {paragraph}{Mask rcnn}{6}{section*.4}% 
-\contentsline {section}{\numberline {2.6}Mask RCNN}{6}{section.2.6}% 
-\contentsline {chapter}{\numberline {3}Anwendungsaufbau}{8}{chapter.3}% 
-\contentsline {section}{\numberline {3.1}Programmaufbau}{8}{section.3.1}% 
-\contentsline {section}{\numberline {3.2}Video-Pipeline}{8}{section.3.2}% 
-\contentsline {section}{\numberline {3.3}Zustandsautomat}{10}{section.3.3}% 
-\contentsline {chapter}{\numberline {4}Implementierung}{12}{chapter.4}% 
-\contentsline {section}{\numberline {4.1}Phase 1}{12}{section.4.1}% 
-\contentsline {section}{\numberline {4.2}Phase 2}{12}{section.4.2}% 
-\contentsline {section}{\numberline {4.3}Phase 3}{14}{section.4.3}% 
-\contentsline {chapter}{\numberline {5}Ergebnisauswertung}{18}{chapter.5}% 
-\contentsline {section}{\numberline {5.1}Planung}{19}{section.5.1}% 
-\contentsline {section}{\numberline {5.2}Umsetzung und Zielerreichung}{19}{section.5.2}% 
-\contentsline {section}{\numberline {5.3}Ausblick}{20}{section.5.3}% 
-\contentsline {chapter}{\numberline {6}Schlussfolgerung und Ausblick}{21}{chapter.6}% 
-\contentsline {chapter}{Anhang \numberline {A}Videos}{22}{Anhang.1.A}% 
-\contentsline {section}{\numberline {A.1}Ergebnisse}{22}{section.1.A.1}% 
-\contentsline {section}{\numberline {A.2}Siegerehrung}{22}{section.1.A.2}% 
+\contentsline {chapter}{\numberline {2}Entwurfsentscheidungen}{3}{chapter.2}% 
+\contentsline {section}{\numberline {2.1}Programmiersprache}{3}{section.2.1}% 
+\contentsline {section}{\numberline {2.2}Setup}{3}{section.2.2}% 
+\contentsline {section}{\numberline {2.3}Versionsverwaltung}{3}{section.2.3}% 
+\contentsline {section}{\numberline {2.4}Toolselection}{4}{section.2.4}% 
+\contentsline {paragraph}{Pandas}{4}{section*.3}% 
+\contentsline {paragraph}{Opencv}{4}{section*.3}% 
+\contentsline {paragraph}{Numpy}{4}{section*.3}% 
+\contentsline {paragraph}{Scipy}{4}{section*.3}% 
+\contentsline {paragraph}{tensorflow}{5}{section*.3}% 
+\contentsline {paragraph}{keras}{5}{section*.3}% 
+\contentsline {paragraph}{PyQt}{5}{section*.3}% 
+\contentsline {section}{\numberline {2.5}Maschine Learning}{5}{section.2.5}% 
+\contentsline {paragraph}{Yolo}{5}{section*.4}% 
+\contentsline {paragraph}{ImageAI}{5}{section*.4}% 
+\contentsline {paragraph}{Mask rcnn}{5}{section*.4}% 
+\contentsline {section}{\numberline {2.6}Mask RCNN}{5}{section.2.6}% 
+\contentsline {chapter}{\numberline {3}Anwendungsaufbau}{7}{chapter.3}% 
+\contentsline {section}{\numberline {3.1}Programmaufbau}{7}{section.3.1}% 
+\contentsline {section}{\numberline {3.2}Video-Pipeline}{7}{section.3.2}% 
+\contentsline {section}{\numberline {3.3}Zustandsautomat}{9}{section.3.3}% 
+\contentsline {chapter}{\numberline {4}Implementierung}{11}{chapter.4}% 
+\contentsline {section}{\numberline {4.1}Phase 1}{11}{section.4.1}% 
+\contentsline {section}{\numberline {4.2}Phase 2}{11}{section.4.2}% 
+\contentsline {section}{\numberline {4.3}Phase 3}{13}{section.4.3}% 
+\contentsline {chapter}{\numberline {5}Ergebnisauswertung}{17}{chapter.5}% 
+\contentsline {section}{\numberline {5.1}Planung}{18}{section.5.1}% 
+\contentsline {section}{\numberline {5.2}Umsetzung und Zielerreichung}{18}{section.5.2}% 
+\contentsline {section}{\numberline {5.3}Ausblick}{19}{section.5.3}% 
+\contentsline {chapter}{\numberline {6}Schlussfolgerung und Ausblick}{20}{chapter.6}% 
+\contentsline {chapter}{Anhang \numberline {A}Videos}{21}{Anhang.1.A}% 
+\contentsline {section}{\numberline {A.1}Ergebnisse}{21}{section.1.A.1}% 
+\contentsline {section}{\numberline {A.2}Siegerehrung}{21}{section.1.A.2}% 
