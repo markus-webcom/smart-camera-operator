@@ -1,19 +1,19 @@
 \chapter{Anwendungsaufbau}
 \label{ch:anwendungsaufbau}
-
+Im Folgenden wollen wir den Aufbau der implementierten Software bezüglich ihrer Funktionalität und der getroffenen Designentscheidungen der autonomen Kameraführung betrachten. 
 \section{Programmaufbau}
+\begin{figure}[h]
+\includegraphics[width=\textwidth]{./img/Klassendiagramm.png}
+\caption{Klassendiagramm des Smart Camera Operator}
+\label{fig:Klassendiagramm}
+\end{figure}
+Wir haben Frontend und Backend separiert, wobei die Klasse des Operators die Schnittstelle bildet. Für die Umsetzung der GUI wurde das Prinzip des Model View Controllers verwendet, um die Nutzereingaben effizient verarbeiten zu können. Der Camera Operator besteht aus den beiden Hauptkomponenten des Detektors, der Training und Object Detection übernimmt, sowie des Videoverarbeitung, welche das Tracking eines Reiterpaares und die Videoqualität  umfasst.
 
-\subsection*{Klassendiagramm}
-\todo[inline]{Diagramm fehlt}
-\todo[inline]{Abschnitt fehlt}
-\includegraphics[width=\textwidth]{./img/Klassendiagram.jpg}
-Schnittstelle zwischen Gui und Backend: Operator
-Gui nutzt das Designpattern des Model View Controller: Controller MainWindow?, Model= Backend, View= Widgets
-
+\newpage
 
 \section{Video-Pipeline}
 
-\begin{figure}[h]
+\begin{figure}[H]
 \centering
 \resizebox{.9\linewidth}{!}{
 \begin{tikzpicture}[>=stealth,shorten >=1pt,auto,node distance=1cm,scale=1, transform shape,align=center,minimum size=7em,text width=6em,line width=0.14 em,rounded corners]
@@ -26,7 +26,7 @@ Gui nutzt das Designpattern des Model View Controller: Controller MainWindow?, M
     \node[draw,right =of B,fill=lightgray,fill opacity=0.3,text opacity=1] (C)
     {Detektion der Bounding Boxen von Reitern und Pferden};
     \node[draw,right =of C,fill=lightgray,fill opacity=0.3,text opacity=1] (D) 
-    {Berechnung der Gesamtbox aller Detektionen};
+    {Berechnung der Gesamtbox aller Reiterpaare};
     \node[draw, below =of D,fill=lightgray,fill opacity=0.3,text opacity=1] (E) 
     {Ratio der Box anpassen};
     \node[draw, below =of C,fill=lightgray,fill opacity=0.3,text opacity=1] (F) 
@@ -47,12 +47,9 @@ Gui nutzt das Designpattern des Model View Controller: Controller MainWindow?, M
 }
 \vspace*{-1cm}
 \caption{Video-Pipeline Phase 2}
+\label{fig:VideoPipelinePhase2}
 \end{figure}
-Anhand der Ziele von den Phasen zwei haben wir die Vorgehensweise mit einer Video-Pipeline geplant, welche wir dann schrittweise mit sinnvoller Aufgabenteilung umsetzen konnten. Die erste Version umfasst dabei lediglich die grundlegenden Funktionen, die für das sinnvolle bestimmen der Rois nötige sind. So wird hier pro Frame eines Videos für alle Detektionen ein gemeinsamer Bildausschnitt berechnet und diese zu einem Ausgabevideo zusammengefügt.
-Diese Video-Pipeline konnten wir dann in der dritten Phase um weiter Aspekte erweitern, wobei diesmal der Fokus auf der Qualität des Ausgabevideos lag. Die Detektion konnte auf Frames mit geringerer Auflösung schneller durchgeführt werden, weshalb die Größe der gefundenen Boxen anschließen angepasst werden musste. Anstatt dem vorherigen Ansatz alle Reiter und Pferde zu verfolgen, wird nun ein einzelnes Reiterpaar ausgewählt. Die Qualität des Ausgabevideos wird durch weniger sprunghafte Unterschiede in der Größe der aufeinanderfolgen Rois verbessert, sodass der Bildfluss flüssiger wird. Zusätzlich wird nun auch die Audiodatei des Ursprungsvideos dem Ausgabevideo hinzugefügt.
-
-
-\begin{figure}[h]
+\begin{figure}[H]
 \centering
 \resizebox{.9\linewidth}{!}{
 \begin{tikzpicture}[>=stealth,shorten >=1pt,auto,node distance=1cm,scale=1, transform shape,align=center,,minimum size=7em,text width=6em,line width=0.14 em,rounded corners]
@@ -101,12 +98,16 @@ Diese Video-Pipeline konnten wir dann in der dritten Phase um weiter Aspekte erw
 \end{tikzpicture}
 }
 \caption{Video-Pipeline Phase 3}
+\label{fig:VideoPipelinePhase3}
 \end{figure}
 
-\newpage
+Anhand der Ziele von den Phasen zwei haben wir die Vorgehensweise mit einer Video-Pipeline geplant, welche wir dann schrittweise mit sinnvoller Aufgabenteilung umsetzen konnten. Die erste Version (Abb. \ref{fig:VideoPipelinePhase2}) umfasst dabei lediglich die grundlegenden Funktionen, die für das sinnvolle bestimmen der Rois nötige sind. So wird hier pro Frame eines Videos für alle detektierten Reiterpaare ein gemeinsamer Bildausschnitt berechnet und diese Rois zu einem Ausgabevideo zusammengefügt.
+Diese Video-Pipeline konnten wir dann in der dritten Phase (Abb. \ref{fig:VideoPipelinePhase3}) um weiter Aspekte erweitern, wobei diesmal der Fokus auf der Qualität des Ausgabevideos lag. Die Detektion konnte auf Frames mit geringerer Auflösung schneller durchgeführt werden, weshalb die Größe der gefundenen Boxen anschließen angepasst werden musste. Anstatt dem vorherigen Ansatz alle Reiterpaare zu verfolgen, wird nun ein einzelnes davon ausgewählt. Die Qualität des Ausgabevideos wird durch weniger sprunghafte Unterschiede in der Größe der aufeinanderfolgen Rois verbessert, sodass der Bildfluss flüssiger wird. Zusätzlich wird nun auch die Audiodatei des Ursprungsvideos dem Ausgabevideo hinzugefügt.
+
+
 \section{Zustandsautomat}
 
-Folgender Moore-Automat \ref{fig:MoorAutomat} soll zeigen, wie der Smart Camera Operator idealerweise funktionieren soll.
+Folgender Moore-Automat (Abb. \ref{fig:MoorAutomat}) soll zeigen, wie der Smart Camera Operator idealerweise funktionieren soll.
 Der Automat startet im \emph{missing} Zustand.
 Die Transitionen \emph{gefunden} und \emph{nicht gefunden} beziehen sich auf ein Reiterpaar, das im Bild gefunden wurde - oder nicht.
 In der unteren Hälfte jedes Zustands befinden sich die Aktionen, die durchgeführt werden solange sich der Automat in dem Zustand befindet.
