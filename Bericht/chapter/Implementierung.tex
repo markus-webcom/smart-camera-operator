@@ -114,8 +114,10 @@ Der Schwerpunkt der Phase richtet sich auf ein robusteres und flüssigeres Track
 
 
 
-\subsubsection*{Sprünge/Verschwinden/Verdecken}
-\todo[inline]{Abschnitt fehlt}
+\subsubsection*{Tracking}
+Da der Detektor nicht komplett fehlerlos ist und demnach ein uninteressantes und entferntes Objekt für einen Zeitraum auch mal priorisieren kann, ist es wichtig diese Sprünge zu unterbinden. Ein Reiterpaar bewegt sich im Normalfall nicht innerhalb 2 Frames über den ganzen Platz. Der Abstand des Reiterpaares zu seiner Position auf dem vorherigen Bild ist also relativ gering. Um diese Sprünge zu vermeiden prüfen wir also, ob die Position des getrackten Objektes des aktuellen Bildes stark von der Position des vorherigen getrackten Objektes abweicht. Damit der Wert der vorherigen Position als relativ akkurat gelten kann, nehmen wir, statt nur die Position des vorletzen Bildes, den Median der letzten 25 getrackten Boxen. Sollte nun die Distanz einen Schwellwert überschreiten, wird die neue Box ignoriert und für das aktuelle Bild die zuletzt valide Box verwendet. Damit der smarte Camera-Operator nicht auf einer Position hängen bleibt, ist mitunter ein Sicherungsmechanismus eingebaut, der ihn wieder zurücksetzt und neues Tracking erlaubt.
+
+Sollte das Reiterpaar sich hinter einem Hindernis verstecken oder aus dem Bild hinauslaufen, wird die Kamera an der zuletzt gesichteten Stelle verbleiben bis das Paar wieder sichtbar geworden ist oder ein neues Paar detektiert wird.
 
 \subsubsection*{Glättung}
 Um die Folge der RoIs zu glätten, damit sich nach dem Zuschneiden ein sanftes Seherlebnis für den Zuschauer bietet, haben wir verschiedene Verfahren ausprobiert.
