@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/W32TeX) (preloaded format=pdflatex 2019.4.6)  5 MAR 2020 19:19
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/W32TeX) (preloaded format=pdflatex 2019.4.6)  5 MAR 2020 22:04
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -1431,19 +1431,7 @@ l.16
 
 
 
-]
-Overfull \hbox (4.11649pt too wide) in paragraph at lines 19--20
-[]\OT1/cmr/m/n/12 In der drit-ten Pha-se soll der endg[]ultige \OT1/cmr/m/it/12
- Smart Ca-me-ra Ope-ra-tor\OT1/cmr/m/n/12 , vom 20.12.2019
- []
-
-
-Overfull \hbox (8.75943pt too wide) in paragraph at lines 19--20
-\OT1/cmr/m/n/12 bis 6.3.2020 er-stellt wer-den. Es wur-de da-zu wei-te-res Vi-d
-eo-ma-te-ri-al zur Verf[]ugung
- []
-
-) [2]
+]) [2]
 \openout2 = `chapter/Entwurfsentscheidungen.aux'.
 
  (./chapter/Entwurfsentscheidungen.tex
@@ -1488,11 +1476,6 @@ chapter 4.
 
 Underfull \hbox (badness 10000) in paragraph at lines 28--28
 [][]|\OT1/cmr/m/n/10.95 Ord-ner-struk-tur
- []
-
-
-Underfull \hbox (badness 3557) in paragraph at lines 36--37
-[]\OT1/cmr/m/n/12 Anschlie^^Yend ha-ben wir die ho-he Aufl[]osung
  []
 
 [9
@@ -1573,8 +1556,15 @@ chapter 6.
 
  (./chapter/Anhang.tex
 chapter A.
-Package hyperref Info: bookmark level for unknown todo defaults to 0 on input l
-ine 13.
+
+Package hyperref Warning: Suppressing link with empty target on input line 10.
+
+
+Package hyperref Warning: Suppressing link with empty target on input line 11.
+
+
+Package hyperref Warning: Suppressing link with empty target on input line 12.
+
 ) [19
 
 
@@ -1591,17 +1581,13 @@ Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 212.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 212.
 Package rerunfilecheck Info: File `Hauptdokument.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 212.
  ) 
 Here is how much of TeX's memory you used:
- 45388 strings out of 492616
- 970020 string characters out of 6132769
- 1165644 words of memory out of 5000000
- 48647 multiletter control sequences out of 15000+600000
+ 45364 strings out of 492616
+ 969472 string characters out of 6132769
+ 1164644 words of memory out of 5000000
+ 48625 multiletter control sequences out of 15000+600000
  539244 words of font info for 47 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  142i,12n,182p,9092b,1889s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1617,10 +1603,10 @@ xlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb><c:/texlive/2
 018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2018/texmf
 -dist/fonts/type1/public/amsfonts/cm/cmti12.pfb><c:/texlive/2018/texmf-dist/fon
 ts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on Hauptdokument.pdf (21 pages, 5922860 bytes).
+Output written on Hauptdokument.pdf (21 pages, 5922706 bytes).
 PDF statistics:
- 362 PDF objects out of 1000 (max. 8388607)
- 280 compressed objects within 3 object streams
- 56 named destinations out of 1000 (max. 500000)
+ 361 PDF objects out of 1000 (max. 8388607)
+ 279 compressed objects within 3 object streams
+ 54 named destinations out of 1000 (max. 500000)
  375 words of extra memory for PDF output out of 10000 (max. 10000000)
 

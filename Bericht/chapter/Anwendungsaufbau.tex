@@ -79,9 +79,7 @@ Wir haben Frontend und Backend separiert, wobei die Klasse des Operators die Sch
  \node[draw, below =of F,fill=lightgray,fill opacity=0.3,text opacity=1] (K) 
  {Zuschneiden der Frames} ;
  \node[draw,below =of E,fill=lightgray,fill opacity=0.3,text opacity=1] (L)
- {Einfügen der Audiospur};
- \node[draw, below =of L,fill=lightgray,fill opacity=0.3,text opacity=1] (M) 
- {Ausgabevideo} ;
+ {Ausgabevideo};
 
  \path [->] (A) edge node[left] {} (B);
  \path [->](B) edge node[left] {} (C);
@@ -94,9 +92,9 @@ Wir haben Frontend und Backend separiert, wobei die Klasse des Operators die Sch
  \path [->](I) edge node[below] {} (J); 
  \path [->](J) edge node[below] {} (K); 
  \path [->](K) edge node[below] {} (L); 
- \path [->](L) edge node[below] {} (M); 
 \end{tikzpicture}
 }
+\vspace*{-1cm}
 \caption{Video-Pipeline Phase 3}
 \label{fig:VideoPipelinePhase3}
 \end{figure}

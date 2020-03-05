@@ -10,7 +10,7 @@
 \contentsline {paragraph}{tensorflow}{4}{section.2.2}% 
 \contentsline {paragraph}{keras}{4}{section.2.2}% 
 \contentsline {paragraph}{PyQt}{5}{section.2.2}% 
-\contentsline {section}{\numberline {2.3}Maschine Learning}{5}{section.2.3}% 
+\contentsline {section}{\numberline {2.3}Machine Learning}{5}{section.2.3}% 
 \contentsline {chapter}{\numberline {3}Anwendungsaufbau}{6}{chapter.3}% 
 \contentsline {section}{\numberline {3.1}Programmaufbau}{6}{section.3.1}% 
 \contentsline {section}{\numberline {3.2}Video-Pipeline}{7}{section.3.2}% 
