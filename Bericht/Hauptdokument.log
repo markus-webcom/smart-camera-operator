@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/W32TeX) (preloaded format=pdflatex 2019.4.6)  4 MAR 2020 21:01
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/W32TeX) (preloaded format=pdflatex 2019.4.6)  5 MAR 2020 19:19
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -1574,7 +1574,7 @@ chapter 6.
  (./chapter/Anhang.tex
 chapter A.
 Package hyperref Info: bookmark level for unknown todo defaults to 0 on input l
-ine 7.
+ine 13.
 ) [19
 
 
@@ -1591,13 +1591,17 @@ Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 212.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 212.
 Package rerunfilecheck Info: File `Hauptdokument.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 212.
  ) 
 Here is how much of TeX's memory you used:
- 45384 strings out of 492616
- 969996 string characters out of 6132769
+ 45388 strings out of 492616
+ 970020 string characters out of 6132769
  1165644 words of memory out of 5000000
- 48643 multiletter control sequences out of 15000+600000
+ 48647 multiletter control sequences out of 15000+600000
  539244 words of font info for 47 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  142i,12n,182p,9092b,1889s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1613,7 +1617,7 @@ xlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb><c:/texlive/2
 018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2018/texmf
 -dist/fonts/type1/public/amsfonts/cm/cmti12.pfb><c:/texlive/2018/texmf-dist/fon
 ts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on Hauptdokument.pdf (21 pages, 5922247 bytes).
+Output written on Hauptdokument.pdf (21 pages, 5922860 bytes).
 PDF statistics:
  362 PDF objects out of 1000 (max. 8388607)
  280 compressed objects within 3 object streams
