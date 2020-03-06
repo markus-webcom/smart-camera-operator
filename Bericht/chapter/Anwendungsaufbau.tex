@@ -45,7 +45,7 @@ Wir haben Frontend und Backend separiert, wobei die Klasse des Operators die Sch
  \path [->](G) edge node[below] {} (H); 
 \end{tikzpicture}
 }
-\vspace*{-1cm}
+
 \caption{Video-Pipeline Phase 2}
 \label{fig:VideoPipelinePhase2}
 \end{figure}
@@ -94,14 +94,13 @@ Wir haben Frontend und Backend separiert, wobei die Klasse des Operators die Sch
  \path [->](K) edge node[below] {} (L); 
 \end{tikzpicture}
 }
-\vspace*{-1cm}
+
 \caption{Video-Pipeline Phase 3}
 \label{fig:VideoPipelinePhase3}
 \end{figure}
 
 Anhand der Ziele von den Phasen zwei und drei haben wir die Vorgehensweise mit einer Video-Pipeline geplant, welche wir dann schrittweise mit sinnvoller Aufgabenteilung umsetzen konnten. Die erste Version (Abb. \ref{fig:VideoPipelinePhase2}) umfasst dabei lediglich die grundlegenden Funktionen, die für das sinnvolle Bestimmen der ROI nötig sind. So wird hier pro Frame eines Videos für alle detektierten Reiterpaare ein gemeinsamer Bildausschnitt berechnet und diese ROI zu einem Ausgabevideo zusammengefügt.
-Diese Video-Pipeline konnten wir dann in der dritten Phase (Abb. \ref{fig:VideoPipelinePhase3}) um weiter Aspekte erweitern, wobei diesmal der Fokus auf der Qualität des Ausgabevideos lag. Die Detektion konnte auf Frames mit geringerer Auflösung schneller durchgeführt werden, weshalb die Größe der gefundenen Boxen anschließen angepasst werden musste. Anstatt dem vorherigen Ansatz alle Reiterpaare zu verfolgen, wird nun ein einzelnes davon ausgewählt. Die Qualität des Ausgabevideos wird durch weniger sprunghafte Unterschiede in der Größe der aufeinanderfolgen ROI verbessert, sodass der Bildfluss flüssiger wird. Zusätzlich wird nun auch die Audiodatei des Ursprungsvideos dem Ausgabevideo hinzugefügt.
-
+Diese Video-Pipeline konnten wir dann in der dritten Phase (Abb. \ref{fig:VideoPipelinePhase3}) um weiter Aspekte erweitern, wobei diesmal der Fokus auf der Qualität des Ausgabevideos lag. Die Detektion konnte auf Frames mit geringerer Auflösung schneller durchgeführt werden, weshalb die Größe der gefundenen Boxen anschließen angepasst werden musste. Anstatt dem vorherigen Ansatz alle Reiterpaare zu verfolgen, wird nun ein einzelnes davon ausgewählt. Die Qualität des Ausgabevideos wird durch weniger sprunghafte Unterschiede in der Größe der aufeinanderfolgen ROI verbessert, sodass der Bildfluss flüssiger wird.
 
 \section{Zustandsautomat}
 

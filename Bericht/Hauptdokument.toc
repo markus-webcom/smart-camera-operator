@@ -7,8 +7,8 @@
 \contentsline {paragraph}{OpenCV}{4}{section.2.2}% 
 \contentsline {paragraph}{Numpy}{4}{section.2.2}% 
 \contentsline {paragraph}{Scipy}{4}{section.2.2}% 
-\contentsline {paragraph}{tensorflow}{4}{section.2.2}% 
-\contentsline {paragraph}{keras}{4}{section.2.2}% 
+\contentsline {paragraph}{Tensorflow}{4}{section.2.2}% 
+\contentsline {paragraph}{Keras}{4}{section.2.2}% 
 \contentsline {paragraph}{PyQt}{5}{section.2.2}% 
 \contentsline {section}{\numberline {2.3}Machine Learning}{5}{section.2.3}% 
 \contentsline {chapter}{\numberline {3}Anwendungsaufbau}{6}{chapter.3}% 
